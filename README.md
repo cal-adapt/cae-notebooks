@@ -9,5 +9,5 @@ These specific use cases include:
 
     Threshold-based analytics for asset-by-asset vulnerability assessments and updating design standards
 
-Page anchors
+
 
