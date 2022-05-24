@@ -5,7 +5,7 @@ You may preview the following Jupyter notebooks containing example code that dem
 
 Try 'getting_started.ipynb' for a step-through of the basic functionality.
 
-The notebooks can be used as-is or serve as a starting point to adapt to a specific s needs, workflows, and particular applications. 
+The notebooks can be used as-is or serve as a starting point to adapt to specific needs, workflows, and particular applications. 
 
 Tools included in the notebooks provide examples for how to work with both the historical and projection data on the platform, and demonstrate how to move from the climate variables provided through the Analytics Engine to actionable information that can inform decision-making and evaluate risks.
 
