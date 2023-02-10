@@ -1,0 +1,3 @@
+﻿variable,units,scenario_historical,scenario_ssp,area_average,timescale,resolution,time_slice,area_subset,cached_area
+Daily minimum air temperature at 2m,degF,Historical Climate,SSP 3-7.0 -- Business as Usual,No,daily,9 km       ,"(1980, 2050)",CA counties,Sacramento County
+Daily maximum air temperature at 2m,degF,Historical Climate,SSP 3-7.0 -- Business as Usual,No,daily,9 km       ,"(1980, 2050)",CA counties,Sacramento County
