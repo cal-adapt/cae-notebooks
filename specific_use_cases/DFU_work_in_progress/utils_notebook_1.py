@@ -68,3 +68,12 @@ def hdd_cdd_lineplot(annual_data, trendline, title="title"):
         line_dash='dashed', 
         label="trendline"
     ) 
+
+def hdh_cdh_lineplot(data, date_start, date_end):
+    data_to_plot = data.loc[:, date_start:date_end]
+    
+    _plot = data_to_plot.hvplot.line(x="time", by="simulation",
+                                     title=data.name + " for {0} through {1}".format(date_start, date_end),
+                                     ylabel=data.name + " (degF)")
+    
+    return _plot
