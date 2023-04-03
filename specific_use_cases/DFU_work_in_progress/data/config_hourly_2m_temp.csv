@@ -1,4 +1,0 @@
-variable,units,scenario_historical,scenario_ssp,area_average,timescale,resolution,time_slice,area_subset,cached_area
-Air Temperature at 2m,degF,,SSP 3-7.0 -- Business as Usual,No,hourly,9 km,"2020, 2050",CA counties,Sacramento County
-Air Temperature at 2m,degF,Historical Reconstruction (ERA5-WRF),,No,hourly,9 km,"1981, 2010",CA counties,Sacramento County
-Air Temperature at 2m,degF,Historical Climate,,No,hourly,9 km,"1981, 2010",CA counties,Sacramento County
