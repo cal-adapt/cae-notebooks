@@ -17,7 +17,7 @@ The notebooks are designed to be used as-is or serve as a starting point to adap
 
 
 ----
-Example notebooks in the **tools** folder:
+Example notebooks:
 - `timeseries_transformations.ipynb`:
     Demonstrates pulling up a toolkit for examining and processing time-series data. Motivated by Hourly climate  use case (for future time periods), for inputs into production cost, energy load forecasting, and other models.
 - `threshold_basics.ipynb`:
