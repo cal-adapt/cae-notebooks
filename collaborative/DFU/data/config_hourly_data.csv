@@ -1,0 +1,4 @@
+﻿variable,units,scenario_historical,scenario_ssp,area_average,timescale,resolution,time_slice,area_subset,cached_area
+Air Temperature at 2m,degF,Historical Climate,SSP 3-7.0 -- Business as Usual,No,hourly,9 km       ,"(2005, 2025)",states,CA
+Relative Humidity,[0 to 100],Historical Climate,SSP 3-7.0 -- Business as Usual,No,hourly,9 km,"(2005, 2025)",states,CA
+Dew point temperature,degF,Historical Climate,SSP 3-7.0 -- Business as Usual,No,hourly,9 km,"(2005, 2025)",states,CA
