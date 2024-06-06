@@ -105,3 +105,4 @@ dmypy.json
 
 #other
 Makefile
+.DS_Store
