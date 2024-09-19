@@ -1,8 +1,8 @@
 ## Summary of changes and related issue
-<!-- Provide a short summary of what this PR does.-->
+[What's changed in this PR?]
 
 ## Relevant motivation and context
-<!--Provide any necessary motivation or context for people reviewing this PR.-->
+[Why did you change this and what applicable context is needed to understand why this change is needed?]
 
 ## Type of Change
 
