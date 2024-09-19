@@ -1,11 +1,8 @@
-## Description
+## Summary of changes and related issue
+<!-- Provide a short summary of what this PR does.-->
 
-<!-- Provide a short summary of what this PR does, including any context or design decisions. -->
-
-## Related Issue
-
-<!-- If this PR addresses or is related to an existing issue, link to it here. -->
-Closes #issue_number
+## Relevant motivation and context
+<!--Provide any necessary motivation or context for people reviewing this PR.-->
 
 ## Type of Change
 
@@ -15,18 +12,11 @@ Closes #issue_number
 - [ ] Documentation update
 
 ## Checklist
-
-- [ ] My code follows the style guidelines of this project.
-- [ ] I have performed a self-review of my own code.
-- [ ] I have commented my code, particularly in hard-to-understand areas.
-- [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] New and existing unit tests pass locally with my changes.
-- [ ] Any dependent changes have been merged and published in downstream modules.
-
-## Screenshots (if applicable)
-
-<!-- Add screenshots to show the changes you made if applicable. -->
-
-## Additional Context
-
-<!-- Add any other relevant context or information here. -->
+- [ ] The introduction of the notebook explains the purpose and expected outcome / use of the notebook
+- [ ] Incorporates reference to any appropriate Guidance material
+- [ ] Markdown reviewed and vetted by someone else
+- [ ] Error messages for areas that might expect common user error
+- [ ] Verbose and non-verbose modes function
+- [ ] It may not be required for notebooks that explicitly don’t need this functionality
+- [ ] List notebook overall runtime text
+- [ ] Clear expectations of outcomes learned (key takeaway messages) provided
