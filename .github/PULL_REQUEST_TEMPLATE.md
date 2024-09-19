@@ -7,7 +7,7 @@
 ## Type of Change
 
 - [ ] Bug fix
-- [ ] New feature
+- [ ] New feature or notebook
 - [ ] Breaking change
 - [ ] Documentation update
 
