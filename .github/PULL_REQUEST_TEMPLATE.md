@@ -10,13 +10,11 @@
 - [ ] New feature or notebook
 - [ ] Breaking change
 - [ ] Documentation update
+- [ ] None of the above
 
 ## Checklist
 - [ ] The introduction of the notebook explains the purpose and expected outcome / use of the notebook
 - [ ] Incorporates reference to any appropriate Guidance material
-- [ ] Markdown reviewed and vetted by someone else
-- [ ] Error messages for areas that might expect common user error
-- [ ] Verbose and non-verbose modes function
-- [ ] It may not be required for notebooks that explicitly don’t need this functionality
+- [ ] Notebook raises appropriate error messages for common user errors
 - [ ] List notebook overall runtime text
-- [ ] Clear expectations of outcomes learned (key takeaway messages) provided
+- [ ] [AE navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb) updated (if relevant)
