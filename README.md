@@ -11,7 +11,7 @@ Notebooks are organized by similar-themed notebooks:<br>
 - **Collaborative notebooks** were co-produced with stakeholders for a specific application, and may be of interest to all users
     - Including `vulnerability_assessment.ipynb` and `degree_days.ipynb`
 - **In progress notebooks** are currently in development for a specific application, and may have frequent updates before they are moved to another folder
-    - Including `typical_meteorological_year_methodology.ipynb*
+    - Including `typical_meteorological_year_methodology.ipynb`
 
 New to the Analytics Engine? Try `getting_started.ipynb` for a step-through of the basic functionality.
 
