@@ -17,6 +17,10 @@ This folder contains notebooks we have developed with industry partners, with br
 
 *For example: How does localization of global climate models to a weather station work?*
 
+[station_data_access.ipynb](collaborative/DFU/station_data_access.ipynb): Demonstrates how to access historical meteorological station data for stations of interest in the WECC.  
+
+*For example: What is the historical mean surface air temperature at Sacramento Executive Airport (KSAC)?*
+
 [station_hourly_profiles.ipynb](DFU/station_hourly_profiles.ipynb): Explore the process to produce hourly profiles of localized data.  
 
 *For example: What does the median hourly profile of 8760s look like for Los Angeles?*
