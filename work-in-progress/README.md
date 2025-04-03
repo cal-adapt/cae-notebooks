@@ -3,18 +3,18 @@ Work in Progress
 
 Notebooks that are actively in development-- proceed with caution! These notebooks are likely to change as we work to improve our workflow and methodology.
 
-[threshold_basics.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/work_in_progress/threshold_basics.ipynb): Introduction to extreme value analysis. Demonstrates how to compute statistical values of interest related to extreme weather events.  
+[threshold_basics.ipynb](work-in-progress/threshold_basics.ipynb): Introduction to extreme value analysis. Demonstrates how to compute statistical values of interest related to extreme weather events.  
 
 *For example: What is the return value for a 1 in 20 extreme heat event in Sacramento County at mid-century?*
 
-[typical_meteorological_year_methodology.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/work_in_progress/typical_meteorological_year_methodology.ipynb): Explore the concept and methodology of a Typical Meteorological Year to represent the typical climatological conditions over one year of hourly data.  
+[typical_meteorological_year_methodology.ipynb](work-in-progress/typical_meteorological_year_methodology.ipynb): Explore the concept and methodology of a Typical Meteorological Year to represent the typical climatological conditions over one year of hourly data.  
 
 *For example: What will an average year of hourly temperature data look like in a 2°C warmer world?*
 
-[model_variance.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/work_in_progress/model_variance.ipynb): Introduction to calculating model variance across climate models at a location.  
+[model_variance.ipynb](work-in-progress/model_variance.ipynb): Introduction to calculating model variance across climate models at a location.  
 
 *For example: What is the full range of possible outcomes in air temperature in Alameda County if I can only select a few model simulations?*
 
-[agnostic_tools.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/work_in_progress/agnostic_tools.ipynb): Introduction to model agnostic tool development for model selection based on a set of preformulated metrics.  
+[agnostic_tools.ipynb](work-in-progress/agnostic_tools.ipynb): Introduction to model agnostic tool development for model selection based on a set of preformulated metrics.  
 
 *For example: What is the projected warming level in the year 2050 based on all available model simulations?*
