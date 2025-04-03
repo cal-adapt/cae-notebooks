@@ -1,7 +1,7 @@
 Analysis Notebooks
 ==================
 
-These notebooks cover fundamental climate science topics and extreme weather.
+These notebooks cover fundamental climate science topics, tools for analyzing extreme weather events of importance, and applications of global warming levels to your workflows.
 
 [average_meteorological_year.ipynb](average_meteorological_year.ipynb): Explore the concept and applications of an Average Meteorological Year to represent the mean climatological conditions over one year of hourly data.  
 
