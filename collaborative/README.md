@@ -1,7 +1,7 @@
 Collaborative Notebooks
 =======================
 
-This folder contains notebooks we have developed with industry partners.
+This folder contains notebooks we have developed with industry partners, with broad benefits and information relevant to all users. 
 
 ## Demand Forecast Unit (DFU)
 
