@@ -3,23 +3,23 @@ Analysis Notebooks
 
 These notebooks cover fundamental climate science topics and extreme weather.
 
-[average_meteorological_year.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/analysis/average_meteorological_year.ipynb): Explore the concept and applications of an Average Meteorological Year to represent the mean climatological conditions over one year of hourly data.  
+[average_meteorological_year.ipynb](average_meteorological_year.ipynb): Explore the concept and applications of an Average Meteorological Year to represent the mean climatological conditions over one year of hourly data.  
 
 *For example: What will an average year of hourly temperature data look like in a 2°C warmer world?*
 
-[historical_climate_data_comparisons.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/analysis/historical_climate_data_comparisons.ipynb): Learn how to compare datasets across the historical period, using observations, reanalysis, and model output.  
+[historical_climate_data_comparisons.ipynb](historical_climate_data_comparisons.ipynb): Learn how to compare datasets across the historical period, using observations, reanalysis, and model output.  
 
 *For example: How do I compare historical precipitation between a weather station and climate model?*
 
-[internal_variability.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/analysis/internal_variability.ipynb): Explore uncertainty within climate models due to internal variability in the climate system, using projected changes in extreme precipitation across different climate model simulations.  
+[internal_variability.ipynb](internal_variability.ipynb): Explore uncertainty within climate models due to internal variability in the climate system, using projected changes in extreme precipitation across different climate model simulations.  
 
 *For example: When should I pool observations across different global climate models to study extreme events?*
 
-[model_uncertainty.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/analysis/model_uncertainty.ipynb): Explore uncertainty across climate models, using projected variations in air temperature trends across different climate model simulations.  
+[model_uncertainty.ipynb](model_uncertainty.ipynb): Explore uncertainty across climate models, using projected variations in air temperature trends across different climate model simulations.  
 
 *For example: When is it appropriate to take a mean across different global climate models?*
 
-[threshold_event_types.ipynb](https://github.com/cal-adapt/cae-notebooks/blob/re-org/analysis/threshold_event_types.ipynb): Define different types of extreme events and explore their likelihood of occurence using extreme value theory.  
+[threshold_event_types.ipynb](threshold_event_types.ipynb): Define different types of extreme events and explore their likelihood of occurence using extreme value theory.  
 
 *For example: What is the return period (expected frequency of occurence) of an extreme heat event in Sacramento County that reaches at least 100 degrees for 3 days in a row?*
 
