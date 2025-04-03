@@ -1,7 +1,7 @@
 Data Access Notebooks
 =====================
 
-Analytics Engine catalog data can be accessed in multiple different ways, each with distinct benefits. These notebooks demonstrate these different ways. The appropriate data access method will depend on your unique use case and workflow.
+Analytics Engine catalog data can be accessed in multiple different ways, each with distinct benefits. These notebooks demonstrate these different ways. The appropriate method for you will depend on your unique use case and workflow.
 
 [basic_data_access.ipynb](basic_data_access.ipynb): Overview to accessing, spatially and temporally subsetting, and exporting climate data from the AE data catalog using helper functions in climakitae.
 
