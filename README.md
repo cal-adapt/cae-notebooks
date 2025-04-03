@@ -13,6 +13,6 @@ Notebooks are organized by similar-themed notebooks:<br>
 - **In progress notebooks** are currently in development for a specific application, and may have frequent updates before they are moved to another folder
     - Including `typical_meteorological_year_methodology.ipynb`
 
-New to the Analytics Engine? Try `getting_started.ipynb` for a step-through of the basic functionality.
+New to the Analytics Engine? Try `interactive_data_access_and_viz.ipynb` for a step-through of the basic functionality.
 
 The notebooks are designed to be used as-is or serve as a starting point to adapt to specific needs, workflows, and particular applications. 
