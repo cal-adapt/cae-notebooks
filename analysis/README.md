@@ -3,10 +3,6 @@ Analysis Notebooks
 
 These notebooks cover fundamental climate science topics, tools for analyzing extreme weather events of importance, and applications of global warming levels to your workflows.
 
-[average_meteorological_year.ipynb](average_meteorological_year.ipynb): Explore the concept and applications of an Average Meteorological Year to represent the mean climatological conditions over one year of hourly data.  
-
-*For example: What will an average year of hourly temperature data look like in a 2°C warmer world?*
-
 [historical_climate_data_comparisons.ipynb](historical_climate_data_comparisons.ipynb): Learn how to compare datasets across the historical period, using observations, reanalysis, and model output.  
 
 *For example: How do I compare historical precipitation between a weather station and climate model?*
