@@ -20,7 +20,7 @@ New to Cal-Adapt: Analytics Engine, JupyterHub, or `climakitae`? Take a peek our
 
 Want a basic example of how to use `climakitae`? Check out [this notebook](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb)
 
-Looking for a specific type notebook?
+Looking for a specific type of notebook?
 
 Notebooks are organized by their theme:<br>
 - **Data access notebooks** highlight various ways of accessing California's Fifth Climate Assessment data
