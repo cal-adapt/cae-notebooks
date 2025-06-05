@@ -5,7 +5,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 The `cae-notebooks` repository consists of Jupyter notebooks that provide step-by-step 
-functionality to access, analyze, and visualize climate data available on the [Cal-Adapt: Analytics Engine](https://analytics.cal-adapt.org/). Tools included in the notebooks provide examples for how to work with the **historical and projection climate model data** on the platform, and demonstrate how to move from the climate variables provided through the Analytics Engine to **actionable information that can inform decision-making and evaluate risks**.
+functionality to access, analyze, and visualize available data from California's Fifth Climate Change Assessment. Tools included in the notebooks provide examples for how to work with the **historical and projection climate model data** on the platform, and demonstrate how to move from the climate variables provided through the Analytics Engine to **actionable information that can inform decision-making and evaluate risks**.
 
 These notebooks are designed to be used as-is or as a starting point for users to adapt to their specific needs, workflows, and applications. 
 
@@ -16,13 +16,12 @@ Please refer to [climakitae](https://github.com/cal-adapt/climakitae) for instal
 
 ## Navigating
 
-New to Cal-Adapt: Analytics Engine, JupyterHub, or `climakitae`? Take a peek our [navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb)
+New to [Cal-Adapt: Analytics Engine](https://analytics.cal-adapt.org/), JupyterHub, or `climakitae`? Take a peek our [navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb)
 
-Want a basic example of how to use `climakitae`? Check out [this notebook](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb)
+Want a basic example of how to retrieve, visualize, and export data using climakitae? Check out the [`interactive_data_access_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb) notebook.
 
-Looking for a specific type of notebook?
-
-Notebooks are organized by their theme:<br>
+Looking for a specific type of notebook?  
+Notebooks are organized by their theme:
 - [**Data access notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/data-access) highlight various ways of accessing California's Fifth Climate Assessment data, including:
     - [`interactive_data_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/data-access/interactive_data_access_and_viz.ipynb)
     - [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/data-access/renewables_data_access.ipynb)
@@ -42,17 +41,11 @@ Notebooks are organized by their theme:<br>
 
 ## About Cal-Adapt
 
-Climakitae is developed as part of the [Cal-Adapt Analytics Engine](https://analytics.cal-adapt.org), a platform for California climate data and tools. Cal-Adapt provides access to cutting-edge climate science to support adaptation planning and decision-making.
 
-
-## Documentation
-
-| Resource | Description |
-|----------|-------------|
-| [**Getting Started**](https://github.com/cal-adapt/cae-notebooks/blob/main/getting_started.ipynb) | Analytics Engine navigation |
-| [**API Reference**](https://climakitae.readthedocs.io/en/latest/) | `climakitae` API documentation |
-| [**Guidance**](https://analytics.cal-adapt.org/guidance/) | Climate Data Guidance |
-| [**Contributing**](https://climakitae.readthedocs.io/en/latest/contribute.html) | Development guidelines |
+[Cal-Adapt](https://cal-adapt.org/) encompasses a range of research and development efforts designed to provide access to California climate data. Cal-Adapt includes the Cal-Adapt: Analytics Engine and Cal-Adapt: Data Explorer. The Cal-Adapt: Analytics Engine is designed for complex and detailed analyses, requiring extensive data and technical or scientific expertise. The Cal-Adapt: Data Explorer is particularly useful for quick access to interactive maps and tools, providing a valuable overview of how climate change may impact various regions of the state. In our efforts to provide actionable and transparent insight using climate data, the following documentation is available:
+- [**`climakitae` API documentation**](https://climakitae.readthedocs.io/en/latest/)
+- [**Guidance for working with climate data**](https://analytics.cal-adapt.org/guidance/)
+- [**Contribution: development guidelines**](https://climakitae.readthedocs.io/en/latest/contribute.html)
 
 ## Contributing
 
