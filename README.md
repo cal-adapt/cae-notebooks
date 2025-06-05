@@ -51,6 +51,7 @@ Climakitae is developed as part of the [Cal-Adapt Analytics Engine](https://anal
 |----------|-------------|
 | [**Getting Started**](https://github.com/cal-adapt/cae-notebooks/blob/main/getting_started.ipynb) | Analytics Engine navigation |
 | [**API Reference**](https://climakitae.readthedocs.io/en/latest/) | `climakitae` API documentation |
+| [**Guidance**](https://analytics.cal-adapt.org/guidance/) | Climate Data Guidance |
 | [**Contributing**](https://climakitae.readthedocs.io/en/latest/contribute.html) | Development guidelines |
 
 ## Contributing
