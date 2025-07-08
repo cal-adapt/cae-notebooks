@@ -2,8 +2,8 @@
 
 This folder contains notebooks and projects contributed by users of the Cal-Adapt: Analytics Engine. We welcome and appreciate community contributions that demonstrate innovative uses of climate data and analytics.
 
-> [Important Notes]
-> **Please note:** While we are happy to host this contributed code, the notebooks and projects in this folder have not been vetted by the Cal-Adapt: Analytics Engine team for best practices, coding standards, and adherance to Cal-Adapt: Analytics Engine guidance. 
+> [!NOTE]
+> While we are happy to host this contributed code, the notebooks and projects in this folder have not been vetted by the Cal-Adapt: Analytics Engine team for best practices, coding standards, and adherance to Cal-Adapt: Analytics Engine guidance. 
 
 ## Contributing
 
