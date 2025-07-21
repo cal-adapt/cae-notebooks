@@ -603,6 +603,9 @@ def plot_modified8760s(
     Returns:
         None
     """
+    modified8760 = modified8760.sortby("location")
+    shade_regions = shade_regions.sortby("location")
+    
     plot = modified8760.plot.line(
         x="hour_of_year",
         row="one_in_x",
