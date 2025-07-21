@@ -213,7 +213,7 @@ def get_one_in_x(
         groupby=event_duration,
         check_ess=False,
     ).squeeze()
-
+    
     return get_return_value(
         ams,
         return_period=one_in_x,
@@ -603,6 +603,9 @@ def plot_modified8760s(
     Returns:
         None
     """
+    modified8760 = modified8760.sortby("location")
+    shade_regions = shade_regions.sortby("location")
+    
     plot = modified8760.plot.line(
         x="hour_of_year",
         row="one_in_x",
@@ -709,12 +712,25 @@ def create_modified_8760(
     else:
         base_8760 = xr.broadcast(insert_times, median_8760)[1]
 
+    # Sort by 'location'
+    vals_sorted = insert_vals.sortby("location")
+    times_sorted = insert_times.sortby("location")
+    base_sorted = base_8760.sortby("location")
+    
+    # Align strictly on all coordinates
+    vals_sorted, times_sorted, base_sorted = xr.align(
+        vals_sorted,
+        times_sorted,
+        base_sorted,
+        join="exact"
+    )
+    
     # Apply insertions
     modified_8760 = xr.apply_ufunc(
         insert_data,
-        insert_vals,
-        insert_times,
-        base_8760,
+        vals_sorted,
+        times_sorted,
+        base_sorted,
         input_core_dims=[["time"], [], ["hour_of_year"]],
         output_core_dims=[["hour_of_year"]],
         kwargs={"t": t},
