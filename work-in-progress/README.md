@@ -22,3 +22,7 @@ Notebooks that are actively in development-- proceed with caution! These noteboo
 [agnostic_tools.ipynb](agnostic_tools.ipynb): Introduction to model agnostic tool development for model selection based on a set of preformulated metrics.  
 
 *For example: What is the projected warming level in the year 2050 based on all available model simulations?*
+
+*For example: What precipitation climate states will we observe in the future?*
+
+[event_finder.ipynb](event_finder.ipynb): Tool to find all user-defined event in all LOCA2 and WRF simulations for a given GWL.
