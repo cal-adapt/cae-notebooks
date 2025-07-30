@@ -23,6 +23,14 @@ Notebooks that are actively in development-- proceed with caution! These noteboo
 
 *For example: What is the projected warming level in the year 2050 based on all available model simulations?*
 
+[climate_state_finder.ipynb](climate_state_finder.ipynb): Tool to pull out climate states for all simulations (LOCA2 & WRF) and any user selected variable.  
+
 *For example: What precipitation climate states will we observe in the future?*
 
 [event_finder.ipynb](event_finder.ipynb): Tool to find all user-defined event in all LOCA2 and WRF simulations for a given GWL.
+
+*For example: When do we observe a 1 in 10 year event under 2.0 GWL?*
+
+[generalized_climate_signal_selector.ipynb](generalized_climate_signal_selector.ipynb): Tool to estimate the climate signal for a given variable for all WRF and LOCA2 simulations.
+
+*For example: Which simulations project a wetting precipitation signal and which project a drying signal?*
