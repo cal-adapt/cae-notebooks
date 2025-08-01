@@ -1,0 +1,13 @@
+activity_id,institution_id,source_id,experiment_id,member_id,table_id,grid_label,variable_ids,start_year,end_year
+LOCA2,UCSD,KACE-1-0-G,historical,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",1950,2014
+LOCA2,UCSD,KACE-1-0-G,historical,r2i1p1f1,day,d03,"""pr,tasmax,tasmin""",1950,2014
+LOCA2,UCSD,KACE-1-0-G,historical,r3i1p1f1,day,d03,"""pr,tasmax,tasmin""",1950,2014
+LOCA2,UCSD,KACE-1-0-G,ssp245,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp245,r2i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp245,r3i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp370,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp370,r2i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp370,r3i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp585,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp585,r2i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
+LOCA2,UCSD,KACE-1-0-G,ssp585,r3i1p1f1,day,d03,"""pr,tasmax,tasmin""",2015,2100
