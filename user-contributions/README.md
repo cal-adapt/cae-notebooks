@@ -24,6 +24,9 @@ When using code from this folder:
 - Consider the code as examples or starting points rather than production-ready solutions
 - Feel free to adapt and improve upon the contributed work
 
+> [!NOTE]
+> Be aware that functions and scientific approaches may differ from `climakitae` or AE best practices.
+
 ## Questions or Issues
 
 If you have questions about a specific contribution, please try to contact the original author when possible. For general questions about the Cal-Adapt: Analytics Engine, please refer to our main documentation and support channels.
