@@ -10,9 +10,10 @@ This folder contains notebooks and projects contributed by users of the Cal-Adap
 We encourage users to share their work with the community! If you'd like to contribute a notebook or project:
 
 1. Ensure your code runs without errors
-2. Include basic documentation explaining the purpose and usage
-3. Consider adding comments to help other users understand your approach
-4. Submit your contribution through the appropriate channels
+2. Confirm your code does not replicate existing `climakitae` functionality
+3. Include basic documentation explaining the purpose and usage
+4. Add comments to help other users understand your approach
+5. Submit your contribution through the appropriate channels
 
 ## Using These Contributions
 
