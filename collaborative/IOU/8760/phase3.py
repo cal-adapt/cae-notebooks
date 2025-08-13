@@ -743,7 +743,7 @@ def create_modified_8760(
     )
 
     # Convert the 8760 and the `insert_times` to the local time
-    return modified_8760, insert_times, insert_vals
+    return modified_8760, insert_times
 
 
 def create_empty_da(
