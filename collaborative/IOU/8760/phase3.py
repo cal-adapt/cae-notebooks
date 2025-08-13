@@ -606,7 +606,7 @@ def plot_modified8760s(
     """
     modified8760 = modified8760.sortby("location")
     shade_regions = shade_regions.sortby("location")
-    
+
     plot = modified8760.plot.line(
         x="hour_of_year",
         row="one_in_x",
@@ -721,15 +721,12 @@ def create_modified_8760(
     vals_sorted = insert_vals.sortby("location")
     times_sorted = insert_times.sortby("location")
     base_sorted = base_8760.sortby("location")
-    
+
     # Align strictly on all coordinates
     vals_sorted, times_sorted, base_sorted = xr.align(
-        vals_sorted,
-        times_sorted,
-        base_sorted,
-        join="exact"
+        vals_sorted, times_sorted, base_sorted, join="exact"
     )
-    
+
     # Apply insertions
     modified_8760 = xr.apply_ufunc(
         insert_data,
