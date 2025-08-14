@@ -1,26 +1,15 @@
-"""Currently a big pile of pseudocode for a TMY class"""
-
-from cdf_functions import (
-    get_cdf,
-    plot_one_var_cdf,
-    get_cdf_monthly,
-    fs_statistic,
-    compute_weighted_fs,
-)
+"""Working version of TMY class."""
 from climakitae.core.constants import UNSET
-import climakitae as ck
 from climakitae.util.utils import (
     convert_to_local_time,
     get_closest_gridcell,
 )
 from climakitae.core.data_export import write_tmy_file
 from climakitae.core.data_interface import get_data
-import climakitaegui as ckg
 
 import pandas as pd
 import xarray as xr
 import numpy as np
-import pkg_resources
 from tqdm.auto import tqdm  # Progress bar
 
 
@@ -54,12 +43,15 @@ class TMY:
         self.weighted_fs_sum = UNSET
         self.top_df = UNSET
         self.all_vars = UNSET
+        self.tmy_data_to_export = UNSET
 
     def _vprint(self,msg):
+        """Checks verbosity and prints as allowed."""
         if self.verbose:
             print(msg)
 
     def generate_tmy(self):
+        """Run the whole TMY workflow."""
         # This runs the whole workflow at once
         print("Running TMY workflow. Expected overall runtime: 40 minutes")
         self.load_all_variables()
@@ -69,7 +61,7 @@ class TMY:
         return
 
     def get_tmy_variable(self, varname, units, stats):
-        """Run get_data and resampling calls to get data."""
+        """Fetch a single variable, resample and reduce."""
         if self.end_year == 2100:
             print("End year is 2100. The final day in timeseries may be incomplete after data is converted to local time.")
             new_end_year = self.end_year
@@ -119,6 +111,7 @@ class TMY:
         return returned_data
 
     def load_all_variables(self):
+        """Load the datasets needed to create TMY."""
         self._vprint("Loading variables. Expected runtime: 7 minutes")
 
         self._vprint("Getting air temperature.")
@@ -192,6 +185,7 @@ class TMY:
         print("All TMY variables loaded.")
 
     def set_cdf_climatology(self):
+        """Get climatological CDF."""
         if self.all_vars is UNSET:
             self.load_all_variables()
         self._vprint("Calculating CDF climatology.")
@@ -199,6 +193,7 @@ class TMY:
         return
 
     def set_cdf_monthly(self):
+        """Get monthly CDF."""
         if self.all_vars is UNSET:
             self.load_all_variables()
         self._vprint("Calculating monthly CDF.")
@@ -210,6 +205,7 @@ class TMY:
         return
 
     def set_weighted_statistic(self):
+        """Calculate the weighted f-s statistic."""
         if self.cdf_climatology is UNSET:
             self.set_cdf_climatology()
         if self.cdf_monthly is UNSET:
@@ -225,6 +221,7 @@ class TMY:
         return
 
     def set_top_df(self):
+        """Calculate top months dataframe."""
         # Pass the weighted F-S sum data for simplicity
         if self.weighted_fs_sum is UNSET:
             self.set_weighted_statistic()
@@ -251,7 +248,7 @@ class TMY:
 
     def get_candidate_months(self):
         """Run CDF functions to get top candidates."""
-        self._vprint("Getting top months for TMY. Expected runtime: < 1 min")
+        self._vprint("Getting top months for TMY. Expected runtime with loaded data: 1 min")
         self.set_cdf_climatology()
         self.set_cdf_monthly()
         self.set_weighted_statistic()
@@ -259,23 +256,8 @@ class TMY:
         print("Done.")
         return
 
-    def show_cdf_plot_one_var(self, var="Daily max air temperature"):
-        # Make the plot
-        if self.cdf_climatology is UNSET:
-            self.set_cdf_climatology()
-        cdf_plot = plot_one_var_cdf(self.cdf_climatology, var)
-        display(cdf_plot)
-
-    def show_cdf_plot_monthly(self, var):
-        # Make the plot
-        if self.cdf_monthly is UNSET:
-            self.set_cdf_monthly()
-        # Make the plot
-        cdf_plot_mon_yr = plot_one_var_cdf(self.cdf_monthly, var)
-        display(cdf_plot_mon_yr)
-        return
-
     def show_top_df(self):
+        """Show table of top months and years."""
         if self.top_df is UNSET:
             print("Top months not available.")
             print(
@@ -285,6 +267,14 @@ class TMY:
         return
 
     def show_tmy_data_to_export(self, simulation="WRF_MPI-ESM1-2-HR_r3i1p1f1"):
+        """Show line plots of TMY data for single model.
+
+        Parameters
+        ----------
+        simulation: str
+            Simulation to display.
+        
+        """
         if self.tmy_data_to_export is UNSET:
             print("No TMY data generated.")
             print("Please run TMY.generate_tmy() to create TMY data for viewing.")
@@ -314,7 +304,9 @@ class TMY:
     def run_tmy_analysis(self):
         """Generate typical meteorological year data
         Output will be a list of dataframes per simulation.
-        Print statements throughout the function indicate to the user the progress of the computatioconvert_to_local_time   Parameters
+        Print statements throughout the function indicate to the user the progress of the computatioconvert_to_local_time
+        
+        Parameters
         -----------
         top_df: pd.DataFrame
             Table with column values month, simulation, and year
@@ -322,7 +314,7 @@ class TMY:
     
         Returns
         --------
-        dict of str:pd.DataFrame
+        dict of str: pd.DataFrame
             Dictionary in the format of {simulation:TMY corresponding to that simulation}
     
         """
@@ -422,7 +414,15 @@ class TMY:
     
         self.tmy_data_to_export = tmy_df_all  # Return dict of TMY by simulation
 
-    def export_tmy_data_epw(self):
+    def export_tmy_data(self, extension: str = "tmy"):
+        """Write TMY data to EPW file.
+
+        Parameters
+        ----------
+        extension: str
+            Desired file extension ('tmy' or 'epw')
+
+        """
         self._vprint("Exporting TMY to file.")
         for sim, tmy in self.tmy_data_to_export.items():
             filename = "TMY_{0}_{1}".format(
@@ -437,8 +437,174 @@ class TMY:
                 self.stn_lat,
                 self.stn_lon,
                 self.stn_state,
-                file_ext="epw",
+                file_ext=extension,
             )
             if self.verbose:
                 print("  Wrote", filename)
         return
+
+def compute_cdf(da: xr.DataArray) -> xr.DataArray:
+    """Compute the cumulative density function for an input DataArray."""
+    da_np = da.values  # Get numpy array of values
+    num_samples = 1024  # Number of samples to generate
+    count, bins_count = np.histogram(  # Create a numpy histogram of the values
+        da_np,
+        bins=np.linspace(
+            da_np.min(),  # Start at the minimum value of the array
+            da_np.max(),  # End at the maximum value of the array
+            num_samples,
+        ),
+    )
+    cdf_np = np.cumsum(count / sum(count))  # Compute the CDF
+
+    # Turn the CDF array into xarray DataArray
+    # New dimension is the bin values
+    cdf_da = xr.DataArray(
+        [bins_count[1:], cdf_np],
+        dims=["data", "bin_number"],
+        coords={
+            "data": ["bins", "probability"],
+        },
+    )
+    cdf_da.name = da.name
+    return cdf_da
+
+
+def get_cdf_by_sim(da: xr.DataArray) -> xr.DataArray:
+    """Function to help get_cdf."""
+    # Group the DataArray by simulation
+    return da.groupby("simulation").apply(compute_cdf)
+
+
+def get_cdf_by_mon_and_sim(da: xr.DataArray) -> xr.DataArray:
+    """Function to help get_cdf."""
+    # Group the DataArray by month in the year
+    return da.groupby("time.month").apply(get_cdf_by_sim)
+
+
+def get_cdf(ds: xr.DataArray) -> xr.Dataset:
+    """Get the cumulative density function.
+
+    Parameters
+    -----------
+    ds: xr.DataArray
+        Input data for which to compute CDF
+
+    Returns
+    -------
+    xr.Dataset
+    """
+    return ds.apply(get_cdf_by_mon_and_sim)
+
+def get_cdf_monthly(ds: xr.DataArray) -> xr.Dataset:
+    """Get the cumulative density function by unique mon-yr combos
+
+    Parameters
+    -----------
+    ds: xr.DataArray
+        Input data for which to compute CDF
+
+    Returns
+    -------
+    xr.Dataset
+    """
+
+    def get_cdf_mon_yr(da):
+        return da.groupby("time.year").apply(get_cdf_by_mon_and_sim)
+
+    return ds.apply(get_cdf_mon_yr)
+
+def fs_statistic(cdf_climatology: xr.Dataset, cdf_monthly: xr.DataArray) -> xr.Dataset:
+    """
+    Calculates the Finkelstein-Schafer statistic:
+    Absolute difference between long-term climatology and candidate CDF, divided by number of days in month
+    
+    Parameters
+    -----------
+    cdf_climatology: xr.Dataset
+        Climatological CDF
+    cdf_monthly: xr.Dataset
+        Monthly CDF
+
+    Returns
+    -------
+    xr.Dataset
+        F-S statistic
+    """
+    days_per_mon = xr.DataArray(
+        data=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        coords={"month": np.arange(1, 13)},
+    )
+    fs_stat = abs(cdf_monthly - cdf_climatology).sel(data="probability") / days_per_mon
+    return fs_stat
+
+def compute_weighted_fs(da_fs: xr.Dataset) -> xr.Dataset:
+    """Weights the Finkelstein-Schafer (F-S) statistic based on TMY3 methodology.
+    
+    Parameters
+    -----------
+    da_fs: xr.Dataset
+       F-S statistic
+
+    Returns
+    -------
+    xr.Dataset
+        Weighted F-S statistic
+
+    """
+    weights_per_var = {
+        "Daily max air temperature": 1 / 20,
+        "Daily min air temperature": 1 / 20,
+        "Daily mean air temperature": 2 / 20,
+        "Daily max dewpoint temperature": 1 / 20,
+        "Daily min dewpoint temperature": 1 / 20,
+        "Daily mean dewpoint temperature": 2 / 20,
+        "Daily max wind speed": 1 / 20,
+        "Daily mean wind speed": 1 / 20,
+        "Global horizontal irradiance": 5 / 20,
+        "Direct normal irradiance": 5 / 20,
+    }
+
+    for var, weight in weights_per_var.items():
+        # Multiply each variable by it's appropriate weight
+        da_fs[var] = da_fs[var] * weight
+    return da_fs
+
+
+def plot_one_var_cdf(cdf_da: xr.Dataset,var: str) -> panel.layout.base.Column:
+    """Plot CDF for a single variable
+    Written to function for the unique configuration of the CDF DataArray object
+    Silences an annoying hvplot warning
+    Will show every simulation together on the plot
+
+    Parameters
+    -----------
+    cdf: xr.DataArray
+       Cumulative density function for a single variable
+
+    Returns
+    -------
+    panel.layout.base.Column
+        Hvplot lineplot
+
+    """
+    cdf_da = cdf_da[var]
+    prob_da = cdf_da.sel(data="probability", drop=True).rename(
+        "probability"
+    )  # Grab only probability da
+    bins_da = cdf_da.sel(data="bins", drop=True).rename("bins")  # Grab just bin values
+    ds = xr.merge([prob_da, bins_da])  # Merge the two to form a single Dataset object
+    cdf_pl = ds.hvplot(
+        "bins",
+        "probability",
+        by="simulation",  # Simulations should all be displayed together
+        widget_location="bottom",
+        grid=True,
+        xlabel="{0} ({1})".format(var, cdf_da.attrs["units"]),
+        xlim=(
+            bins_da.min().item(),
+            bins_da.max().item(),
+        ),  # Fix the x-limits for all months
+        ylabel="Probability (0-1)",
+    )
+    return cdf_pl
