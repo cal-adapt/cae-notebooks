@@ -509,10 +509,17 @@ def extract_event_windows(
         return dummy
 
     # Create time slices for each event
-    time_slices = [
-        slice(dt - timedelta(days=t), dt + timedelta(days=t) if t > 0 else dt)
-        for dt in event_times
-    ]
+    if t == 0:
+        time_slices = [
+            slice(dt - timedelta(hours=12), dt + timedelta(hours=12))
+            for dt in event_times
+        ]
+
+    else:
+        time_slices = [
+            slice(dt - timedelta(days=t), dt + timedelta(days=t))
+            for dt in event_times
+        ]
 
     # Extract windows and reassign time axis
     windows = [
@@ -578,8 +585,12 @@ def insert_data(
     Returns:
         xr.DataArray: Copy of `orig_data` with `to_insert` injected into the specified time window.
     """
-    start = int(center_time) - 24 * t
-    end = int(center_time) + 24 * t + 1
+    # Edge case for t=0, grab +/- 12 hours from the max event time
+    if t == 0:
+        t = 0.5
+
+    start = int(int(center_time) - 24 * t)
+    end = int(int(center_time) + 24 * t + 1)
 
     result = orig_data.copy()
     result[start:end] = to_insert
@@ -659,6 +670,7 @@ def plot_modified8760s(
 
             # ax.set_ylim(top=110)
 
+    # plt.xlim(left=4500, right=5500)
     plt.tight_layout()
     plt.show()
 
