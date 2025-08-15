@@ -18,13 +18,10 @@ class TMY:
 
     Uses WRF hourly data to produce TMYs.
     """
-    def __init__(self, stn_lat, stn_lon, start_year, end_year, verbose=False):
+    def __init__(self, start_year: int, end_year: int, station_name: str, verbose: bool=False):
+        print(f"Initializing TMY object for {station_name}")
         # Set variables
-        self.stn_lat = stn_lat
-        self.stn_lon = stn_lon
-        # TODO: are buffers general?
-        self.latitude = (stn_lat - 0.05, stn_lat + 0.05)
-        self.longitude = (stn_lon - 0.06, stn_lon + 0.06)
+        self._set_loc_from_stn_name(station_name)
         self.start_year = start_year
         self.end_year = end_year
         self.data_models = [
@@ -33,9 +30,6 @@ class TMY:
             "WRF_TaiESM1_r1i1p1f1",
             "WRF_MIROC6_r1i1p1f1",
         ]
-        self.stn_name = ""
-        self.stn_code = ""
-        self.stn_state = ""
         self.scenario = ["Historical Climate", "SSP 3-7.0"]
         self.verbose = verbose
         self.cdf_climatology = UNSET
@@ -44,6 +38,22 @@ class TMY:
         self.top_df = UNSET
         self.all_vars = UNSET
         self.tmy_data_to_export = UNSET
+
+    def _set_loc_from_stn_name(self, station_name: str):
+        # read in station file of CA HadISD stations
+        stn_file = pkg_resources.resource_filename("climakitae", "data/hadisd_stations.csv")
+        stn_file = pd.read_csv(stn_file, index_col=[0])
+        # grab airport
+        self.stn_name = station_name
+        self.stn_code = stn_file.loc[stn_file["station"] == self.stn_name]["station id"].item()
+        one_station = stn_file.loc[stn_file["station"] == self.stn_name]
+        self.stn_lat = one_station.LAT_Y.item()
+        self.stn_lon = one_station.LON_X.item()
+        self.stn_state = one_station.state.item()
+        # TODO: check if this buffer is generalizable
+        self.latitude = (self.stn_lat - 0.05, self.stn_lat + 0.05)
+        self.longitude = (self.stn_lon - 0.06, self.stn_lon + 0.06)
+        return
 
     def _vprint(self,msg):
         """Checks verbosity and prints as allowed."""
