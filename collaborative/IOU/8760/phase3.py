@@ -213,7 +213,7 @@ def get_one_in_x(
         groupby=event_duration,
         check_ess=False,
     ).squeeze()
-    
+
     return get_return_value(
         ams,
         return_period=one_in_x,
@@ -499,7 +499,7 @@ def extract_event_windows(
         print(
             f"No valid times found for location={location}, simulation={simulation}, one_in_x={one_in_x}; returning an empty DataArray.\n"
         )
-        n_hours = (t * 2 + 1) * 24
+        n_hours = t * 2 * 24 + 1
         dummy = xr.full_like(timeseries.isel(time=slice(0, n_hours)), np.nan)
         dummy = (
             dummy.assign_coords(time=np.arange(n_hours))
@@ -509,10 +509,17 @@ def extract_event_windows(
         return dummy
 
     # Create time slices for each event
-    time_slices = [
-        slice(dt - timedelta(days=t), dt + timedelta(days=t + 1) - timedelta(hours=1))
-        for dt in event_times
-    ]
+    if t == 0:
+        time_slices = [
+            slice(dt - timedelta(hours=12), dt + timedelta(hours=12))
+            for dt in event_times
+        ]
+
+    else:
+        time_slices = [
+            slice(dt - timedelta(days=t), dt + timedelta(days=t))
+            for dt in event_times
+        ]
 
     # Extract windows and reassign time axis
     windows = [
@@ -552,6 +559,7 @@ def generate_data_to_insert(
     total_da = total_da.drop_vars(
         "hour_of_year"
     )  # Dropping `hour_of_year` because of merge conflict
+
     to_insert = (
         total_da.squeeze()
         .groupby(["location", "simulation", "one_in_x"])
@@ -577,8 +585,12 @@ def insert_data(
     Returns:
         xr.DataArray: Copy of `orig_data` with `to_insert` injected into the specified time window.
     """
-    start = int(center_time) - 24 * t
-    end = int(center_time) + 24 * (t + 1)
+    # Edge case for t=0, grab +/- 12 hours from the max event time
+    if t == 0:
+        t = 0.5
+
+    start = int(int(center_time) - 24 * t)
+    end = int(int(center_time) + 24 * t + 1)
 
     result = orig_data.copy()
     result[start:end] = to_insert
@@ -605,7 +617,7 @@ def plot_modified8760s(
     """
     modified8760 = modified8760.sortby("location")
     shade_regions = shade_regions.sortby("location")
-    
+
     plot = modified8760.plot.line(
         x="hour_of_year",
         row="one_in_x",
@@ -658,7 +670,7 @@ def plot_modified8760s(
 
             # ax.set_ylim(top=110)
 
-    # plt.xlim(left=4000, right=6000)
+    # plt.xlim(left=4500, right=5500)
     plt.tight_layout()
     plt.show()
 
@@ -678,10 +690,15 @@ def create_modified_8760(
         xr.DataArray: Modified 8760 profile with events inserted.
     """
     # Prepare daily and median 8760 data
-    daily_ds = combine_ds(
-        make_clean_daily(ds, extremes_type=extremes_type), one_in_x_vals
-    )
-    df = gather_valid_times(daily_ds)
+    # daily_ds = combine_ds(
+    #     make_clean_daily(ds, extremes_type=extremes_type), one_in_x_vals
+    # )
+    # df = gather_valid_times(daily_ds)
+
+    # Finding the times where the 1-in-X value is reached within the timeseries
+    combined_ds = combine_ds(ds, one_in_x_vals)
+    df = gather_valid_times(combined_ds)
+
     median_8760 = (
         ds.groupby("hour_of_year").quantile(0.5).median(dim="simulation").squeeze()
     )
@@ -716,15 +733,12 @@ def create_modified_8760(
     vals_sorted = insert_vals.sortby("location")
     times_sorted = insert_times.sortby("location")
     base_sorted = base_8760.sortby("location")
-    
+
     # Align strictly on all coordinates
     vals_sorted, times_sorted, base_sorted = xr.align(
-        vals_sorted,
-        times_sorted,
-        base_sorted,
-        join="exact"
+        vals_sorted, times_sorted, base_sorted, join="exact"
     )
-    
+
     # Apply insertions
     modified_8760 = xr.apply_ufunc(
         insert_data,
