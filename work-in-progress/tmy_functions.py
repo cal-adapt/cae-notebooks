@@ -7,6 +7,9 @@ from climakitae.util.utils import (
 )
 from climakitae.core.data_export import write_tmy_file
 from climakitae.core.data_interface import get_data
+import climakitaegui as ckg
+
+import panel
 
 import pandas as pd
 import xarray as xr
@@ -197,8 +200,14 @@ class TMY:
         Initial year of TMY period
     end_year : str
         Final year of TMY period
-    station_name: str
+    station_name: str (optional)
         Long name of desired station
+    latitude : float (optional)
+        Latitude for TMY data if station_name not set
+    longitude : float (optional)
+        Longitude for TMY data if station_name not set
+    scenario: str (optional)
+        Future SSP scenario to use. Default SSP 3-7.0
     verbose: bool
         True to increase verbosity
 
@@ -230,11 +239,25 @@ class TMY:
     """
 
     def __init__(
-        self, start_year: int, end_year: int, station_name: str, verbose: bool = False
+        self,
+        start_year: int,
+        end_year: int,
+        station_name: str = UNSET,
+        latitude: float = UNSET,
+        longitude: float = UNSET,
+        scenario: str = "SSP 3-7.0",
+        verbose: bool = False,
     ):
-        print(f"Initializing TMY object for {station_name}")
         # Set variables
-        self._set_loc_from_stn_name(station_name)
+        if station_name is not UNSET:
+            print(f"Initializing TMY object for {station_name}")
+            self._set_loc_from_stn_name(station_name)
+        elif (latitude is not UNSET) and (longitude is not UNSET):
+            print(f"Initializing TMY object for {latitude},{longitude}")
+            self._set_loc_from_lat_lon(latitude, longitude)
+        else:
+            print("Please provide valid station name or latitude and longitude")
+            # TODO: raise error for missing input
         self.start_year = start_year
         self.end_year = end_year
         # These 4 models have the solar variables needed
@@ -244,7 +267,7 @@ class TMY:
             "WRF_TaiESM1_r1i1p1f1",
             "WRF_MIROC6_r1i1p1f1",
         ]
-        self.scenario = ["Historical Climate", "SSP 3-7.0"]
+        self.scenario = ["Historical Climate", scenario]
         self.verbose = verbose
         self.cdf_climatology = UNSET
         self.cdf_monthly = UNSET
@@ -261,18 +284,36 @@ class TMY:
         )
         stn_file = pd.read_csv(stn_file, index_col=[0])
         # grab airport
-        self.stn_name = station_name
-        self.stn_code = stn_file.loc[stn_file["station"] == self.stn_name][
-            "station id"
-        ].item()
-        one_station = stn_file.loc[stn_file["station"] == self.stn_name]
+        try:
+            self.stn_name = station_name
+            self.stn_code = stn_file.loc[stn_file["station"] == self.stn_name][
+                "station id"
+            ].item()
+            one_station = stn_file.loc[stn_file["station"] == self.stn_name]
+        except Exception as e:
+            # TODO: raise error correctly
+            print("Could  not find station in hadisd_stations.csv")
+            print("Please provide valid station name")
+            raise (e)
         self.stn_lat = one_station.LAT_Y.item()
         self.stn_lon = one_station.LON_X.item()
         self.stn_state = one_station.state.item()
+        self._set_lat_lon()
+        return
+
+    def _set_loc_from_lat_lon(self, latitude, longitude):
+        self.stn_lat = latitude
+        self.stn_lon = longitude
+        self._set_lat_lon()
+        # TODO: set stn_name, stn_code, stn_state
+        self.stn_name = "None"
+        self.stn_code = "None"
+        self.stn_state = "None"
+
+    def _set_lat_lon(self):
         # TODO: check if this buffer is generalizable
         self.latitude = (self.stn_lat - 0.05, self.stn_lat + 0.05)
         self.longitude = (self.stn_lon - 0.06, self.stn_lon + 0.06)
-        return
 
     def _vprint(self, msg):
         """Checks verbosity and prints as allowed."""
@@ -493,16 +534,6 @@ class TMY:
         self.set_weighted_statistic()
         self.set_top_df()
         print("Done.")
-        return
-
-    def show_top_df(self):
-        """Show table of top months and years."""
-        if self.top_df is UNSET:
-            print("Top months not available.")
-            print(
-                "Please run TMY.generate_tmy() or TMY.get_candidate_months() to generate dataframe."
-            )
-        print(self.top_df)
         return
 
     def show_tmy_data_to_export(self, simulation: str):
