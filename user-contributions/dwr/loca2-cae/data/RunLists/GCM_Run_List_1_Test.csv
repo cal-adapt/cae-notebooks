@@ -1,0 +1,3 @@
+activity_id,institution_id,source_id,experiment_id,member_id,table_id,grid_label,variable_ids,start_year,end_year
+LOCA2,UCSD,ACCESS-CM2,historical,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",1950,1950
+LOCA2,UCSD,ACCESS-CM2,historical,r1i1p1f1,day,d03,"""pr,tasmax,tasmin""",1951,1951
