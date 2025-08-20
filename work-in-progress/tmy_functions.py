@@ -7,7 +7,7 @@ from climakitae.util.utils import (
 )
 from climakitae.core.data_export import write_tmy_file
 from climakitae.core.data_interface import get_data
-import climakitaegui as ckg
+import climakitaegui as ckg  # Need for hvplot to work
 
 import panel
 
@@ -388,7 +388,7 @@ class TMY:
         """Load the datasets needed to create TMY."""
         self._vprint("Loading variables. Expected runtime: 7 minutes")
 
-        self._vprint("Getting air temperature.")
+        self.print("Getting air temperature", end="... ")
         airtemp_data = self.get_tmy_variable(
             "Air Temperature at 2m", "degC", ["max", "min", "mean"]
         )
@@ -400,7 +400,7 @@ class TMY:
         mean_airtemp_data = airtemp_data[2]
         mean_airtemp_data.name = "Daily mean air temperature"
 
-        self._vprint("Getting dew point temperature.")
+        self.print("Getting dew point temperature", end="... ")
         # dew point temperature
         dewpt_data = self.get_tmy_variable(
             "Dew point temperature", "degC", ["max", "min", "mean"]
@@ -414,7 +414,7 @@ class TMY:
         mean_dewpt_data.name = "Daily mean dewpoint temperature"
 
         # wind speed
-        self._vprint("Getting wind speed.")
+        self.print("Getting wind speed", end="... ")
         wndspd_data = self.get_tmy_variable(
             "Wind speed at 10m", "m s-1", ["max", "mean"]
         )
@@ -425,7 +425,7 @@ class TMY:
         mean_windspd_data.name = "Daily mean wind speed"
 
         # global irradiance
-        self._vprint("Getting global irradiance.")
+        self.print("Getting global irradiance", end="... ")
         total_ghi_data = self.get_tmy_variable(
             "Instantaneous downwelling shortwave flux at bottom", "W/m2", ["sum"]
         )
@@ -433,14 +433,14 @@ class TMY:
         total_ghi_data.name = "Global horizontal irradiance"
 
         # direct normal irradiance
-        self._vprint("Getting direct normal irradiance.")
+        self.print("Getting direct normal irradiance", end="... ")
         total_dni_data = self.get_tmy_variable(
             "Shortwave surface downward direct normal irradiance", "W/m2", ["sum"]
         )
         total_dni_data = total_dni_data[0]
         total_dni_data.name = "Direct normal irradiance"
 
-        self._vprint("Loading all variables into memory.")
+        self.print("Loading all variables into memory.")
         all_vars = xr.merge(
             [
                 max_airtemp_data.squeeze(),
