@@ -14,6 +14,7 @@ import panel
 import pandas as pd
 import xarray as xr
 import numpy as np
+import pkg_resources
 from tqdm.auto import tqdm  # Progress bar
 
 
@@ -206,8 +207,6 @@ class TMY:
         Latitude for TMY data if station_name not set
     longitude : float (optional)
         Longitude for TMY data if station_name not set
-    scenario: str (optional)
-        Future SSP scenario to use. Default SSP 3-7.0
     verbose: bool
         True to increase verbosity
 
@@ -245,7 +244,6 @@ class TMY:
         station_name: str = UNSET,
         latitude: float = UNSET,
         longitude: float = UNSET,
-        scenario: str = "SSP 3-7.0",
         verbose: bool = False,
     ):
         # Set variables
@@ -267,7 +265,7 @@ class TMY:
             "WRF_TaiESM1_r1i1p1f1",
             "WRF_MIROC6_r1i1p1f1",
         ]
-        self.scenario = ["Historical Climate", scenario]
+        self.scenario = ["Historical Climate", "SSP 3-7.0"]
         self.verbose = verbose
         self.cdf_climatology = UNSET
         self.cdf_monthly = UNSET
@@ -388,7 +386,7 @@ class TMY:
         """Load the datasets needed to create TMY."""
         self._vprint("Loading variables. Expected runtime: 7 minutes")
 
-        self.print("Getting air temperature", end="... ")
+        print("Getting air temperature", end="... ")
         airtemp_data = self.get_tmy_variable(
             "Air Temperature at 2m", "degC", ["max", "min", "mean"]
         )
@@ -400,7 +398,7 @@ class TMY:
         mean_airtemp_data = airtemp_data[2]
         mean_airtemp_data.name = "Daily mean air temperature"
 
-        self.print("Getting dew point temperature", end="... ")
+        print("Getting dew point temperature", end="... ")
         # dew point temperature
         dewpt_data = self.get_tmy_variable(
             "Dew point temperature", "degC", ["max", "min", "mean"]
@@ -414,7 +412,7 @@ class TMY:
         mean_dewpt_data.name = "Daily mean dewpoint temperature"
 
         # wind speed
-        self.print("Getting wind speed", end="... ")
+        print("Getting wind speed", end="... ")
         wndspd_data = self.get_tmy_variable(
             "Wind speed at 10m", "m s-1", ["max", "mean"]
         )
@@ -425,7 +423,7 @@ class TMY:
         mean_windspd_data.name = "Daily mean wind speed"
 
         # global irradiance
-        self.print("Getting global irradiance", end="... ")
+        print("Getting global irradiance", end="... ")
         total_ghi_data = self.get_tmy_variable(
             "Instantaneous downwelling shortwave flux at bottom", "W/m2", ["sum"]
         )
@@ -433,14 +431,14 @@ class TMY:
         total_ghi_data.name = "Global horizontal irradiance"
 
         # direct normal irradiance
-        self.print("Getting direct normal irradiance", end="... ")
+        print("Getting direct normal irradiance", end="... ")
         total_dni_data = self.get_tmy_variable(
             "Shortwave surface downward direct normal irradiance", "W/m2", ["sum"]
         )
         total_dni_data = total_dni_data[0]
         total_dni_data.name = "Direct normal irradiance"
 
-        self.print("Loading all variables into memory.")
+        print("Loading all variables into memory.")
         all_vars = xr.merge(
             [
                 max_airtemp_data.squeeze(),
