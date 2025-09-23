@@ -11,10 +11,6 @@ Notebooks that are actively in development-- proceed with caution! These noteboo
 
 *For example: What is the return value for a 1 in 20 extreme heat event in Sacramento County at mid-century?*
 
-[typical_meteorological_year_methodology.ipynb](typical_meteorological_year_methodology.ipynb): Explore the concept and methodology of a Typical Meteorological Year to represent the typical climatological conditions over one year of hourly data.  
-
-*For example: What will an average year of hourly temperature data look like in a 2°C warmer world?*
-
 [model_variance.ipynb](model_variance.ipynb): Introduction to calculating model variance across climate models at a location.  
 
 *For example: What is the full range of possible outcomes in air temperature in Alameda County if I can only select a few model simulations?*
