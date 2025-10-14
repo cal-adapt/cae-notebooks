@@ -9,6 +9,10 @@ This folder contains notebooks we have developed with industry partners, with br
 
 *For example: How will the number of heating degree days above 70°F in Sacramento change by mid-century?*
 
+[download_localized_stations.ipynb](DFU/download_localized_stations.ipynb): Download bias-corrected air temperature and dewpoint temperature model timeseries localized for any of 71 weather stations in the WECC.  
+
+*For example: What is the bias-corrected summer temperature timeseries at a single station?*
+
 [localization_methodology.ipynb](DFU/localization_methodology.ipynb): Introduction to the localization method for examining climate projections at a location.  
 
 *For example: How does localization of global climate models to a weather station work?*
@@ -26,3 +30,7 @@ This folder contains notebooks we have developed with industry partners, with br
 [vulnerability_assessment.ipynb](IOU/vulnerability_assessment/vulnerability_assessment.ipynb): Generate data-informed answers for vulnerability assessments through a customizeable metric builder.  
 
 *For example: How intense will a 1-in-10 year heatwave look like in a 2°C warmer world?*
+
+[one_in_x_in_8760.ipynb](IOU/8760/one_in_x_in_8760.ipynb.ipynb): Generate 8760 hourly climate profiles with 1-in-X events inserted in them.
+
+*For example: How does an average year's temperature change over time with a 1-in-10 year heatwave inserted in it?*
