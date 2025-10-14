@@ -38,6 +38,13 @@ Every submission **must** include contact information for support and questions:
   ```
 - This ensures users can reach out if they encounter issues or have questions
 
+> [!WARNING]
+> The `climakitae` and `cae-notebooks` development teams will not respond to requests for
+> assistance with user-submitted notebooks. You must contact the developer of the submitted
+> code for assistance.
+>
+> Your code will not be accepted for submission without appropriate contact information.
+
 ### 3. Environment Compatibility
 #### A. JupyterHub
 If your code was developed on or with the Cal-Adapt: Analytics Engine JupyterHub, your code **must** run on the default environment without modifications, unless explicitly stated.
@@ -76,14 +83,14 @@ In addition to the above, some nice to have metrics for notebooks include:
 - Use `Cell → All Output → Clear` in Jupyter before submission (except for demonstration outputs)
 
 ### 5. Use Existing `climakitae` Functionality
-Your code **must** leverage existing `climakitae` capabilities rather than reimplementing them:
+Your code **must** leverage existing `climakitae` capabilities rather than re-inventing them:
 - ✅ **Do use** `climakitae` functions for:
   - Data retrieval and loading
   - Common data transformations
   - Standard visualization methods
   - Statistical calculations already available
   - Unit conversions and data processing utilities
-- ❌ **Don't reimplement** functionality that already exists in `climakitae`
+- ❌ **Don't re-invent** functionality that already exists in `climakitae`
 - 📚 Review the [climakitae documentation](https://climakitae.readthedocs.io/) before writing custom functions
 - 💡 If you find yourself writing utility functions, first check if `climakitae` already provides them
 - 🔧 If `climakitae` is missing functionality you need, consider contributing to `climakitae` directly
