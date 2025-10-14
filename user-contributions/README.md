@@ -38,14 +38,30 @@ Every submission **must** include contact information for support and questions:
   ```
 - This ensures users can reach out if they encounter issues or have questions
 
-### 3. JupyterHub Compatibility
-Your code **must** run on the Analytics Engine JupyterHub environment without modifications:
+### 3. Environment Compatibility
+#### A. JupyterHub
+If your code was developed on or with the Cal-Adapt: Analytics Engine JupyterHub, your code **must** run on the default environment without modifications, unless explicitly stated.
 - ✅ Test your notebook on the JupyterHub before submission
 - ✅ Use only pre-installed libraries or include installation instructions
 - ✅ Ensure all file paths are relative or use environment variables
 - ❌ No hardcoded absolute paths
 - ❌ No dependencies on local files not included in the submission
 - ❌ No requirements for special permissions or access tokens
+
+#### B. Other Environments
+If your code was developed external to the Cal-Adapt: Analytics Engine JupyterHub, please provide explicit instructions on how to set up the environment necessary to run your project.
+- ✅ Test your environment install instructions before submission
+- ✅ Include installation instructions
+- ✅ Ensure all file paths are relative or use environment variables
+- ❌ No hardcoded absolute paths
+- ❌ No dependencies on local files not included in the submission
+- ❌ No requirements for special permissions or access tokens
+
+#### Nice to Have's
+In addition to the above, some nice to have metrics for notebooks include:
+- Memory usage
+- Cell-by-cell Run times
+- Infrastructure notes (What kind of machine? How many cores? How much RAM?)
 
 ### 4. Output Management
 - **Clear all outputs** from cells that:
