@@ -1,9 +1,11 @@
 # User Contributions
 
-This folder contains notebooks and projects contributed by users of the Cal-Adapt: Analytics Engine. We welcome and appreciate community contributions that demonstrate innovative uses of climate data and analytics.
+This folder contains notebooks and projects contributed by users of the Cal-Adapt: Analytics Engine (CAE / AE). We welcome and appreciate community contributions that demonstrate innovative uses of climate data and analytics.
+
+Many tools in this folder have been designed around the `climakitae` package: a powerful Python toolkit for climate data analysis and retrieval from the Cal-Adapt: Analytics Engine. If you are new to this package, please head over to the  [`climakitae` Github Repository](https://github.com/cal-adapt/climakitae) to learn about it.
 
 > [!NOTE]
-> While we are happy to host user contributed code, the notebooks and projects in this folder have not been vetted by the Cal-Adapt: Analytics Engine team for best practices, coding standards, and adherance to Cal-Adapt: Analytics Engine guidance. 
+> While we are happy to host user contributed code, the notebooks and projects in this folder have not been vetted by the CAE team for best practices, coding standards, and adherance to CAE guidance. 
 
 ## Using These Contributions
 
@@ -107,7 +109,7 @@ Before submitting, ensure:
 - [ ] **Uses `climakitae` functions wherever applicable**
 - [ ] Code follows MVP principle - minimal and focused
 - [ ] Contact information is included at the top of the notebook
-- [ ] Tested successfully on Analytics Engine JupyterHub
+- [ ] Tested successfully on Analytics Engine (AE) JupyterHub
 - [ ] All unnecessary outputs have been cleared
 - [ ] Documentation clearly explains what the code does
 - [ ] Example usage is demonstrated with preserved outputs
@@ -127,7 +129,7 @@ Before submitting, ensure:
    - Commit your changes with clear, descriptive messages
 
 3. **Test thoroughly**
-   - Ensure your code runs on the Analytics Engine JupyterHub or installation instructions have been provided.
+   - Ensure your code runs on the Analytics Engine (AE) JupyterHub or installation instructions have been provided.
    - Verify all requirements are met using the checklist above
 
 4. **Open a Pull Request (PR)**
