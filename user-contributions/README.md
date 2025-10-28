@@ -127,7 +127,7 @@ Before submitting, ensure:
    - Commit your changes with clear, descriptive messages
 
 3. **Test thoroughly**
-   - Ensure your code runs on the Analytics Engine JupyterHub
+   - Ensure your code runs on the Analytics Engine JupyterHub or installation instructions have been provided.
    - Verify all requirements are met using the checklist above
 
 4. **Open a Pull Request (PR)**
