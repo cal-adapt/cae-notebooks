@@ -98,9 +98,9 @@ Your code **must** leverage existing `climakitae` capabilities rather than re-in
 - 🔧 If `climakitae` is missing functionality you need, consider contributing to `climakitae` directly
 
 **Examples of what to avoid:**
-- Writing custom functions to load Cal-Adapt data (use `climakitae.DataInterface`)
-- Creating custom visualization functions for standard plots (use `climakitae` plotting methods)
-- Implementing unit conversions that `climakitae` already handles
+- ❌ Writing custom functions to load Cal-Adapt data (use `climakitae.DataInterface`)
+- ❌ Creating custom visualization functions for standard plots (use `climakitae` plotting methods)
+- ❌ Implementing unit conversions that `climakitae` already handles
 
 ## 📝 Submission Checklist
 
