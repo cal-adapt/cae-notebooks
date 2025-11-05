@@ -65,7 +65,7 @@ def fig1(arr, diff):
     cb1.set_label("Max Temp (°F)")
     
     # --- Difference plot ---
-    pcm_diff = diff.plot(ax=ax_diff, add_colorbar=False, cmap=lighter_r_rev)
+    pcm_diff = diff.plot(ax=ax_diff, add_colorbar=False, cmap='RdBu_r')
     ax_diff.set_title(
         f"Difference Plot:\nWL {arr.warming_level.values[-1]} - WL {arr.warming_level.values[0]}"
     )
