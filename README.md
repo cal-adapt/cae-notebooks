@@ -22,21 +22,23 @@ Want a basic example of how to retrieve, visualize, and export data using climak
 
 Looking for a specific type of notebook?  
 Notebooks are organized by their theme:
-- [**Data access notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/data-access) highlight various ways of accessing California's Fifth Climate Assessment data, including:
-    - [`interactive_data_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/data-access/interactive_data_access_and_viz.ipynb)
-    - [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/data-access/renewables_data_access.ipynb)
+- [**Data access notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access) highlight various ways of accessing California's Fifth Climate Assessment data, including:
+    - [`interactive_data_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb)
+    - [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/renewables_data_access.ipynb)
 
-- [**Analysis notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/analysis) investigate a climate data topic but have no specific tools associated with the notebooks, including:
-    - [`warming_levels.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/warming_levels.ipynb)
-    - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/timeseries_transformations.ipynb)
-    - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/threshold_exceedance.ipynb)
+- [**Analysis notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis) investigate a climate data topic but have no specific tools associated with the notebooks, including:
+    - [`warming_levels.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/warming_levels.ipynb)
+    - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/timeseries_transformations.ipynb)
+    - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/threshold_exceedance.ipynb)
 
-- [**Collaborative notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/collaborative) were co-produced with industry partners for a specific application, and may be of interest to all users, including:
-    - [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/collaborative/IOU/vulnerability_assessment)
-    - [`degree_days.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/collaborative/DFU/degree_days.ipynb)
+- [**Collaborative notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative) were co-produced with industry partners for a specific application, and may be of interest to all users, including:
+    - [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/IOU/vulnerability_assessment)
+    - [`degree_days.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/DFU/degree_days.ipynb)
 
-- [**In progress notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/work-in-progress) are currently in development for a specific application, and may have frequent updates before they are moved to another folder, including:
-    - [`typical_meteorological_year_methodology.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/work-in-progress/typical_meteorological_year_methodology.ipynb)
+- [**In progress notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress) are currently in development for a specific application, and may have frequent updates before they are moved to another folder, including:
+    - [`climate_state_finder.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress/climate_state_finder.ipynb)
+    - [`event_finder.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress/event_finder.ipynb)
+    - [`generalized_climate_signal_selector.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress/generalized_climate_signal_selector.ipynb)
 
 
 ## About Cal-Adapt
