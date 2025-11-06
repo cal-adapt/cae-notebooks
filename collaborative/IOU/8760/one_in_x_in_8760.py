@@ -1,26 +1,28 @@
+import os
 import random
+from datetime import timedelta
+from typing import List, Tuple, Union
+
+import cftime
+import holoviews as hv
+import hvplot.xarray
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import cftime
-import xarray as xr
-import os
-import hvplot.xarray
-import holoviews as hv
 import panel as pn
-from typing import List, Union, Tuple
-from datetime import timedelta
-from climakitae.explore.vulnerability import cava_data
-from climakitae.util.utils import add_dummy_time_to_wl
+import xarray as xr
+
 from climakitae.explore.threshold_tools import (
-    get_block_maxima,
-    get_return_value,
-    get_ks_stat,
-    _get_fitted_distr,
     _calculate_return,
     _conf_int,
     _get_distr_func,
+    _get_fitted_distr,
+    get_block_maxima,
+    get_ks_stat,
+    get_return_value,
 )
+from climakitae.explore.vulnerability import cava_data
+from climakitae.util.utils import add_dummy_time_to_wl
 
 random.seed(42)
 
@@ -221,6 +223,7 @@ def get_one_in_x(
         distr=distr,
         extremes_type=extremes_type,
         bootstrap_runs=20,
+        dropna_time=True,
     )
 
 
@@ -517,8 +520,7 @@ def extract_event_windows(
 
     else:
         time_slices = [
-            slice(dt - timedelta(days=t), dt + timedelta(days=t))
-            for dt in event_times
+            slice(dt - timedelta(days=t), dt + timedelta(days=t)) for dt in event_times
         ]
 
     # Extract windows and reassign time axis
