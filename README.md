@@ -26,10 +26,14 @@ Notebooks are organized by their theme:
     - [`interactive_data_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb)
     - [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/renewables_data_access.ipynb)
 
-- [**Analysis notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis) investigate a climate data topic but have no specific tools associated with the notebooks, including:
-    - [`warming_levels.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/warming_levels.ipynb)
-    - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/timeseries_transformations.ipynb)
-    - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/threshold_exceedance.ipynb)
+- [**Climate profile notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/main/climate-profiles) generate climate profiles and explore profile generation methodology:
+    - [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/climate-profiles/custom_climate_profiles.ipynb)
+    - [`typical_meteorological_year_methodology.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/c90a214fcf653713392ddbcd68d4a98618a4df8b//climate-profiles/typical_meteorological_year_methodology.ipynb)
+
+- [**Analysis notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/analysis) investigate a climate data topic but have no specific tools associated with the notebooks, including:
+    - [`warming_levels.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/warming_levels.ipynb)
+    - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/timeseries_transformations.ipynb)
+    - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/threshold_exceedance.ipynb)
 
 - [**Collaborative notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative) were co-produced with industry partners for a specific application, and may be of interest to all users, including:
     - [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/IOU/vulnerability_assessment)
