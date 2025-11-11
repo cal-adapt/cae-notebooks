@@ -34,3 +34,7 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 [warming_levels_approach.ipynb](warming_levels_approach.ipynb): A comparison notebook that walks through the differences between a time-based approach and a Global Warming Levels approach.  
 
 *For example: Which scientific approach is more appropriate for my use case?*
+
+[warming_level_timing_tools.ipynb](analysis/warming_level_timing_tools.ipynb): Demonstrates tools for etimating the timing of Global Warming Levels, and translating between time-based and GWL planning targets.
+
+*For example: What global warming level is equivalent to planning for impacts in the year 2050?*
