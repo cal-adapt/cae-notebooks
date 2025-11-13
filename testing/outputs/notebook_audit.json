@@ -1,0 +1,1256 @@
+{
+  "generated_at": "2025-11-10T19:56:03.022188Z",
+  "repo_root": "./cae-notebooks",
+  "total_notebooks": 47,
+  "results": [
+    {
+      "path": "AE_navigation_guide.ipynb",
+      "code_cells": 1,
+      "markdown_cells": 2,
+      "imports": [],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-11-10T13:39:40.668145"
+    },
+    {
+      "path": "analysis/historical_climate_data_comparisons.ipynb",
+      "code_cells": 11,
+      "markdown_cells": 10,
+      "imports": [
+        "climakitae",
+        "hvplot",
+        "numpy",
+        "pandas",
+        "xarray"
+      ],
+      "data_references": [
+        "1026_data_cleaned.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.161227"
+    },
+    {
+      "path": "analysis/internal_variability.ipynb",
+      "code_cells": 24,
+      "markdown_cells": 33,
+      "imports": [
+        "bokeh",
+        "climakitae",
+        "holoviews",
+        "matplotlib",
+        "numpy",
+        "panel",
+        "warnings",
+        "xarray"
+      ],
+      "data_references": [
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.161227"
+    },
+    {
+      "path": "analysis/model_uncertainty.ipynb",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "imports": [
+        "bokeh",
+        "cartopy",
+        "climakitae",
+        "holoviews",
+        "hvplot",
+        "numpy",
+        "pandas",
+        "warnings",
+        "xarray"
+      ],
+      "data_references": [
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-11-10T13:39:40.672145"
+    },
+    {
+      "path": "analysis/threshold_event_types.ipynb",
+      "code_cells": 24,
+      "markdown_cells": 28,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "matplotlib",
+        "panel"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.164227"
+    },
+    {
+      "path": "analysis/threshold_exceedance.ipynb",
+      "code_cells": 3,
+      "markdown_cells": 4,
+      "imports": [
+        "climakitaegui"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.164227"
+    },
+    {
+      "path": "analysis/timeseries_transformations.ipynb",
+      "code_cells": 10,
+      "markdown_cells": 8,
+      "imports": [
+        "climakitae",
+        "climakitaegui"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.164227"
+    },
+    {
+      "path": "analysis/warming_levels.ipynb",
+      "code_cells": 24,
+      "markdown_cells": 21,
+      "imports": [
+        "cartopy",
+        "climakitae",
+        "climakitaegui",
+        "geopandas"
+      ],
+      "data_references": [
+        "read_csv"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-11-10T13:39:40.674145"
+    },
+    {
+      "path": "analysis/warming_levels_approach.ipynb",
+      "code_cells": 29,
+      "markdown_cells": 48,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "scipy"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.168227"
+    },
+    {
+      "path": "archive/data_acquisition_for_hydro.ipynb",
+      "code_cells": 16,
+      "markdown_cells": 9,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "numpy",
+        "xarray"
+      ],
+      "data_references": [
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.168227"
+    },
+    {
+      "path": "archive/station_data_access.ipynb",
+      "code_cells": 9,
+      "markdown_cells": 7,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "pandas",
+        "panel",
+        "xarray"
+      ],
+      "data_references": [
+        "data/hadisd_stations.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.168227"
+    },
+    {
+      "path": "climate-profiles/custom_climate_profiles.ipynb",
+      "code_cells": 7,
+      "markdown_cells": 6,
+      "imports": [
+        "climakitae",
+        "warnings"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-11-10T13:39:40.676145"
+    },
+    {
+      "path": "climate-profiles/typical_meteorological_year_methodology.ipynb",
+      "code_cells": 33,
+      "markdown_cells": 26,
+      "imports": [
+        "climakitae",
+        "numpy",
+        "pandas",
+        "pkg_resources",
+        "tqdm",
+        "warnings",
+        "xarray"
+      ],
+      "data_references": [
+        "data/hadisd_stations.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-06T09:56:10.979907"
+    },
+    {
+      "path": "collaborative/DFU/degree_days.ipynb",
+      "code_cells": 37,
+      "markdown_cells": 29,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "hvplot",
+        "numpy",
+        "pandas",
+        "warnings",
+        "xarray"
+      ],
+      "data_references": [
+        "annual_hdd_cdd_{0}.csv",
+        "daily_hdh_cdh_{0}.csv",
+        "data/CEC_Forecast_Weather_Stations_California.csv",
+        "dfz_aggregated_{0}.csv",
+        "hourly_data_at_station_{0}.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.175226"
+    },
+    {
+      "path": "collaborative/DFU/dewpoint_localization_batch_methodology.ipynb",
+      "code_cells": 7,
+      "markdown_cells": 4,
+      "imports": [
+        "bokeh",
+        "climakitae",
+        "climakitaegui",
+        "itertools",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "panel",
+        "pyproj",
+        "s3fs",
+        "timezonefinder",
+        "xarray",
+        "xclim"
+      ],
+      "data_references": [
+        "/home/jovyan/cae-notebooks/collaborative/DFU/wecc-station-data.csv",
+        "FILENAME.nc",
+        "bc_tas_dpts_HadISD_{}_UTC.nc",
+        "dewpt_exceed_tas_counts_station_localization.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.175226"
+    },
+    {
+      "path": "collaborative/DFU/download_localized_stations.ipynb",
+      "code_cells": 6,
+      "markdown_cells": 1,
+      "imports": [
+        "boto3",
+        "botocore",
+        "s3fs",
+        "xarray"
+      ],
+      "data_references": [
+        "bc_tas_dpts_HadISD_72392523190.nc",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.175226"
+    },
+    {
+      "path": "collaborative/DFU/localization_methodology.ipynb",
+      "code_cells": 17,
+      "markdown_cells": 16,
+      "imports": [
+        "bokeh",
+        "climakitae",
+        "climakitaegui",
+        "pandas",
+        "xarray",
+        "xclim",
+        "xsdba"
+      ],
+      "data_references": [
+        "data/hadisd_stations.csv",
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-19T09:33:24.535041"
+    },
+    {
+      "path": "collaborative/DFU/station_hourly_profiles.ipynb",
+      "code_cells": 27,
+      "markdown_cells": 27,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "copy",
+        "numpy",
+        "pandas",
+        "panel",
+        "xarray"
+      ],
+      "data_references": [
+        "read_csv",
+        "test_output.csv",
+        "test_output.nc",
+        "test_output_for_R.csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.175226"
+    },
+    {
+      "path": "collaborative/IOU/8760/one_in_x_in_8760.ipynb",
+      "code_cells": 28,
+      "markdown_cells": 23,
+      "imports": [
+        "climakitae",
+        "numpy",
+        "one_in_x_in_8760",
+        "pandas",
+        "random",
+        "warnings"
+      ],
+      "data_references": [
+        "one_in_10-100_temperature_raw_data_34425N_-118559W.nc",
+        "one_in_10-100_temperature_raw_data_34434N_-11987W.nc",
+        "one_in_10-100_temperature_raw_data_34492N_-118616W.nc",
+        "one_in_10-100_temperature_raw_data_34495N_-119882W.nc",
+        "one_in_10-100_temperature_raw_data_3452N_-119782W.nc",
+        "one_in_10-100_temperature_raw_data_34695N_-118788W.nc"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-06T09:56:10.979907"
+    },
+    {
+      "path": "collaborative/IOU/heat_index.ipynb",
+      "code_cells": 48,
+      "markdown_cells": 35,
+      "imports": [
+        "climakitae",
+        "climakitaegui"
+      ],
+      "data_references": [
+        "read_csv",
+        "{fn}.csv"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.178226"
+    },
+    {
+      "path": "collaborative/IOU/vulnerability_assessment/vulnerability_assessment.ipynb",
+      "code_cells": 15,
+      "markdown_cells": 20,
+      "imports": [
+        "climakitae"
+      ],
+      "data_references": [
+        "read_csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-06T09:56:12.967801"
+    },
+    {
+      "path": "data-access/basic_data_access.ipynb",
+      "code_cells": 23,
+      "markdown_cells": 27,
+      "imports": [
+        "climakitae"
+      ],
+      "data_references": [
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-28T12:05:31.404030"
+    },
+    {
+      "path": "data-access/interactive_data_access_and_viz.ipynb",
+      "code_cells": 11,
+      "markdown_cells": 10,
+      "imports": [
+        "climakitae",
+        "climakitaegui"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.181226"
+    },
+    {
+      "path": "data-access/outside_AE_data_access.ipynb",
+      "code_cells": 11,
+      "markdown_cells": 11,
+      "imports": [
+        "intake"
+      ],
+      "data_references": [
+        "WRF-UCLA-CESM2-historical-mon-d03.nc",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.181226"
+    },
+    {
+      "path": "data-access/renewables_data_access.ipynb",
+      "code_cells": 13,
+      "markdown_cells": 14,
+      "imports": [
+        "climakitae",
+        "intake",
+        "numpy"
+      ],
+      "data_references": [
+        "https://wfclimres.s3.amazonaws.com/era/era-ren-collection.json",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.181226"
+    },
+    {
+      "path": "data-access/weather_station_data_access.ipynb",
+      "code_cells": 16,
+      "markdown_cells": 15,
+      "imports": [
+        "geopandas",
+        "intake",
+        "matplotlib",
+        "pandas"
+      ],
+      "data_references": [
+        "https://cadcat.s3.amazonaws.com/histwxstns/era-hdp-collection.json",
+        "https://cadcat.s3.amazonaws.com/histwxstns/historical_wx_stations.csv",
+        "https://geo.sandag.org/server/rest/directories/downloads/Fire_Burn_History_shapefile.zip",
+        "read_csv",
+        "subset_station_list.csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-28T12:05:31.406030"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/HDR_Test_GMF.ipynb",
+      "code_cells": 27,
+      "markdown_cells": 0,
+      "imports": [
+        "climakitae",
+        "geopandas",
+        "intake",
+        "panel",
+        "rasterio",
+        "shapely"
+      ],
+      "data_references": [
+        "https://cadcat.s3.amazonaws.com/cae-collection.json"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.681851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/HDR_Test_Max_Barry.ipynb",
+      "code_cells": 10,
+      "markdown_cells": 0,
+      "imports": [
+        "climakitae",
+        "panel"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.681851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/catalog_access_and_download.ipynb",
+      "code_cells": 11,
+      "markdown_cells": 10,
+      "imports": [
+        "intake"
+      ],
+      "data_references": [
+        "LOCA2.UCSD.CNRM-ESM2-1.ssp245.day.d03.nc",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.682851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/data-processing-LOCA2-QC.ipynb",
+      "code_cells": 19,
+      "markdown_cells": 2,
+      "imports": [
+        "climakitae",
+        "csv",
+        "dask",
+        "geopandas",
+        "intake",
+        "io",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "%s_%s_%s_%s.nc",
+        "GCM_1-43.zip",
+        "GCM_44-82.zip",
+        "GCM_83-117.zip",
+        "GCM_All.zip",
+        "GCM_QC.zip",
+        "GCM_Test_4.zip",
+        "data/Basin_Weights.csv",
+        "data/GCM_Run_List_1-43.csv",
+        "data/GCM_Run_List_44-82.csv",
+        "data/GCM_Run_List_83-117.csv",
+        "data/GCM_Run_List_ACCESS-CM2_4.csv",
+        "data/GCM_Run_List_All.csv",
+        "data/GCM_Run_List_QC_1Year.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.683851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/data-processing-gdmf-mjb-2.ipynb",
+      "code_cells": 30,
+      "markdown_cells": 2,
+      "imports": [
+        "climakitae",
+        "csv",
+        "dask",
+        "functools",
+        "geopandas",
+        "intake",
+        "io",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "ACCESS-CM2_historical_r1i1p1f1_1.csv",
+        "GCM_1-43.zip",
+        "GCM_44-82.zip",
+        "GCM_83-117.zip",
+        "GCM_All.zip",
+        "GCM_Test_4.zip",
+        "data/Basin_Weights.csv",
+        "data/GCM_Run_List_1-43.csv",
+        "data/GCM_Run_List_44-82.csv",
+        "data/GCM_Run_List_83-117.csv",
+        "data/GCM_Run_List_ACCESS-CM2_4.csv",
+        "data/GCM_Run_List_All.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "test5.zip",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.683851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/data-processing-gdmf-mjb.ipynb",
+      "code_cells": 25,
+      "markdown_cells": 2,
+      "imports": [
+        "climakitae",
+        "csv",
+        "dask",
+        "datetime",
+        "functools",
+        "geopandas",
+        "intake",
+        "io",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "ACCESS-CM2_historical_r1i1p1f1_1.csv",
+        "data/GCM_Run_List_All.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "test4.zip",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.684851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/data-processing-gdmf.ipynb",
+      "code_cells": 20,
+      "markdown_cells": 2,
+      "imports": [
+        "climakitae",
+        "csv",
+        "dask",
+        "geopandas",
+        "intake",
+        "io",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "data/GCM_Run_List_Test.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "test4.zip",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.685851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/data-processing.ipynb",
+      "code_cells": 48,
+      "markdown_cells": 7,
+      "imports": [
+        "climakitae",
+        "csv",
+        "dask",
+        "geopandas",
+        "intake",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "data/GCM_Run_List_Test.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "scenario1.csv",
+        "scenario2.csv",
+        "test.zip",
+        "test2.csv",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.687851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/download_daily_to_monthly.ipynb",
+      "code_cells": 5,
+      "markdown_cells": 7,
+      "imports": [
+        "geopandas",
+        "intake",
+        "os",
+        "shapely",
+        "xarray"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.nc",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.687851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/masking-02.ipynb",
+      "code_cells": 49,
+      "markdown_cells": 0,
+      "imports": [
+        "geopandas",
+        "intake",
+        "numpy",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "Clip/mask.npy",
+        "Clip/mask2.npy",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "open",
+        "test_all.nc",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.688851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/attic/masking.ipynb",
+      "code_cells": 44,
+      "markdown_cells": 0,
+      "imports": [
+        "datetime",
+        "geopandas",
+        "intake",
+        "numpy",
+        "shapely"
+      ],
+      "data_references": [
+        "Clip/mask.npy",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "open",
+        "test_166.nc",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.689851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/data-processing-LOCA2.ipynb",
+      "code_cells": 19,
+      "markdown_cells": 4,
+      "imports": [
+        "csv",
+        "dask",
+        "intake",
+        "io",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "rioxarray",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "CESM2_historical_r1i1p1f1_19FlowWeighted.csv",
+        "CESM2_r1i1p1f1_ssp245_30yrAve.csv",
+        "CESM2_ssp245_r1i1p1f1_19FlowWeighted.csv",
+        "GCM_1-19.zip",
+        "GCM_1-43.zip",
+        "GCM_20-43.zip",
+        "GCM_44-82.zip",
+        "GCM_83-100.zip",
+        "GCM_Add_1-22.zip",
+        "GCM_Add_23-47.zip",
+        "GCM_Add_48-75.zip",
+        "GCM_Rolling_Test.zip",
+        "data/Basin_Weights.csv",
+        "data/GCM_Run_List_1-19.csv",
+        "data/GCM_Run_List_1-43.csv",
+        "data/GCM_Run_List_Test_Rolling.csv",
+        "data/RunLists/GCM_Run_List_1-19.csv",
+        "data/RunLists/GCM_Run_List_20-43.csv",
+        "data/RunLists/GCM_Run_List_44-82.csv",
+        "data/RunLists/GCM_Run_List_83-100.csv",
+        "data/RunLists/GCM_Run_List_Add_1-22.csv",
+        "data/RunLists/GCM_Run_List_Add_23-47.csv",
+        "data/RunLists/GCM_Run_List_Add_48-75.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.693851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/data-processing-LOCA2_Daily.ipynb",
+      "code_cells": 21,
+      "markdown_cells": 4,
+      "imports": [
+        "csv",
+        "dask",
+        "intake",
+        "io",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "%s_%s_%s_%s_%s_%s.csv",
+        "GCM_1-43.zip",
+        "GCM_1.zip",
+        "GCM_20-43.zip",
+        "GCM_44-82.zip",
+        "GCM_83-100.zip",
+        "GCM_Add_1-22.zip",
+        "GCM_Add_23-47.zip",
+        "GCM_Add_48-75.zip",
+        "GCM_All.zip",
+        "GCM_Rolling_Test.zip",
+        "data/Basin_Weights.csv",
+        "data/GCM_Run_List_1-43.csv",
+        "data/GCM_Run_List_1_Test.csv",
+        "data/GCM_Run_List_20-43.csv",
+        "data/GCM_Run_List_44-82.csv",
+        "data/GCM_Run_List_83-100.csv",
+        "data/GCM_Run_List_Add_1-22.csv",
+        "data/GCM_Run_List_Add_23-47.csv",
+        "data/GCM_Run_List_Add_48-75.csv",
+        "data/GCM_Run_List_All.csv",
+        "data/GCM_Run_List_Test_Rolling.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.693851"
+    },
+    {
+      "path": "user-contributions/dwr/loca2-cae/data-processing-LOCA2_no_dask.ipynb",
+      "code_cells": 20,
+      "markdown_cells": 4,
+      "imports": [
+        "csv",
+        "dask",
+        "geopandas",
+        "intake",
+        "io",
+        "json",
+        "numpy",
+        "os",
+        "pandas",
+        "panel",
+        "shapely",
+        "tempfile",
+        "xarray",
+        "zipfile"
+      ],
+      "data_references": [
+        "%s_%s_%s_%s.csv",
+        "GCM_1-19.zip",
+        "GCM_1-43.zip",
+        "GCM_101-117.zip",
+        "GCM_20-43.zip",
+        "GCM_44-82.zip",
+        "GCM_83-100.zip",
+        "GCM_Add_23-47.zip",
+        "GCM_Rolling_Test.zip",
+        "data/Basin_Weights.csv",
+        "data/GCM_Run_List_1-19.csv",
+        "data/GCM_Run_List_1-43.csv",
+        "data/GCM_Run_List_101-117.csv",
+        "data/GCM_Run_List_20-43.csv",
+        "data/GCM_Run_List_44-82.csv",
+        "data/GCM_Run_List_83-100.csv",
+        "data/GCM_Run_List_Add_23-47.csv",
+        "data/GCM_Run_List_Test_Rolling.csv",
+        "https://cadcat.s3.amazonaws.com/cae-collection.json",
+        "mask/mask.npy",
+        "open",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.694851"
+    },
+    {
+      "path": "work-in-progress/agnostic_tools.ipynb",
+      "code_cells": 20,
+      "markdown_cells": 17,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "numpy"
+      ],
+      "data_references": [],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.181226"
+    },
+    {
+      "path": "work-in-progress/climate_state_finder.ipynb",
+      "code_cells": 42,
+      "markdown_cells": 24,
+      "imports": [
+        "climakitae",
+        "geopandas",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "shapely",
+        "xarray"
+      ],
+      "data_references": [
+        "parquet",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-10-06T09:56:10.985509"
+    },
+    {
+      "path": "work-in-progress/drought_metrics.ipynb",
+      "code_cells": 21,
+      "markdown_cells": 18,
+      "imports": [
+        "climakitae",
+        "climate_indices",
+        "matplotlib",
+        "numpy",
+        "os",
+        "pandas",
+        "pyproj",
+        "xarray",
+        "xclim"
+      ],
+      "data_references": [
+        ")}.nc",
+        "input_data/{variable}_daily.nc",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.704851"
+    },
+    {
+      "path": "work-in-progress/event_finder.ipynb",
+      "code_cells": 45,
+      "markdown_cells": 30,
+      "imports": [
+        "climakitae",
+        "geopandas",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "shapely",
+        "xarray"
+      ],
+      "data_references": [
+        "parquet",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-09-01T11:31:33.705851"
+    },
+    {
+      "path": "work-in-progress/generalized_climate_signal_selector.ipynb",
+      "code_cells": 32,
+      "markdown_cells": 20,
+      "imports": [
+        "climakitae",
+        "geopandas",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "shapely",
+        "xarray"
+      ],
+      "data_references": [
+        "PajaroRiverWatershed.zip",
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-05T09:20:04.593756"
+    },
+    {
+      "path": "work-in-progress/model_variance.ipynb",
+      "code_cells": 24,
+      "markdown_cells": 22,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "xarray"
+      ],
+      "data_references": [
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.182226"
+    },
+    {
+      "path": "work-in-progress/threshold_basics.ipynb",
+      "code_cells": 16,
+      "markdown_cells": 22,
+      "imports": [
+        "climakitae",
+        "climakitaegui",
+        "xarray"
+      ],
+      "data_references": [
+        "xarray"
+      ],
+      "status": "ok",
+      "error": null,
+      "last_modified": "2025-08-04T13:41:56.182226"
+    }
+  ],
+  "top_imports": [
+    [
+      "climakitae",
+      35
+    ],
+    [
+      "numpy",
+      27
+    ],
+    [
+      "xarray",
+      27
+    ],
+    [
+      "pandas",
+      24
+    ],
+    [
+      "climakitaegui",
+      16
+    ],
+    [
+      "intake",
+      16
+    ],
+    [
+      "panel",
+      15
+    ],
+    [
+      "geopandas",
+      15
+    ],
+    [
+      "shapely",
+      13
+    ],
+    [
+      "matplotlib",
+      10
+    ],
+    [
+      "os",
+      10
+    ],
+    [
+      "zipfile",
+      9
+    ],
+    [
+      "csv",
+      8
+    ],
+    [
+      "dask",
+      8
+    ],
+    [
+      "io",
+      7
+    ],
+    [
+      "tempfile",
+      7
+    ],
+    [
+      "warnings",
+      6
+    ],
+    [
+      "json",
+      6
+    ],
+    [
+      "bokeh",
+      4
+    ],
+    [
+      "hvplot",
+      3
+    ],
+    [
+      "xclim",
+      3
+    ],
+    [
+      "seaborn",
+      3
+    ],
+    [
+      "holoviews",
+      2
+    ],
+    [
+      "cartopy",
+      2
+    ],
+    [
+      "pyproj",
+      2
+    ],
+    [
+      "s3fs",
+      2
+    ],
+    [
+      "functools",
+      2
+    ],
+    [
+      "datetime",
+      2
+    ],
+    [
+      "scipy",
+      1
+    ],
+    [
+      "pkg_resources",
+      1
+    ],
+    [
+      "tqdm",
+      1
+    ],
+    [
+      "itertools",
+      1
+    ],
+    [
+      "timezonefinder",
+      1
+    ],
+    [
+      "boto3",
+      1
+    ],
+    [
+      "botocore",
+      1
+    ],
+    [
+      "xsdba",
+      1
+    ],
+    [
+      "copy",
+      1
+    ],
+    [
+      "one_in_x_in_8760",
+      1
+    ],
+    [
+      "random",
+      1
+    ],
+    [
+      "rasterio",
+      1
+    ],
+    [
+      "rioxarray",
+      1
+    ],
+    [
+      "climate_indices",
+      1
+    ]
+  ]
+}

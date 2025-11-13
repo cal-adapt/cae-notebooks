@@ -1,0 +1,41 @@
+# Notebook Test Configuration Manifest
+# Categories: quick (<5 min), medium (5-20 min), long (20+ min), manual (human required), skip
+
+quick_tests:
+  - path: data-access/basic_data_access.ipynb
+    timeout: 300
+    requires_data: false
+    notes: "Basic API examples"
+
+medium_tests:
+  - path: analysis/warming_levels.ipynb
+    timeout: 900
+    requires_data: true
+    smoke_test_cells: [0, 1, 2]
+
+long_tests:
+  - path: work-in-progress/typical_meteorological_year_methodology.ipynb
+    timeout: 1800
+    requires_data: true
+
+manual_tests:
+  - path: collaborative/IOU/vulnerability_assessment/vulnerability_assessment.ipynb
+    reason: "Requires user input and proprietary data"
+
+skip_tests:
+  - path: archive/*
+    reason: "Archived notebooks, not maintained"
+  - path: user-contributions/*
+    reason: "User-contributed notebooks, not verified"
+  - path: work-in-progress/*
+    reason: "Exploratory notebooks, not ready for testing"
+
+test_data:
+  required_files:
+    - sample_data/test_timeseries.csv
+    - sample_data/test_spatial.geojson
+  mock_data:
+    - name: cal-adapt-api
+      strategy: mock_responses
+    - name: large_climate_dataset
+      strategy: download_subset
