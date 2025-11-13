@@ -1,0 +1,40 @@
+name: Notebook Quick Tests (PR)
+
+on:
+  pull_request:
+    paths:
+      - '**.ipynb'
+      - 'testing/**'
+      - 'tests/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  quick-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r testing/requirements-testing.txt
+
+      - name: Run quick notebook tests
+        run: |
+          pytest tests/test_notebooks.py --category=quick -v --maxfail=1
+
+      - name: Upload artifacts (logs)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: quick-test-artifacts
+          path: |
+            .pytest_cache/
+            junit-*.xml
