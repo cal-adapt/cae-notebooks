@@ -1,46 +1,34 @@
+"""
+Helper functions for one in x calculations using custom 8760s
+
+"""
+
 import os
-import random
 from datetime import timedelta
 from typing import List, Tuple, Union
 
-import cftime
-import holoviews as hv
-import hvplot.xarray
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import panel as pn
 import xarray as xr
 
-from climakitae.explore.threshold_tools import (
-    _calculate_return,
-    _conf_int,
-    _get_distr_func,
-    _get_fitted_distr,
-    get_block_maxima,
-    get_ks_stat,
-    get_return_value,
-)
+from climakitae.explore.threshold_tools import get_block_maxima, get_return_value
 from climakitae.explore.vulnerability import cava_data
 from climakitae.util.utils import add_dummy_time_to_wl
-
-random.seed(42)
 
 
 def plot_retvals(calc_data: xr.Dataset, time_axis: bool = False) -> None:
     """
     Plot return values (or Julian day equivalents) from a calculation dataset.
 
-    Args:
-        calc_data (xr.Dataset):
-            An xarray Dataset containing dimensions including 'one_in_x',
-            'simulation', and 'location', with return value data.
-        time_axis (bool, optional):
-            If True, divides the data by 24 to plot in Julian days.
-            If False, plots the raw return values. Defaults to False.
-
-    Returns:
-        None
+    Parameters
+    ----------
+    calc_data : xr.Dataset
+        An xarray Dataset containing dimensions including 'one_in_x',
+        'simulation', and 'location', with return value data.
+    time_axis : bool, optional
+        If True, divides the data by 24 to plot in Julian days.
+        If False, plots the raw return values. Defaults to False.
     """
     fig, ax = plt.subplots(1, 2, figsize=(10, 5), sharey=True)
 
@@ -77,16 +65,14 @@ def plot_med_val_by_locs(calc_data: xr.Dataset, time_axis: bool = False) -> None
     """
     Plot median return values by location for each return period.
 
-    Args:
-        calc_data (xr.Dataset):
-            An xarray Dataset containing dimensions 'simulation', 'one_in_x', and 'location'.
-            Expected to have return value data across simulations and locations.
-        time_axis (bool, optional):
-            If True, converts values from hours to Julian days by dividing by 24.
-            If False, plots the raw return values. Defaults to False.
-
-    Returns:
-        None; just generates the figure
+    Parameters
+    ----------
+    calc_data : xr.Dataset
+        An xarray Dataset containing dimensions 'simulation', 'one_in_x', and 'location'.
+        Expected to have return value data across simulations and locations.
+    time_axis : bool, optional
+        If True, converts values from hours to Julian days by dividing by 24.
+        If False, plots the raw return values. Defaults to False.
     """
     # Median return values
     med = calc_data.median(dim="simulation")
@@ -149,15 +135,17 @@ def clean_raw_data(
     """
     Combines raw datasets together by new `location` dimension, creates a dummy time axis, and creates an hour-of-year coordinate.
 
-    Args:
-        raw_data (List[xr.Dataset]):
-            A list of xarray Datasets, one for each location.
-        loc_names (List[str]):
-            A list of location names corresponding to the datasets.
+    Parameters
+    ----------
+    raw_data : List[xr.Dataset]
+        A list of xarray Datasets, one for each location.
+    loc_names : List[str]
+        A list of location names corresponding to the datasets.
 
-    Returns:
-        xr.Dataset:
-            A single combined xarray Dataset with cleaned time and added 'hour_of_year' coordinate.
+    Returns
+    -------
+    xr.Dataset
+        A single combined xarray Dataset with cleaned time and added 'hour_of_year' coordinate.
     """
     total_raw = xr.concat(raw_data, dim="location").assign_coords(location=loc_names)
     total_raw = add_dummy_time_to_wl(total_raw)
@@ -194,20 +182,22 @@ def get_one_in_x(
     """
     Calculate the 1-in-X year return value for a given dataset and event duration.
 
-    Args:
-        da (xr.DataArray):
-            Input xarray DataArray containing the data to analyze.
-        one_in_x (Union[int, float]):
-            Return period (e.g., 10 for 1-in-10 years) to calculate.
-        event_duration (Tuple[int, str]):
-            Duration grouping for block maxima, given as (amount, unit)
-            e.g., (1, 'hour'), (3, 'day').
-        distr (str):
-            Name of the statistical distribution to fit (e.g., 'gev', 'gumbel').
+    Parameters
+    ----------
+    da : xr.DataArray
+        Input xarray DataArray containing the data to analyze.
+    one_in_x : Union[int, float]
+        Return period (e.g., 10 for 1-in-10 years) to calculate.
+    event_duration : Tuple[int, str]
+        Duration grouping for block maxima, given as (amount, unit)
+        e.g., (1, 'hour'), (3, 'day').
+    distr : str
+        Name of the statistical distribution to fit (e.g., 'gev', 'gumbel').
 
-    Returns:
-        xr.DataArray:
-            DataArray of the 1-in-X return values calculated across simulations or points.
+    Returns
+    -------
+    xr.DataArray
+        DataArray of the 1-in-X return values calculated across simulations or points.
     """
     ams = get_block_maxima(
         da.squeeze(),
@@ -233,16 +223,18 @@ def find_med_hrs(
     """
     Finds the median hour-of-year of times with temperatures that fall between confidence interval bounds.
 
-    Args:
-        raw_data (xr.Dataset):
-            Raw climate or observational data with dimensions including 'time', 'location', and 'simulation'.
-        all_one_in_x (xr.Dataset):
-            Dataset containing confidence interval bounds ('conf_int_lower_limit' and 'conf_int_upper_limit')
-            for each 'one_in_x' return period.
+    Parameters
+    ----------
+    raw_data : xr.Dataset
+        Raw climate or observational data with dimensions including 'time', 'location', and 'simulation'.
+    all_one_in_x : xr.Dataset
+        Dataset containing confidence interval bounds ('conf_int_lower_limit' and 'conf_int_upper_limit')
+        for each 'one_in_x' return period.
 
-    Returns:
-        xr.DataArray:
-            Median hour-of-year for each location, simulation, and return period ('one_in_x').
+    Returns
+    -------
+    xr.DataArray
+        Median hour-of-year for each location, simulation, and return period ('one_in_x').
     """
     # Removing leap days
     raw_data["time"] = xr.cftime_range(
@@ -285,20 +277,22 @@ def insert_at_hrs(
     """
     Insert values into a DataArray at specific hours, with optional window.
 
-    Args:
-        median8760 (xr.DataArray):
-            Array of baseline values with dimensions ('location', 'hour_of_year').
-        med_hr (xr.DataArray):
-            Target hours to modify, with dimensions ('location', 'one_in_x').
-        val (xr.DataArray):
-            Values to insert at the target hours, with dimensions ('location', 'one_in_x').
-        window (int, optional):
-            Number of hours before and after each med_hr to also replace.
-            Defaults to 1.
+    Parameters
+    ----------
+    median8760 : xr.DataArray
+        Array of baseline values with dimensions ('location', 'hour_of_year').
+    med_hr : xr.DataArray
+        Target hours to modify, with dimensions ('location', 'one_in_x').
+    val : xr.DataArray
+        Values to insert at the target hours, with dimensions ('location', 'one_in_x').
+    window : int, optional
+        Number of hours before and after each med_hr to also replace.
+        Defaults to 1.
 
-    Returns:
-        xr.DataArray:
-            Mutated DataArray with dimensions ('location', 'one_in_x', 'hour_of_year').
+    Returns
+    -------
+    xr.DataArray
+        Mutated DataArray with dimensions ('location', 'one_in_x', 'hour_of_year').
     """
     broadcasted = xr.broadcast(val, median8760)[
         1
@@ -367,11 +361,15 @@ def make_clean_daily(raw_data: xr.DataArray, extremes_type="max") -> xr.DataArra
     Resamples hourly data to daily maximum values and assigns a 'hour_of_year' coordinate
     based on the resulting no-leap calendar day timestamps.
 
-    Parameters:
-        raw_data (xr.DataArray): Hourly data with a 'time' dimension.
+    Parameters
+    ----------
+    raw_data : xr.DataArray
+        Hourly data with a 'time' dimension.
 
-    Returns:
-        xr.DataArray: Daily max data with updated 'time' and 'hour_of_year' coordinates.
+    Returns
+    -------
+    xr.DataArray
+        Daily max data with updated 'time' and 'hour_of_year' coordinates.
     """
     # Resample to daily min/max
     if extremes_type == "max":
@@ -402,12 +400,17 @@ def combine_ds(daily_da: xr.DataArray, one_in_x_da: xr.Dataset) -> xr.Dataset:
     """
     Combines a daily DataArray with confidence interval bounds from a dataset into a single Dataset.
 
-    Parameters:
-        daily_da (xr.DataArray): Daily values (e.g. temperature or metric output).
-        one_in_x_da (xr.Dataset): Dataset containing 'conf_int_lower_limit' and 'conf_int_upper_limit'.
+    Parameters
+    ----------
+    daily_da : xr.DataArray
+        Daily values (e.g. temperature or metric output).
+    one_in_x_da : xr.Dataset
+        Dataset containing 'conf_int_lower_limit' and 'conf_int_upper_limit'.
 
-    Returns:
-        xr.Dataset: Dataset with three aligned DataArrays: 'vals', 'lower', and 'upper'.
+    Returns
+    -------
+    xr.Dataset
+        Dataset with three aligned DataArrays: 'vals', 'lower', and 'upper'.
     """
     # Align daily data with confidence bounds
     lower = xr.broadcast(daily_da, one_in_x_da["conf_int_lower_limit"])[1]
@@ -423,12 +426,17 @@ def find_valid_times(timeseries: xr.Dataset) -> np.ndarray:
     """
     Finds all times where the 'vals' are strictly between the 'lower' and 'upper' bounds.
 
-    Parameters:
-        timeseries (xr.Dataset): Dataset containing 'vals', 'lower', and 'upper' variables with a 'time' dimension.
-        t (int): Currently unused, but could represent window size or context for future filtering.
+    Parameters
+    ----------
+    timeseries : xr.Dataset
+        Dataset containing 'vals', 'lower', and 'upper' variables with a 'time' dimension.
+    t : int
+        Currently unused, but could represent window size or context for future filtering.
 
-    Returns:
-        np.ndarray: Array of time values where the condition is met.
+    Returns
+    -------
+    np.ndarray
+        Array of time values where the condition is met.
     """
     # Identify time points where 'vals' fall between 'lower' and 'upper'
     valid_mask = (timeseries["vals"] > timeseries["lower"]) & (
@@ -446,12 +454,15 @@ def gather_valid_times(ds: xr.Dataset) -> pd.DataFrame:
     Applies `find_valid_times` to each (location, simulation, one_in_x) group in the dataset,
     and returns a DataFrame of valid times per group.
 
-    Parameters:
-        ds (xr.Dataset): Input dataset with dimensions including 'location', 'simulation', 'one_in_x', and 'time'.
-        t (int): Window size passed to `find_valid_times`.
+    Parameters
+    ----------
+    ds : xr.Dataset
+        Input dataset with dimensions including 'location', 'simulation', 'one_in_x', and 'time'.
 
-    Returns:
-        pd.DataFrame: A DataFrame with columns: location, simulation, one_in_x, and valid_times (as np.ndarray).
+    Returns
+    -------
+    pd.DataFrame
+        Table with columns: location, simulation, one_in_x, and valid_times (as np.ndarray).
     """
     results = []
     grouped = ds.squeeze().groupby(["location", "simulation", "one_in_x"])
@@ -477,13 +488,19 @@ def extract_event_windows(
     Extracts non-overlapping time windows of length (2t + 1) days around valid event timestamps,
     for a specific (location, simulation, one_in_x) combination.
 
-    Parameters:
-        timeseries (xr.DataArray): Time series with dimensions including 'time'.
-        df (pd.DataFrame): DataFrame containing valid event timestamps in 'valid_times'.
-        t (int): Half-window size in days (default is 3, for a 7-day window).
+    Parameters
+    ----------
+    timeseries : xr.DataArray
+        Time series with dimensions including 'time'.
+    df : pd.DataFrame
+        DataFrame containing valid event timestamps in 'valid_times'.
+    t : int
+        Half-window size in days (default is 3, for a 7-day window).
 
-    Returns:
-        xr.DataArray: Median of all extracted windows with time replaced by relative indices.
+    Returns
+    -------
+    xr.DataArray
+        Median of all extracted windows with time replaced by relative indices.
     """
     # Filter dataframe for matching metadata
     location = timeseries.location.item()
@@ -545,14 +562,21 @@ def generate_data_to_insert(
     Extracts event-based time windows from raw data using group-wise metadata and computes
     the median pattern to insert for each (location, one_in_x) across simulations.
 
-    Parameters:
-        times_to_insert_at (xr.DataArray): Time DataArray with shape matching metadata (used to align with raw data).
-        clean_raw_data (xr.DataArray): Full daily/hourly input data.
-        metadata_df (pd.DataFrame): DataFrame containing valid times per group.
-        t (int): Half-window size in days for extraction (default: 3).
+    Parameters
+    ----------
+    times_to_insert_at : xr.DataArray
+        Time DataArray with shape matching metadata (used to align with raw data).
+    clean_raw_data : xr.DataArray
+        Full daily/hourly input data.
+    metadata_df : pd.DataFrame
+        DataFrame containing valid times per group.
+    t : int
+        Half-window size in days for extraction (default: 3).
 
-    Returns:
-        xr.DataArray: Median event response per group, collapsed across simulations.
+    Returns
+    -------
+    xr.DataArray
+        Median event response per group, collapsed across simulations.
     """
     # Broadcast clean raw data to shape of insertion times
     total_da = xr.broadcast(times_to_insert_at, clean_raw_data)[1]
@@ -578,14 +602,21 @@ def insert_data(
     Inserts a short time window (`to_insert`) into a copy of the original data array,
     centered at a specified hour index.
 
-    Parameters:
-        to_insert (xr.DataArray): Data to insert (length should be 24 * (2t + 1)).
-        center_time (int): Center index (in hours) for the insertion.
-        orig_data (xr.DataArray): The full-length time series to modify.
-        t (int): Half-window size in days.
+    Parameters
+    ----------
+    to_insert : xr.DataArray
+        Data to insert (length should be 24 * (2t + 1)).
+    center_time : int
+        Center index (in hours) for the insertion.
+    orig_data : xr.DataArray
+        The full-length time series to modify.
+    t : int
+        Half-window size in days.
 
-    Returns:
-        xr.DataArray: Copy of `orig_data` with `to_insert` injected into the specified time window.
+    Returns
+    -------
+    xr.DataArray
+        Copy of `orig_data` with `to_insert` injected into the specified time window.
     """
     # Edge case for t=0, grab +/- 12 hours from the max event time
     if t == 0:
@@ -605,17 +636,22 @@ def plot_modified8760s(
     shade_regions: xr.DataArray,
     t,
     figsize: tuple = (12, 4),
+    figpath: str = None,
 ) -> None:
     """
     Plot modified 8760-hour data with two rows (one_in_x) and three columns (locations).
 
-    Args:
-        modified8760 (xr.DataArray): DataArray with dimensions ('hour_of_year', 'location', 'one_in_x').
-        figsize (tuple, optional): Size of the entire figure. Defaults to (15, 8).
-        shade_regions (dict, optional): Dictionary mapping (location, one_in_x) to (x_start, x_end) shading ranges.
-
-    Returns:
-        None
+    Parameters
+    ----------
+    modified8760 : xr.DataArray
+        DataArray with dimensions ('hour_of_year', 'location', 'one_in_x').
+    figsize : tuple, optional
+        Size of the entire figure. Defaults to (12, 4).
+    shade_regions : dict, optional
+        Dictionary mapping (location, one_in_x) to (x_start, x_end) shading ranges.
+    figpath: str, optional
+        Path to save figure to; i.e. "directory/figure.png"
+        Default to None: no figure saved
     """
     modified8760 = modified8760.sortby("location")
     shade_regions = shade_regions.sortby("location")
@@ -674,6 +710,14 @@ def plot_modified8760s(
 
     # plt.xlim(left=4500, right=5500)
     plt.tight_layout()
+
+    # Set xlabel for bottom row after tight_layout
+    for col_i, ax in enumerate(plot.axs[-1]):
+        ax.set_xlabel("hour of year", fontsize=12)
+
+    if figpath is not None:
+        plt.savefig(figpath, dpi=300, bbox_inches="tight")
+
     plt.show()
 
 
@@ -683,13 +727,24 @@ def create_modified_8760(
     """
     Create a modified 8760 timeseries with 1-in-X event data inserted into the median profile.
 
-    Parameters:
-        ds (xr.Dataset): Original hourly dataset with 'simulation' dimension.
-        one_in_x_vals (xr.DataArray): Return value data for insertion.
-        t (int): Duration (in days) of the event to insert.
+    Parameters
+    ----------
+    ds : xr.Dataset
+        Original hourly dataset with 'simulation' dimension.
+    one_in_x_vals : xr.DataArray
+        Return value data for insertion.
+    t : int
+        Duration (in days) of the event to insert.
+    extremes_type : str
+    custom_times : xr.DataArray, optional
+        Default to None.
+    custom_8760 : xr.DataArray, optional
+        Default to None.
 
-    Returns:
-        xr.DataArray: Modified 8760 profile with events inserted.
+    Returns
+    -------
+    xr.DataArray
+        Modified 8760 profile with events inserted.
     """
     # Prepare daily and median 8760 data
     # daily_ds = combine_ds(
@@ -763,13 +818,20 @@ def create_empty_da(
     """
     Create an empty DataArray with only the specified dimensions from the original DataArray.
 
-    Parameters:
-    - da: xarray.DataArray, the original array
-    - keep_dims: tuple of dimension names to keep (default: ("location", "one_in_x"))
-    - fill_value: value to initialize the new DataArray with (default: np.nan)
+    Parameters
+    ----------
+    da : xr.DataArray
+        The original array
+    keep_dims : list
+        List of dimension names to keep.
+        Example: ['location', 'one_in_x']
+    fill_value : float
+        value to initialize the new DataArray with (default: np.nan)
 
-    Returns:
-    - xr.DataArray with shape (len(da[dim]) for dim in keep_dims)
+    Returns
+    -------
+    xr.DataArray
+        xr.DataArray with shape (len(da[dim]) for dim in keep_dims)
     """
     coords = {dim: da[dim] for dim in keep_dims}
     shape = tuple(len(coords[dim]) for dim in keep_dims)
@@ -787,16 +849,18 @@ def set_custom_times(da: xr.DataArray, updates) -> xr.DataArray:
     Set values in a DataArray either by applying a single scalar value to all elements,
     or using a list of coordinate-value update dictionaries.
 
-    Parameters:
-    - da: xarray.DataArray
+    Parameters
+    ----------
+    da : xarray.DataArray
         The array to modify.
-    - updates: scalar or list of dicts
+    updates : scalar or list of dicts
         - If scalar: fills the entire DataArray with this value.
         - If list of dicts: each dict should specify coordinate labels and a 'value' key.
           Example: {'location': 'goleta', 'one_in_x': 10, 'value': 3000}
 
-    Returns:
-    - xr.DataArray
+    Returns
+    -------
+    xr.DataArray
         A modified copy with updated values.
     """
     da_mod = da.copy(deep=True)
