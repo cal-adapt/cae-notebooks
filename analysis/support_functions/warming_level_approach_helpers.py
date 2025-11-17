@@ -407,6 +407,6 @@ def gwl_fig2():
     plt.axvline(x=np.datetime64("2047", 'Y'), color='m', linestyle='dotted')
     
     plt.tight_layout()
-    plt.savefig("./gwl_figure2.png", dpi=300)
+    plt.savefig("./gwl_figure2.png", dpi=200)
 
 
