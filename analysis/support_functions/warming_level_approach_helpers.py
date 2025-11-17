@@ -12,9 +12,6 @@ import pandas as pd
 
 from climakitae.core.data_interface import (
     DataInterface,
-    DataParameters,
-    _get_variable_options_df,
-    _get_user_options,
 )
 from climakitae.util.utils import read_csv_file
 
@@ -179,55 +176,49 @@ def fig2(arrs):
     plt.show()
 
 
+
+
+
+
 ### GWL illustration setup ###
 
-ssp119_data = read_csv_file(SSP119_FILE, index_col="Year")
-ssp126_data = read_csv_file(SSP126_FILE, index_col="Year")
-ssp245_data = read_csv_file(SSP245_FILE, index_col="Year")
-ssp370_data = read_csv_file(SSP370_FILE, index_col="Year")
-ssp585_data = read_csv_file(SSP585_FILE, index_col="Year")
-hist_data = read_csv_file(HIST_FILE, index_col="Year")
-
-# Set the style for the plots
-plt.style.use('seaborn-v0_8-whitegrid')
-
-# Define colors and scenarios
-
 colors = {'ssp119': "#00a9cf", 'ssp126': "#003466", 'ssp245': "#f69320", 'ssp370': "#df0000", 'ssp585': "#980002",
-          'hist':'#222222'}
+            'hist':'#222222'}
+
 scenarios = ['ssp585','ssp370', 'ssp245']  # Order matters for stacking
 
-# Function to combine historical and scenario data
-def combine_hist_scenario(hist_data, scenario_data):
-    combined = pd.concat([hist_data, scenario_data])
-    combined = combined[~combined.index.duplicated(keep='first')]
-    return combined
+def _load_gwl_illustration_data():
+    ssp119_data = read_csv_file(SSP119_FILE, index_col="Year")
+    ssp126_data = read_csv_file(SSP126_FILE, index_col="Year")
+    ssp245_data = read_csv_file(SSP245_FILE, index_col="Year")
+    ssp370_data = read_csv_file(SSP370_FILE, index_col="Year")
+    ssp585_data = read_csv_file(SSP585_FILE, index_col="Year")
+    hist_data = read_csv_file(HIST_FILE, index_col="Year")
 
-# Combine historical and scenario data
-ssp_data = {
+    ssp_data = {
     'ssp119': ssp119_data,
     'ssp126': ssp126_data,
     'ssp245': ssp245_data,
     'ssp370': ssp370_data,
-    'ssp585': ssp585_data
-}
+    'ssp585': ssp585_data}
+    return hist_data, ssp_data
 
 ### data loading ###
 
-## find the simulations in the catalog
-data_interface = DataInterface()
-gcms = data_interface.data_catalog.df.source_id.unique()
-df = data_interface.data_catalog.df
+def _load_warming_trajectories():
+    data_interface = DataInterface()
+    df = data_interface.data_catalog.df
 
-columns_of_interest = ['activity_id', 'source_id', 'experiment_id', 'member_id']
-unique_combinations = df[columns_of_interest].drop_duplicates()
-simulations_df = unique_combinations.reset_index(drop=True)
+    columns_of_interest = ['activity_id', 'source_id', 'experiment_id', 'member_id']
+    unique_combinations = df[columns_of_interest].drop_duplicates()
+    simulations_df = unique_combinations.reset_index(drop=True)
 
-warming_trajectories = read_csv_file(
-        GWL_1850_1900_TIMEIDX_FILE, index_col="time", parse_dates=True
-    )
+    warming_trajectories = read_csv_file(
+            GWL_1850_1900_TIMEIDX_FILE, index_col="time", parse_dates=True
+        )
+    return warming_trajectories, simulations_df
 
-def filter_warming_trajectories(simulations_df, warming_trajectories, activity):
+def _filter_warming_trajectories(simulations_df, warming_trajectories, activity):
     columns_to_keep = []
     
     # Filter simulations_df for the specific activity
@@ -249,17 +240,13 @@ def filter_warming_trajectories(simulations_df, warming_trajectories, activity):
     
     return filtered_trajectories
 
-# Filter for LOCA2 simulations
-loca2_warming_trajectories = filter_warming_trajectories(simulations_df, warming_trajectories, "LOCA2")
-
-# Filter for WRF simulations
-wrf_warming_trajectories = filter_warming_trajectories(simulations_df, warming_trajectories, "WRF")
-
-
 
 ###helpers###
 
 def plot_trajectories(ax, df, linestyle, scenario =None):
+
+
+
 
     if scenario:
         cols_to_plot = [col for col in df.columns if scenario in col]
@@ -284,6 +271,16 @@ def plot_warming_level_period(ax,df,sim,wl):
 ###figures###
 
 def gwl_fig1():
+
+
+    warming_trajectories, simulations_df = _load_warming_trajectories()
+
+    loca2_warming_trajectories = _filter_warming_trajectories(simulations_df, warming_trajectories, "LOCA2")
+
+    # Set the style for the plots
+    plt.style.use('seaborn-v0_8-whitegrid')
+    # Define colors and scenarios
+
 
     fig = plt.figure(figsize=(15, 8))
     gs = gridspec.GridSpec(
@@ -336,14 +333,22 @@ def gwl_fig1():
     plot_warming_level_period(ax4,loca2_warming_trajectories,'EC-Earth3_r3i1p1f1_ssp585',2.0) 
     ax4.axhline(y=2, color='m', linestyle='--', alpha=0.7)  
 
-    
 
 
     #set title for figure
     fig.suptitle("LOCA2 and WRF Global Warming Trajectories", fontsize=16)
-
+    plt.savefig("./gwl_figure1.png", dpi=300)
 
 def gwl_fig2():
+
+    warming_trajectories, simulations_df = _load_warming_trajectories()
+    loca2_warming_trajectories = _filter_warming_trajectories(simulations_df, warming_trajectories, "LOCA2")
+
+    hist_data, ssp_data = _load_gwl_illustration_data()
+
+    # Set the style for the plots
+    plt.style.use('seaborn-v0_8-whitegrid')
+
     df = loca2_warming_trajectories
     selected_scenario = 'ssp370'
     plot_ipcc=True
@@ -414,8 +419,6 @@ def gwl_fig2():
     plt.axvline(x=np.datetime64("2047", 'Y'), color='m', linestyle='dotted')
     
     plt.tight_layout()
-    plt.show()
-
-
+    plt.savefig("./gwl_figure2.png", dpi=300)
 
 
