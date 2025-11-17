@@ -180,7 +180,9 @@ def fig2(arrs):
 
 
 
-### GWL illustration setup ###
+### GWL illustration figures -- run to re-generate static images ###
+
+# --- setup and helper functions ---
 
 colors = {'ssp119': "#00a9cf", 'ssp126': "#003466", 'ssp245': "#f69320", 'ssp370': "#df0000", 'ssp585': "#980002",
             'hist':'#222222'}
@@ -203,7 +205,6 @@ def _load_gwl_illustration_data():
     'ssp585': ssp585_data}
     return hist_data, ssp_data
 
-### data loading ###
 
 def _load_warming_trajectories():
     data_interface = DataInterface()
@@ -241,13 +242,7 @@ def _filter_warming_trajectories(simulations_df, warming_trajectories, activity)
     return filtered_trajectories
 
 
-###helpers###
-
 def plot_trajectories(ax, df, linestyle, scenario =None):
-
-
-
-
     if scenario:
         cols_to_plot = [col for col in df.columns if scenario in col]
     else:
@@ -268,11 +263,9 @@ def plot_warming_level_period(ax,df,sim,wl):
     subset = df.iloc[start_ts:end_ts]
     ax.plot(subset.index, subset[sim], color=colors[scenario], linestyle='-', alpha=1,linewidth=4)
 
-###figures###
+# --- figures ---
 
 def gwl_fig1():
-
-
     warming_trajectories, simulations_df = _load_warming_trajectories()
 
     loca2_warming_trajectories = _filter_warming_trajectories(simulations_df, warming_trajectories, "LOCA2")
@@ -305,7 +298,6 @@ def gwl_fig1():
     ]
     ax1.legend(handles=legend_elements, loc='upper left', fontsize=10)
 
-
     ax2.set_title("GWL planning")
     plot_trajectories(ax2,loca2_warming_trajectories,linestyle='-')
     ax2.axhline(y=2, color='m', linestyle='--', alpha=0.7)
@@ -316,7 +308,6 @@ def gwl_fig1():
     ]
     ax2.legend(handles=legend_elements, loc='upper left', fontsize=10)
 
-
     ax3.set_title("Example target-year climatologies")
     plot_trajectories(ax3,loca2_warming_trajectories[['MIROC6_r2i1p1f1_ssp370','ACCESS-CM2_r2i1p1f1_ssp370']], linestyle='-')
     subset = loca2_warming_trajectories.loc[np.datetime64("2035", 'Y'):np.datetime64("2065", 'Y')]
@@ -324,8 +315,6 @@ def gwl_fig1():
     ax3.plot(subset.index, subset['ACCESS-CM2_r2i1p1f1_ssp370'], color=colors['ssp370'], linestyle='-', alpha=1,linewidth=4)
 
     ax3.axvline(x=np.datetime64("2050", 'Y'), color='m', linestyle='--', alpha=0.7)
-
-
 
     ax4.set_title("Example GWL climatologies")
     plot_trajectories(ax4,loca2_warming_trajectories[['MIROC6_r2i1p1f1_ssp370','EC-Earth3_r3i1p1f1_ssp585']], linestyle='-')
@@ -340,7 +329,6 @@ def gwl_fig1():
     plt.savefig("./gwl_figure1.png", dpi=300)
 
 def gwl_fig2():
-
     warming_trajectories, simulations_df = _load_warming_trajectories()
     loca2_warming_trajectories = _filter_warming_trajectories(simulations_df, warming_trajectories, "LOCA2")
 
