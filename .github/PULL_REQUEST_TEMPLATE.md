@@ -1,6 +1,8 @@
 ## Summary of changes
+[What's changed in this PR?]
 
 ## Link to corresponding Jira ticket(s)
+[What Jira ticket(s) describe further context/detail for this PR?]
 
 ## Naming & Organization
 - [ ] Notebook name follows conventions:
