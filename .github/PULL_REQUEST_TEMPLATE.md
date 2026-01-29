@@ -14,21 +14,13 @@
 - [ ] All referenced guides/documentation updated:
   - [ ] README updated
   - [ ] Navigation Guide updated
-  - [ ] Other relevant documentation updated
 
 ## Content & Documentation
 - [ ] Introduction clearly explains the purpose of the analysis
-- [ ] Expected outcome/use of the notebook included
-  - [ ] User-focused question/example provided showing how to use the notebook
-- [ ] Key takeaway messages clearly stated (what users will learn)
-- [ ] Total runtime of the notebook listed
+- [ ] Intended application of the notebook listed
+  - User-focused question/example provided showing how a user may want to use the notebook
 - [ ] Incorporates references to appropriate Guidance materials
 - [ ] Error messages included for areas with common user errors
-
-## Markdown Quality
-- [ ] Markdown reviewed and vetted by another person
-- [ ] No typos in markdown cells
-- [ ] Markdown formatting correct and readable
 
 ## Runtime Information
 - [ ] Overall runtime on AE JupyterHub documented
@@ -36,12 +28,11 @@
 
 ## Output Management
 - [ ] Output from cells removed before committing. If outputs are kept:
-  - [ ] Exceptions documented (e.g., perhaps long-running functions that should show intended outcome for user)
-  - [ ] Security and other impacts of keeping outputs considered
-  - [ ] Alternative documentation methods explored (e.g., markdown descriptions)
+  - Exceptions documented (e.g., perhaps long-running functions that should show intended outcome for user)
+  - Security and other impacts of keeping outputs considered
+  - Alternative documentation methods explored (e.g., markdown descriptions)
 
 ## Code Quality
-- [ ] Notebook linted with:
+- [ ] Notebook cleaned up with:
   - [ ] black
   - [ ] isort
-  - [ ] ruff
