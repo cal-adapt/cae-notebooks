@@ -8,7 +8,7 @@
 - [ ] Notebook name follows conventions:
   - [ ] Avoids acronyms and jargon where possible
   - [ ] References primary use of the notebook
-  - [ ] Uses Action + Objective format (e.g., "Calculate_Heat_Index", "Calculate_Annual_Trends")
+  - [ ] Uses Action + Objective format (e.g., "calculate_heat_index", "calculate_annual_trends")
   - [ ] Prioritizes clarity over brevity (within reason)
 - [ ] Notebook placed in appropriate directory for maximum usability
 - [ ] All referenced guides/documentation updated:
