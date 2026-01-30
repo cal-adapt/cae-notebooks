@@ -27,10 +27,7 @@
 - [ ] Overall runtime on pcluster documented (if applicable)
 
 ## Output Management
-- [ ] Output from cells removed before committing. If outputs are kept:
-  - Exceptions documented (e.g., perhaps long-running functions that should show intended outcome for user)
-  - Security and other impacts of keeping outputs considered
-  - Alternative documentation methods explored (e.g., markdown descriptions)
+- [ ] Output from cells removed before committing
 
 ## Code Quality
 - [ ] Notebook cleaned up with:
