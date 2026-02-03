@@ -231,18 +231,18 @@ def geostrophic_wind_single_point(
     geo_v_earth.name = "v"
     geo_v_earth.attrs["long_name"] = "Geostrophic Wind V Component"
 
-    # Copy over lat/lon coords which have been lost
+    '''# Copy over lat/lon coords which have been lost
     geo_u_earth = geo_u_earth.assign_coords(
         {
-            "lat": (("y", "x"), center["lat"].copy().data),
-            "lon": (("y", "x"), center["lon"].copy().data),
+            "lat": (("y", "x"), center["lat"].data),
+            "lon": (("y", "x"), center["lon"].data),
         }
     )
     geo_v_earth = geo_v_earth.assign_coords(
         {
-            "lat": (("y", "x"), center["lat"].copy().data),
-            "lon": (("y", "x"), center["lon"].copy().data),
+            "lat": (("y", "x"), center["lat"].data),
+            "lon": (("y", "x"), center["lon"].data),
         }
-    )
+    )'''
 
     return geo_u_earth, geo_v_earth
