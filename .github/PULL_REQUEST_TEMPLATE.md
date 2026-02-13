@@ -1,20 +1,34 @@
-## Summary of changes and related issue
+## Summary of changes
 [What's changed in this PR?]
 
-## Relevant motivation and context
-[Why did you change this and what applicable context is needed to understand why this change is needed?]
+## Link to corresponding Jira ticket(s)
+[What Jira ticket(s) describe further context/detail for this PR?]
 
-## Type of Change
+## Naming & Organization
+- [ ] Notebook name follows conventions:
+  - [ ] Avoids acronyms and jargon where possible
+  - [ ] References primary use of the notebook
+  - [ ] Uses Action + Objective format (e.g., "calculate_heat_index", "calculate_annual_trends")
+  - [ ] Prioritizes clarity over brevity (within reason)
+- [ ] Notebook placed in appropriate directory for maximum usability
+- [ ] All referenced guides/documentation updated:
+  - [ ] README updated
+  - [ ] Navigation Guide updated
 
-- [ ] Bug fix
-- [ ] New feature or notebook
-- [ ] Breaking change
-- [ ] Documentation update
-- [ ] None of the above
+## Content & Documentation
+- [ ] Introduction clearly explains the purpose of the analysis
+- [ ] Intended application of the notebook listed
+  - User-focused question/example provided showing how a user may want to use the notebook
+- [ ] Incorporates references to appropriate Guidance materials
+- [ ] Error messages included for areas with common user errors
 
-## Checklist
-- [ ] The introduction of the notebook explains the purpose and expected outcome / use of the notebook
-- [ ] Incorporates reference to any appropriate Guidance material
-- [ ] Notebook raises appropriate error messages for common user errors
-- [ ] List notebook overall runtime text
-- [ ] [AE navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb) updated (if relevant)
+## Runtime Information
+- [ ] Overall runtime on AE JupyterHub documented
+
+## Output Management
+- [ ] Output from cells removed before committing
+
+## Code Quality
+- [ ] Notebook cleaned up with:
+  - [ ] black
+  - [ ] isort
