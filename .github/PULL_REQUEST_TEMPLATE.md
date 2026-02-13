@@ -24,7 +24,6 @@
 
 ## Runtime Information
 - [ ] Overall runtime on AE JupyterHub documented
-- [ ] Overall runtime on pcluster documented (if applicable)
 
 ## Output Management
 - [ ] Output from cells removed before committing
