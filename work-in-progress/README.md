@@ -26,3 +26,7 @@ Notebooks that are actively in development-- proceed with caution! These noteboo
 [generalized_climate_signal_selector.ipynb](generalized_climate_signal_selector.ipynb): Tool to estimate the climate signal for a given variable for all WRF and LOCA2 simulations.
 
 *For example: Which simulations project a wetting precipitation signal and which project a drying signal?*
+
+[compute_santa_ana_wind_indicators.ipynb](compute_santa_ana_wind_indicators.ipynb): Tool to generate timeseries of sea level pressure and upper level wind and temperature indicators for Santa Ana winds.  
+
+*For example: How can I generate a timeseries of the upper air temperature gradient between the Southern California coast and Mojave Desert?*
