@@ -1,0 +1,96 @@
+name: Notebook Health Check
+
+on:
+  schedule:
+    - cron: '0 9 1 1,4,7,10 *'  # 9am UTC on Jan 1, Apr 1, Jul 1, Oct 1
+  push:
+    branches:
+      - refactor/notebook-testing
+  workflow_dispatch:
+    inputs:
+      group:
+        description: 'Notebook group to test'
+        required: true
+        type: choice
+        options:
+          - all
+          - data-access
+          - analysis
+          - climate-profiles
+          - collaborative
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/eagle-rock-analytics/cae-notebook:2026.02.18
+      options: --user root
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install papermill and climakitaegui
+        run: |
+          pip install papermill
+          pip install --no-deps git+https://github.com/cal-adapt/climakitaegui.git
+
+      - name: Run notebooks
+        shell: bash
+        run: |
+          group="${{ github.event.inputs.group }}"
+          event="${{ github.event_name }}"
+          if [ "$group" = "all" ] || [ "$event" = "schedule" ]; then
+            dirs="data-access analysis climate-profiles collaborative"
+          elif [ -z "$group" ]; then
+            dirs="data-access"
+          else
+            dirs="$group"
+          fi
+
+          failed=""
+          for dir in $dirs; do
+            while IFS= read -r notebook; do
+              echo "::group::$notebook"
+              start=$(date +%s)
+              if papermill "$notebook" /dev/null --no-progress-bar; then
+                elapsed=$(( $(date +%s) - start ))
+                echo "PASSED: $notebook (${elapsed}s)"
+              else
+                elapsed=$(( $(date +%s) - start ))
+                echo "FAILED: $notebook (${elapsed}s)"
+                failed="$failed\n$notebook"
+              fi
+              echo "::endgroup::"
+            done < <(find "$dir" -name "*.ipynb" | sort)
+          done
+
+          if [ -n "$failed" ]; then
+            echo -e "\nFailed notebooks:\n$failed"
+            exit 1
+          fi
+          echo "All notebooks passed!"
+
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install requests
+      - name: Check links
+        run: python .github/scripts/check_links.py
+
+      - name: Open issue on failure
+        if: failure() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Broken links detected in notebooks',
+              body: `The link check found broken links. See the workflow run for details:\n\n${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['documentation']
+            })
