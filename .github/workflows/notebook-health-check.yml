@@ -1,4 +1,4 @@
-name: Manual Notebook Smoke Test
+name: Notebook Health Check
 
 on:
   schedule:
