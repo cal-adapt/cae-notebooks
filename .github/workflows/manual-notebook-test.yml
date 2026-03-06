@@ -31,6 +31,7 @@ jobs:
         run: pip install papermill
 
       - name: Run notebooks
+        shell: bash
         run: |
           group="${{ github.event.inputs.group }}"
           if [ "$group" = "all" ]; then
