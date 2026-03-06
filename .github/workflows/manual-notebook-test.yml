@@ -1,6 +1,9 @@
 name: Manual Notebook Smoke Test
 
 on:
+  push:
+    branches:
+      - refactor/notebook-testing
   workflow_dispatch:
     inputs:
       group:
@@ -27,10 +30,13 @@ jobs:
 
       - name: Run notebooks
         run: |
-          if [ "${{ github.event.inputs.group }}" = "all" ]; then
+          group="${{ github.event.inputs.group }}"
+          if [ "$group" = "all" ]; then
             dirs="data-access analysis climate-profiles collaborative"
+          elif [ -z "$group" ]; then
+            dirs="data-access"
           else
-            dirs="${{ github.event.inputs.group }}"
+            dirs="$group"
           fi
 
           failed=""
