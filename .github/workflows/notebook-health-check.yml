@@ -23,7 +23,7 @@ jobs:
   run-notebooks:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/eagle-rock-analytics/cae-notebook:2026.03.03
+      image: ghcr.io/eagle-rock-analytics/cae-notebook:2026.02.18
       options: --user root
     timeout-minutes: 360
     steps:
@@ -81,7 +81,7 @@ jobs:
         run: python .github/scripts/check_links.py
 
       - name: Open issue on failure
-        if: failure()
+        if: failure() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
         uses: actions/github-script@v7
         with:
           script: |
