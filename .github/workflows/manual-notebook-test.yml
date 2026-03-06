@@ -20,7 +20,9 @@ on:
 jobs:
   run-notebooks:
     runs-on: ubuntu-latest
-    container: ghcr.io/eagle-rock-analytics/cae-notebook:2026.03.03
+    container:
+      image: ghcr.io/eagle-rock-analytics/cae-notebook:2026.03.03
+      options: --user root
     timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
