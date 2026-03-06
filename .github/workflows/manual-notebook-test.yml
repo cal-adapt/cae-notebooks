@@ -1,0 +1,54 @@
+name: Manual Notebook Smoke Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      group:
+        description: 'Notebook group to test'
+        required: true
+        type: choice
+        options:
+          - all
+          - data-access
+          - analysis
+          - climate-profiles
+          - collaborative
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+    container: ghcr.io/eagle-rock-analytics/cae-notebook:2026.03.03
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install papermill
+        run: pip install papermill
+
+      - name: Run notebooks
+        run: |
+          if [ "${{ github.event.inputs.group }}" = "all" ]; then
+            dirs="data-access analysis climate-profiles collaborative"
+          else
+            dirs="${{ github.event.inputs.group }}"
+          fi
+
+          failed=""
+          for dir in $dirs; do
+            while IFS= read -r notebook; do
+              echo "::group::$notebook"
+              if papermill "$notebook" /dev/null --no-progress-bar; then
+                echo "PASSED: $notebook"
+              else
+                echo "FAILED: $notebook"
+                failed="$failed\n$notebook"
+              fi
+              echo "::endgroup::"
+            done < <(find "$dir" -name "*.ipynb" | sort)
+          done
+
+          if [ -n "$failed" ]; then
+            echo -e "\nFailed notebooks:\n$failed"
+            exit 1
+          fi
+          echo "All notebooks passed!"
