@@ -29,8 +29,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install papermill
-        run: pip install papermill
+      - name: Install papermill and climakitaegui
+        run: |
+          pip install papermill
+          pip install --no-deps git+https://github.com/cal-adapt/climakitaegui.git
 
       - name: Run notebooks
         shell: bash
