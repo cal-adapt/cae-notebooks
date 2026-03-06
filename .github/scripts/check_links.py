@@ -33,12 +33,14 @@ def extract_urls(notebook_path):
 
 
 def check_url(url):
-    try:
-        resp = requests.head(url, timeout=10, allow_redirects=True, headers=HEADERS)
-        ok = resp.status_code in OK_STATUSES
-        return url, resp.status_code, ok
-    except requests.RequestException as e:
-        return url, str(e), False
+    for attempt in range(2):
+        try:
+            resp = requests.head(url, timeout=60, allow_redirects=True, headers=HEADERS)
+            ok = resp.status_code in OK_STATUSES
+            return url, resp.status_code, ok
+        except requests.RequestException as e:
+            last_error = e
+    return url, str(last_error), False
 
 
 def main():
