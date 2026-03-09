@@ -60,7 +60,8 @@ jobs:
             while IFS= read -r notebook; do
               echo "::group::$notebook"
               start=$(date +%s)
-              if papermill "$notebook" /dev/null --no-progress-bar --skip-cells-with-tag skip; then
+              python3 .github/scripts/strip_skip_cells.py "$notebook" /tmp/processed.ipynb
+              if papermill /tmp/processed.ipynb /dev/null --no-progress-bar; then
                 elapsed=$(( $(date +%s) - start ))
                 echo "PASSED: $notebook (${elapsed}s)"
               else
