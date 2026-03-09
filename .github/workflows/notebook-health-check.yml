@@ -29,10 +29,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Log env before installs
+        run: pip list
+
       - name: Install papermill and climakitaegui
         run: |
           pip install papermill
           pip install --no-deps git+https://github.com/cal-adapt/climakitaegui.git
+
+      - name: Log env after installs
+        run: pip list
 
       - name: Run notebooks
         shell: bash
