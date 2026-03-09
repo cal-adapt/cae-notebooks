@@ -32,9 +32,10 @@ jobs:
       - name: Log env before installs
         run: pip list
 
-      - name: Install papermill and climakitaegui
+      - name: Install papermill, climakitae, and climakitaegui
         run: |
           pip install papermill
+          pip install git+https://github.com/cal-adapt/climakitae.git
           pip install --no-deps git+https://github.com/cal-adapt/climakitaegui.git
 
       - name: Log env after installs
