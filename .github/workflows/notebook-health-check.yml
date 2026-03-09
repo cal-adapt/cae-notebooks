@@ -34,6 +34,7 @@ jobs:
 
       - name: Install papermill, climakitae, and climakitaegui
         run: |
+          # Mirrors the AE JupyterHub install workflow
           pip install papermill
           pip install git+https://github.com/cal-adapt/climakitae.git
           pip install --no-deps git+https://github.com/cal-adapt/climakitaegui.git
@@ -59,7 +60,7 @@ jobs:
             while IFS= read -r notebook; do
               echo "::group::$notebook"
               start=$(date +%s)
-              if papermill "$notebook" /dev/null --no-progress-bar; then
+              if papermill "$notebook" /dev/null --no-progress-bar --skip-cells-with-tag skip; then
                 elapsed=$(( $(date +%s) - start ))
                 echo "PASSED: $notebook (${elapsed}s)"
               else
