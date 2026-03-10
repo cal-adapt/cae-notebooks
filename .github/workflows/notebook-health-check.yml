@@ -50,7 +50,7 @@ jobs:
           if [ "$group" = "all" ] || [ "$event" = "schedule" ]; then
             dirs="data-access analysis climate-profiles collaborative"
           elif [ -z "$group" ]; then
-            dirs="data-access"
+            dirs="data-access analysis climate-profiles collaborative"
           else
             dirs="$group"
           fi
