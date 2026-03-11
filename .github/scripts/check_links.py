@@ -36,11 +36,9 @@ def check_url(url):
     for attempt in range(2):
         try:
             resp = requests.head(url, timeout=60, allow_redirects=True, headers=HEADERS)
-            if resp.status_code in (404, 405):
-                # Some servers (e.g. PDFs, government sites) reject HEAD requests
-                # with 404 or 405; fall back to GET which will also follow redirects.
-                # For example, when NREL renamed to NRL, old links to the NREL website
-                # redirect to NRL and are still valid.
+            if resp.status_code == 405:
+                # Some servers reject HEAD requests with 405 (Method Not Allowed);
+                # fall back to GET which will also follow redirects.
                 resp = requests.get(url, timeout=60, allow_redirects=True, headers=HEADERS)
             ok = resp.status_code in OK_STATUSES
             return url, resp.status_code, ok
