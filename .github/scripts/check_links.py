@@ -28,7 +28,11 @@ def extract_urls(notebook_path):
         if cell["cell_type"] == "markdown":
             source = "".join(cell["source"])
             for url in URL_RE.findall(source):
-                urls.add(url.rstrip(".,;:)"))
+                url = url.rstrip(".,;:)")
+                # PDF servers often return 404/405 for HEAD and GET requests
+                # even when the file exists, causing false positives
+                if not url.lower().endswith(".pdf"):
+                    urls.add(url)
     return urls
 
 
