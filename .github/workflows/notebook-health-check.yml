@@ -49,18 +49,20 @@ jobs:
             dirs="$group"
           fi
 
+          LOG=/tmp/notebook-results.log
           failed=""
           for dir in $dirs; do
             while IFS= read -r notebook; do
               echo "::group::$notebook"
+              echo "RUNNING: $notebook" | tee -a "$LOG"
               start=$(date +%s)
               python3 .github/scripts/strip_skip_cells.py "$notebook" /tmp/processed.ipynb
               if papermill /tmp/processed.ipynb /dev/null --cwd "$(dirname "$notebook")" --no-progress-bar; then
                 elapsed=$(( $(date +%s) - start ))
-                echo "PASSED: $notebook (${elapsed}s)"
+                echo "PASSED: $notebook (${elapsed}s)" | tee -a "$LOG"
               else
                 elapsed=$(( $(date +%s) - start ))
-                echo "FAILED: $notebook (${elapsed}s)"
+                echo "FAILED: $notebook (${elapsed}s)" | tee -a "$LOG"
                 failed="$failed\n$notebook"
               fi
               echo "::endgroup::"
@@ -68,10 +70,17 @@ jobs:
           done
 
           if [ -n "$failed" ]; then
-            echo -e "\nFailed notebooks:\n$failed"
+            echo -e "\nFailed notebooks:\n$failed" | tee -a "$LOG"
             exit 1
           fi
-          echo "All notebooks passed!"
+          echo "All notebooks passed!" | tee -a "$LOG"
+
+      - name: Upload results log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-results
+          path: /tmp/notebook-results.log
 
   check-links:
     runs-on: ubuntu-latest
