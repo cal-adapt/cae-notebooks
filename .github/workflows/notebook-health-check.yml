@@ -54,7 +54,7 @@ jobs:
           for dir in $dirs; do
             while IFS= read -r notebook; do
               echo "::group::$notebook"
-              echo "RUNNING: $notebook" | tee -a "$LOG"
+              echo "RUNNING: $notebook (free mem: $(free -h | awk '/^Mem:/{print $4}'))" | tee -a "$LOG"
               start=$(date +%s)
               python3 .github/scripts/strip_skip_cells.py "$notebook" /tmp/processed.ipynb
               if papermill /tmp/processed.ipynb /dev/null --cwd "$(dirname "$notebook")" --no-progress-bar; then
