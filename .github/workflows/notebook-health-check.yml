@@ -20,7 +20,26 @@ on:
           - collaborative
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      groups: ${{ steps.set-matrix.outputs.groups }}
+    steps:
+      - id: set-matrix
+        run: |
+          group="${{ github.event.inputs.group }}"
+          if [ -z "$group" ] || [ "$group" = "all" ]; then
+            echo 'groups=["data-access","analysis","climate-profiles","collaborative"]' >> $GITHUB_OUTPUT
+          else
+            echo "groups=[\"$group\"]" >> $GITHUB_OUTPUT
+          fi
+
   run-notebooks:
+    needs: setup
+    strategy:
+      matrix:
+        group: ${{ fromJson(needs.setup.outputs.groups) }}
+      fail-fast: false
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/eagle-rock-analytics/cae-notebook:2026.02.18
@@ -39,35 +58,23 @@ jobs:
       - name: Run notebooks
         shell: bash
         run: |
-          group="${{ github.event.inputs.group }}"
-          event="${{ github.event_name }}"
-          if [ "$group" = "all" ] || [ "$event" = "schedule" ]; then
-            dirs="data-access analysis climate-profiles collaborative"
-          elif [ -z "$group" ]; then
-            dirs="data-access analysis climate-profiles collaborative"
-          else
-            dirs="$group"
-          fi
-
           LOG=/tmp/notebook-results.log
           failed=""
-          for dir in $dirs; do
-            while IFS= read -r notebook; do
-              echo "::group::$notebook"
-              echo "RUNNING: $notebook (free mem: $(free -h | awk '/^Mem:/{print $4}'))" | tee -a "$LOG"
-              start=$(date +%s)
-              python3 .github/scripts/strip_skip_cells.py "$notebook" /tmp/processed.ipynb
-              if papermill /tmp/processed.ipynb /dev/null --cwd "$(dirname "$notebook")" --no-progress-bar; then
-                elapsed=$(( $(date +%s) - start ))
-                echo "PASSED: $notebook (${elapsed}s)" | tee -a "$LOG"
-              else
-                elapsed=$(( $(date +%s) - start ))
-                echo "FAILED: $notebook (${elapsed}s)" | tee -a "$LOG"
-                failed="$failed\n$notebook"
-              fi
-              echo "::endgroup::"
-            done < <(find "$dir" -name "*.ipynb" | sort)
-          done
+          while IFS= read -r notebook; do
+            echo "::group::$notebook"
+            echo "RUNNING: $notebook (free mem: $(free -h | awk '/^Mem:/{print $4}'))" | tee -a "$LOG"
+            start=$(date +%s)
+            python3 .github/scripts/strip_skip_cells.py "$notebook" /tmp/processed.ipynb
+            if papermill /tmp/processed.ipynb /dev/null --cwd "$(dirname "$notebook")" --no-progress-bar; then
+              elapsed=$(( $(date +%s) - start ))
+              echo "PASSED: $notebook (${elapsed}s)" | tee -a "$LOG"
+            else
+              elapsed=$(( $(date +%s) - start ))
+              echo "FAILED: $notebook (${elapsed}s)" | tee -a "$LOG"
+              failed="$failed\n$notebook"
+            fi
+            echo "::endgroup::"
+          done < <(find "${{ matrix.group }}" -name "*.ipynb" | sort)
 
           if [ -n "$failed" ]; then
             echo -e "\nFailed notebooks:\n$failed" | tee -a "$LOG"
@@ -79,7 +86,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: notebook-results
+          name: notebook-results-${{ matrix.group }}
           path: /tmp/notebook-results.log
 
   check-links:
