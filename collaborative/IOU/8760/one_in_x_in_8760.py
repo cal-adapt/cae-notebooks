@@ -336,7 +336,7 @@ def retrieve_data(locs, latlons, files, label, hour_offset, warming_level):
             wrf_bias_adjust=False,
             metric_calc="max",
             one_in_x=[10, 100],
-            event_duration=(1, "day"),
+            duration=(1, "day"),
             export_method="raw",
             file_format="NetCDF",
         )
