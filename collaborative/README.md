@@ -5,7 +5,7 @@ This folder contains notebooks we have developed with industry partners, with br
 
 ## Demand Forecast Unit (DFU)
 
-[degree_days.ipynb](DFU/degree_days.ipynb): Perform calculations and explore visualizations of generated weather and climate information for an annual consumption model by producing heating and cooling degree days.  
+[calculate_degree_days.ipynb](DFU/calculate_degree_days.ipynb): Perform calculations and explore visualizations of generated weather and climate information for an annual consumption model by producing heating and cooling degree days.  
 
 *For example: How will the number of heating degree days above 70°F in Sacramento change by mid-century?*
 
