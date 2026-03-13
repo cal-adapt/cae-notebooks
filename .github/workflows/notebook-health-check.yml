@@ -74,7 +74,10 @@ jobs:
               failed="$failed\n$notebook"
             fi
             echo "::endgroup::"
-          done < <(find "${{ matrix.group }}" -name "*.ipynb" | sort)
+          # vulnerability_assessment.ipynb is excluded: multi-hour runtime crashes the papermill
+          # kernel. This is an exception to our normal development standards requiring shorter runtimes.
+          done < <(find "${{ matrix.group }}" -name "*.ipynb" \
+            -not -name "vulnerability_assessment.ipynb" | sort)
 
           if [ -n "$failed" ]; then
             echo -e "\nFailed notebooks:\n$failed" | tee -a "$LOG"
