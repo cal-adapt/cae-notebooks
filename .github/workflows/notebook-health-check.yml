@@ -3,10 +3,7 @@ name: Notebook Health Check
 on:
   schedule:
     - cron: '0 9 1 1,4,7,10 *'  # 9am UTC on Jan 1, Apr 1, Jul 1, Oct 1
-  push:
-    branches:
-      - refactor/notebook-testing
-  workflow_dispatch:
+workflow_dispatch:
     inputs:
       group:
         description: 'Notebook group to test'
