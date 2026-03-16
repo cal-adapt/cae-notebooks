@@ -4,6 +4,7 @@
 import json
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -27,15 +28,15 @@ def extract_urls(notebook_path):
             source = "".join(cell["source"])
             for url in URL_RE.findall(source):
                 url = url.rstrip(".,;:)")
-                # # PDF servers often return 404/405 for HEAD and GET requests
-                # # even when the file exists, causing false positives
-                # if not url.lower().endswith(".pdf"):
-                #     urls.add(url)
+                urls.add(url)
     return urls
 
 
 def check_url(url):
+    errors = []
     for attempt in range(2):
+        if attempt > 0:
+            time.sleep(2)
         try:
             resp = requests.head(url, timeout=60, allow_redirects=True, headers=HEADERS)
             if resp.status_code == 405:
@@ -45,8 +46,8 @@ def check_url(url):
             ok = resp.status_code in OK_STATUSES
             return url, resp.status_code, ok
         except requests.RequestException as e:
-            last_error = e
-    return url, str(last_error), False
+            errors.append(str(e))
+    return url, "; ".join(errors), False
 
 
 def main():
