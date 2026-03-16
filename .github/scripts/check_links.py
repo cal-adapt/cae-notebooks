@@ -38,6 +38,8 @@ def extract_urls(notebook_path):
 
 
 def check_url(url):
+    if url in URL_EXCEPTIONS:
+        return url, "exception", True
     errors = []
     for attempt in range(2):
         if attempt > 0:
