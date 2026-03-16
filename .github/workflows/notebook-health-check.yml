@@ -23,12 +23,13 @@ jobs:
       groups: ${{ steps.set-matrix.outputs.groups }}
     steps:
       - id: set-matrix
+        env:
+          GROUP: ${{ github.event.inputs.group }}
         run: |
-          group="${{ github.event.inputs.group }}"
-          if [ -z "$group" ] || [ "$group" = "all" ]; then
+          if [ -z "$GROUP" ] || [ "$GROUP" = "all" ]; then
             echo 'groups=["data-access","analysis","climate-profiles","collaborative"]' >> $GITHUB_OUTPUT
           else
-            echo "groups=[\"$group\"]" >> $GITHUB_OUTPUT
+            echo "groups=[\"$GROUP\"]" >> $GITHUB_OUTPUT
           fi
 
   run-notebooks:
