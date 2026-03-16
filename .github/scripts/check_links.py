@@ -9,8 +9,6 @@ from pathlib import Path
 
 import requests
 
-DIRS = ["data-access", "analysis", "climate-profiles", "collaborative"]
-
 # Strip trailing punctuation that gets caught in URL regex
 URL_RE = re.compile(r"https?://[^\s\)\]\"\'<>]+")
 
@@ -54,7 +52,7 @@ def check_url(url):
 def main():
     broken = {}
 
-    for nb_path in sorted(nb for d in DIRS for nb in Path(d).rglob("*.ipynb")):
+    for nb_path in sorted(Path(".").rglob("*.ipynb")):
         urls = extract_urls(nb_path)
         if not urls:
             continue
