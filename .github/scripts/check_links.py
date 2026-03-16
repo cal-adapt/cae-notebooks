@@ -27,10 +27,10 @@ def extract_urls(notebook_path):
             source = "".join(cell["source"])
             for url in URL_RE.findall(source):
                 url = url.rstrip(".,;:)")
-                # PDF servers often return 404/405 for HEAD and GET requests
-                # even when the file exists, causing false positives
-                if not url.lower().endswith(".pdf"):
-                    urls.add(url)
+                # # PDF servers often return 404/405 for HEAD and GET requests
+                # # even when the file exists, causing false positives
+                # if not url.lower().endswith(".pdf"):
+                #     urls.add(url)
     return urls
 
 
