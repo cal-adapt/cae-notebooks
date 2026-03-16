@@ -18,6 +18,11 @@ OK_STATUSES = {200, 201, 203, 204, 206, 301, 302, 303, 307, 308, 403, 429}
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
+# URLs that are known-good but return non-OK status codes for programmatic requests
+URL_EXCEPTIONS = {
+    "https://docs.nlr.gov/docs/fy08osti/43156.pdf",
+}
+
 
 def extract_urls(notebook_path):
     with open(notebook_path) as f:
@@ -39,7 +44,7 @@ def check_url(url):
             time.sleep(2)
         try:
             resp = requests.head(url, timeout=60, allow_redirects=True, headers=HEADERS)
-            if resp.status_code == 405:
+            if resp.status_code in (404, 405):
                 # Some servers reject HEAD requests with 405 (Method Not Allowed);
                 # fall back to GET which will also follow redirects.
                 resp = requests.get(url, timeout=60, allow_redirects=True, headers=HEADERS)

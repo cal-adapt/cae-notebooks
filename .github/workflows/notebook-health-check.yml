@@ -92,7 +92,7 @@ jobs:
 
   report:
     needs: run-notebooks
-    if: always() && github.event_name == 'schedule'
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -101,6 +101,7 @@ jobs:
           path: /tmp/results
 
       - name: Open issue if notebooks failed
+        if: github.event_name == 'schedule'
         uses: actions/github-script@v7
         with:
           script: |
@@ -131,6 +132,7 @@ jobs:
             });
 
   check-links:
+    if: github.event_name == 'schedule' || github.event.inputs.group == 'all' || github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
