@@ -1,7 +1,6 @@
 name: Notebook Health Check
 
 on:
-  push:
   schedule:
     - cron: '0 9 1 1,4,7,10 *'  # 9am UTC on Jan 1, Apr 1, Jul 1, Oct 1
   workflow_dispatch:
@@ -131,7 +130,7 @@ jobs:
             });
 
   check-links:
-    if: github.event_name == 'schedule' || github.event.inputs.group == 'all' || github.event_name == 'push'
+    if: github.event_name == 'schedule' || github.event.inputs.group == 'all'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
