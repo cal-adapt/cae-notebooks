@@ -20,8 +20,6 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 # ── Carried over from wg10_helpers.py ────────────────────────────────────────
-
-
 def pull_wrf(
     cd,
     variable,
