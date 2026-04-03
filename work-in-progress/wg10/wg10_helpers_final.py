@@ -660,9 +660,12 @@ def plot_smud_solano_grid_map(
         return da.x.values, da.y.values
 
     smud_geom = smud_boundary.union_all()
+    solano_geom = solano_gdf.union_all()
+
     lon2d, lat2d = _lonlat(smud_grid)
     ny, nx = lon2d.shape
     lon2d_solano, lat2d_solano = _lonlat(solano_grid)
+    ny_s, nx_s = lon2d_solano.shape
 
     flat_lon = lon2d.ravel().astype(float)
     flat_lat = lat2d.ravel().astype(float)
@@ -670,6 +673,13 @@ def plot_smud_solano_grid_map(
     smud_mask_flat = np.zeros(len(flat_lon), dtype=bool)
     smud_mask_flat[valid] = intersects_xy(smud_geom, flat_lon[valid], flat_lat[valid])
     smud_mask = smud_mask_flat.reshape(ny, nx)
+
+    flat_lon_s = lon2d_solano.ravel().astype(float)
+    flat_lat_s = lat2d_solano.ravel().astype(float)
+    valid_s = ~np.isnan(flat_lon_s)
+    solano_mask_flat = np.zeros(len(flat_lon_s), dtype=bool)
+    solano_mask_flat[valid_s] = intersects_xy(solano_geom, flat_lon_s[valid_s], flat_lat_s[valid_s])
+    solano_mask_2d = solano_mask_flat.reshape(ny_s, nx_s)
 
     smud_b = smud_boundary.total_bounds  # (minx, miny, maxx, maxy)
     pad = 0.25
@@ -703,10 +713,11 @@ def plot_smud_solano_grid_map(
         alpha=0.35,
         **pc_kw,
     )
+    solano_fill = np.where(solano_mask_2d, 1.0, np.nan)
     ax.pcolormesh(
         lon2d_solano,
         lat2d_solano,
-        solano_grid.values,
+        solano_fill,
         cmap=mcolors.ListedColormap(["#FF8C00"]),
         vmin=0.5,
         vmax=1.5,
