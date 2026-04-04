@@ -678,7 +678,9 @@ def plot_smud_solano_grid_map(
     flat_lat_s = lat2d_solano.ravel().astype(float)
     valid_s = ~np.isnan(flat_lon_s)
     solano_mask_flat = np.zeros(len(flat_lon_s), dtype=bool)
-    solano_mask_flat[valid_s] = intersects_xy(solano_geom, flat_lon_s[valid_s], flat_lat_s[valid_s])
+    solano_mask_flat[valid_s] = intersects_xy(
+        solano_geom, flat_lon_s[valid_s], flat_lat_s[valid_s]
+    )
     solano_mask_2d = solano_mask_flat.reshape(ny_s, nx_s)
 
     smud_b = smud_boundary.total_bounds  # (minx, miny, maxx, maxy)
@@ -922,13 +924,27 @@ def plot_cdd_8760(da_hourly, base_temp_f, gwl, gwl_colors, out_path):
 
     fig, ax = plt.subplots(figsize=(14, 4))
     ax.plot(hours, temps, color="gray", linewidth=0.5, alpha=0.8)
-    ax.fill_between(hours, base_temp_f, temps, where=(temps > base_temp_f),
-                    color=color, alpha=0.4, interpolate=True)
+    ax.fill_between(
+        hours,
+        base_temp_f,
+        temps,
+        where=(temps > base_temp_f),
+        color=color,
+        alpha=0.4,
+        interpolate=True,
+    )
     ax.axhline(base_temp_f, color="black", linestyle="--", linewidth=0.8)
 
-    ax.text(0.02, 0.95, f"Total CDD: {total_cdd:,.0f}",
-            transform=ax.transAxes, ha="left", va="top",
-            fontsize=10, bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.7))
+    ax.text(
+        0.02,
+        0.95,
+        f"Total CDD: {total_cdd:,.0f}",
+        transform=ax.transAxes,
+        ha="left",
+        va="top",
+        fontsize=10,
+        bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.7),
+    )
 
     ax.set_xlabel("Hour of year")
     ax.set_ylabel("Temperature (°F)")
