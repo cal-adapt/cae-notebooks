@@ -891,3 +891,56 @@ def plot_example_heatwave_day(
     plt.savefig(out_path, dpi=200, bbox_inches="tight")
     plt.show()
     print(f"Saved → {out_path}")
+
+
+def plot_cdd_8760(da_hourly, base_temp_f, gwl, gwl_colors, out_path):
+    """Plot cooling degree day (CDD) visualization for one GWL's 8760 hourly series.
+
+    Parameters
+    ----------
+    da_hourly : xr.DataArray
+        Dims (hour,) — 8760 hourly temperature values (°F) for a single GWL.
+    base_temp_f : float
+        CDD base temperature (typically 65°F). Fill is shown above this line.
+    gwl : float
+        Warming level value — used for title and color lookup.
+    gwl_colors : dict
+        ``{gwl_value: color_str}``.
+    out_path : str
+        Output PNG path.
+    """
+    hours = da_hourly.hour.values
+    temps = da_hourly.values
+
+    # Daily mean → CDD
+    n_days = len(temps) // 24
+    daily_mean = temps[: n_days * 24].reshape(n_days, 24).mean(axis=1)
+    total_cdd = float(np.maximum(daily_mean - base_temp_f, 0).sum())
+
+    color = gwl_colors.get(float(gwl), "steelblue")
+    target_year = da_hourly.attrs.get("target_year", "")
+
+    fig, ax = plt.subplots(figsize=(14, 4))
+    ax.plot(hours, temps, color="gray", linewidth=0.5, alpha=0.8)
+    ax.fill_between(hours, base_temp_f, temps, where=(temps > base_temp_f),
+                    color=color, alpha=0.4, interpolate=True)
+    ax.axhline(base_temp_f, color="black", linestyle="--", linewidth=0.8)
+
+    ax.text(0.02, 0.95, f"Total CDD: {total_cdd:,.0f}",
+            transform=ax.transAxes, ha="left", va="top",
+            fontsize=10, bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.7))
+
+    ax.set_xlabel("Hour of year")
+    ax.set_ylabel("Temperature (°F)")
+    title = f"Cooling Degree Days — GWL {gwl}°C"
+    if target_year:
+        title += f"  ({target_year})"
+    ax.set_title(title)
+    ax.legend(fontsize=9)
+    ax.set_xlim(0, 8759)
+
+    plt.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    plt.savefig(out_path, dpi=200, bbox_inches="tight")
+    plt.show()
+    print(f"Saved → {out_path}")
