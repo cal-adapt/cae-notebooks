@@ -3,6 +3,10 @@ Analysis Notebooks
 
 These notebooks cover fundamental climate science topics, tools for analyzing extreme weather events of importance, and applications of global warming levels to your workflows.
 
+[climate_state_finder.ipynb](climate_state_finder.ipynb): Identify sustained climate states (periods where a variable is anomalously high or low relative to a baseline) across all WRF and LOCA2 simulations for a user-defined region and warming level.
+
+*For example: Which climate model simulations show a sustained period of anomalously wet conditions at 2°C of global warming?*
+
 [historical_climate_data_comparisons.ipynb](historical_climate_data_comparisons.ipynb): Learn how to compare datasets across the historical period, using observations, reanalysis, and model output.  
 
 *For example: How do I compare historical precipitation between a weather station and climate model?*
@@ -38,7 +42,3 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 [warming_level_timing_tools.ipynb](analysis/warming_level_timing_tools.ipynb): Demonstrates tools for etimating the timing of Global Warming Levels, and translating between time-based and GWL planning targets.
 
 *For example: What global warming level is equivalent to planning for impacts in the year 2050?*
-
-[climate_state_finder.ipynb](climate_state_finder.ipynb): Identify sustained climate states (periods where a variable is anomalously high or low relative to a baseline) across all WRF and LOCA2 simulations for a user-defined region and warming level.
-
-*For example: Which climate model simulations show a sustained period of anomalously wet conditions at 2°C of global warming?*
