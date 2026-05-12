@@ -20,13 +20,11 @@ This folder will house notebooks that can be used to generate custom Climate Pro
 
 stdyr\_`VARIABLE`\_`PERCENTILE`\_`STATION_NAME`\_`GWL_PERIOD`\_`DELTA`\_`WINDOW`\_`APPROACH`\_`CENTERED_YEAR`\_`SCENARIO`\_`BA_MODELS`.`EXTENSION`
 
-Examples:
+**Examples:**
 
-  stdyr_t2_50ptile_san_diego_lindbergh_field_ksan_30yr_window_time_2020_ssp370.csv
-
-  stdyr_prec_75ptile_35-5N_122-5W_delta_from_historical_10yr_window_time_2016_ssp370_ba_models.csv
-
-  stdyr_rh_derived_50ptile_santa_barbara_municipal_airport_ksba_delta_from_historical_30yr_window_time_2015_ssp370.epw
+  - stdyr_t2_50ptile_san_diego_lindbergh_field_ksan_30yr_window_time_2020_ssp370.csv
+  - stdyr_prec_75ptile_35-5N_122-5W_delta_from_historical_10yr_window_time_2016_ssp370_ba_models.csv
+  - stdyr_rh_derived_50ptile_santa_barbara_municipal_airport_ksba_delta_from_historical_30yr_window_time_2015_ssp370.epw
 
 
 #### Filename Components
@@ -51,13 +49,11 @@ Examples:
 
 tmy\_`STATION_NAME`\_`ACTIVITY_ID`\_`SOURCE`_ID`\_`MEMBER`_ID`\_`GWL_PERIOD`.`EXTENSION`
 
-Examples:
+**Examples:**
 
-  tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.csv
-
-  tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.epw
-
-  tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.tmy
+  - tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.csv
+  - tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.epw
+  - tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.tmy
 
 #### Filename Components
 
