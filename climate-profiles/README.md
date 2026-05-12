@@ -20,6 +20,8 @@ This folder will house notebooks that can be used to generate custom Climate Pro
 
 stdyr\_[VARIABLE]\_[PERCENTILE]\_[STATION\_NAME]\_[GWL\_PERIOD]\_[DELTA]\_[WINDOW]\_[APPROACH]\_[CENTERED\_YEAR]\_[SCENARIO]\_[BA\_MODELS].[EXTENSION]
 
+stdyr\_`VARIABLE`\_`PERCENTILE`\_`STATION\_NAME`\_`GWL\_PERIOD`\_`DELTA`\_`WINDOW`\_`APPROACH`\_`CENTERED\_YEAR`\_`SCENARIO`\_`BA\_MODELS`.`EXTENSION`
+
 Examples:
   stdyr_t2_50ptile_san_diego_lindbergh_field_ksan_30yr_window_time_2020_ssp370.csv
   stdyr_prec_75ptile_35-5N_122-5W_delta_from_historical_10yr_window_time_2016_ssp370_ba_models.csv
@@ -37,50 +39,12 @@ Examples:
 | `DELTA` | Whether the difference from baseline (delta) was taken | `no_delta`<br>`delta_from_historical` |
 | `WINDOW` | Years around the year in which the input GWL is reached | e.g., `30yr` (corresponding to a 15yr window size) |
 | `APPROACH` | Climate profile approach used | `time`<br>`warming_level` |
-| `CENTERED_YEAR` | For `approach=time`, the year used to find a corresponding warming level | e.g., `2015` |
+| `CENTERED_YEAR` | For approach='Time', the year used to find a corresponding warming level | e.g., `2015` |
 | `SCENARIO` | SSP scenario | `ssp245` – SSP 2-4.5<br>`ssp370` – SSP 3-7.0<br>`ssp585` – SSP 5-8.5 |
-| `BA_MODELS` | Return only bias-adjusted models (default: `False`) | `ba_models` |
+| `BA_MODELS` | Return only bias-adjusted models (default: False) | `ba_models` |
 
-STATION_NAME:   Weather station identifier (e.g., palm_springs_regional_airport_kpsp)
 
-VARIABLE:       Climate variable measured
-                - t2 (Air temperature at 2m)
-                - rh_derived (Relative humidity)
-                - wind_speed_derived (Wind speed)
-                - swdnb (Solar radiation / Shortwave downward normal beam radiation)
-                - noaa_heat_index_derived (NOAA heat index)
 
-PERCENTILE:     Statistical percentile
-                - 05ptile (5th percentile)
-                - 50ptile (50th percentile/median)
-                - 95ptile (95th percentile)
-
-GWL_PERIOD:     Global warming level 30-year period
-                - present-day (1.2 degC GWL)
-                - near-future (1.5 degC GWL)
-                - mid-century (2.0 degC GWL)
-                - mid-late-century (2.5 degC GWL)
-
-DELTA:          Weather or not the difference from baseline (delta) was taken
-                - no_delta
-                - delta_from_historical
-
-WINDOW:          Years around the year in which the input Global Warming Level is reached. 
-                - ex: 30yr (corresponding to a 15yr window size)
-APPROACH:        The climate profile approach that was used.
-                - time
-                - warming_level
-
-CENTERED_YEAR:  For approach="Time", the year for which to find a corresponding warming level
-                - ex: 2015
-
-SCENARIO       SSP scenario from ["SSP 3-7.0", "SSP 2-4.5","SSP 5-8.5"]
-                - ssp245
-                - ssp370
-                - ssp585
-
-BA_MODELS     Option to return only bias-adjusted models. Default = False
-                - ba_models 
 
 ### Typical Meteorological Year
 
@@ -96,19 +60,11 @@ Examples:
 
 #### Components
 
-STATION_NAME:   Weather station identifier (e.g., palm_springs_regional_airport_kpsp)
-
-SOURCE_ID:      Climate model source (e.g., mpi-esm1-2-hr, miroc6, ec-earth3, taiesm1)
-
-GWL_PERIOD:     Global warming level 30-year period
-
-                - present-day (1.2 degC GWL)
-
-                - near-future (1.5 degC GWL)
-
-                - mid-century (2.0 degC GWL)
-
-                - mid-late-century (2.5 degC GWL)
+| Column | Description | Values |
+|--------|-------------|--------|
+| `STATION_NAME` | Weather station identifier | e.g., `palm_springs_regional_airport_kpsp` |
+| `SOURCE_ID` | Climate model source | e.g., `mpi-esm1-2-hr`, `miroc6`, `ec-earth3`, `taiesm1` |
+| `GWL_PERIOD` | Global warming level 30-year period | `present-day` – 1.2°C GWL<br>`near-future` – 1.5°C GWL<br>`mid-century` – 2.0°C GWL<br>`mid-late-century` – 2.5°C GWL |
 
 Additional metadata in filenames and intake catalog:
 
