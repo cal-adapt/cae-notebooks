@@ -27,6 +27,20 @@ Examples:
 
 
 #### Components
+
+| Component | Description | Options |
+|--------|-------------|--------|
+| `STATION_NAME` | Weather station identifier | e.g., `palm_springs_regional_airport_kpsp` |
+| `VARIABLE` | Climate variable measured | `t2` – Air temperature at 2m<br>`rh_derived` – Relative humidity<br>`wind_speed_derived` – Wind speed<br>`swdnb` – Solar radiation / Shortwave downward normal beam radiation<br>`noaa_heat_index_derived` – NOAA heat index |
+| `PERCENTILE` | Statistical percentile | `05ptile` – 5th percentile<br>`50ptile` – 50th percentile / median<br>`95ptile` – 95th percentile |
+| `GWL_PERIOD` | Global warming level 30-year period | `present-day` – 1.2°C GWL<br>`near-future` – 1.5°C GWL<br>`mid-century` – 2.0°C GWL<br>`mid-late-century` – 2.5°C GWL |
+| `DELTA` | Whether the difference from baseline (delta) was taken | `no_delta`<br>`delta_from_historical` |
+| `WINDOW` | Years around the year in which the input GWL is reached | e.g., `30yr` (corresponding to a 15yr window size) |
+| `APPROACH` | Climate profile approach used | `time`<br>`warming_level` |
+| `CENTERED_YEAR` | For `approach=time`, the year used to find a corresponding warming level | e.g., `2015` |
+| `SCENARIO` | SSP scenario | `ssp245` – SSP 2-4.5<br>`ssp370` – SSP 3-7.0<br>`ssp585` – SSP 5-8.5 |
+| `BA_MODELS` | Return only bias-adjusted models (default: `False`) | `ba_models` |
+
 STATION_NAME:   Weather station identifier (e.g., palm_springs_regional_airport_kpsp)
 
 VARIABLE:       Climate variable measured
