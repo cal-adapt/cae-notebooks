@@ -18,7 +18,7 @@ This folder will house notebooks that can be used to generate custom Climate Pro
 
 ### Standard Year
 
-stdyr_<br>VARIABLE<br>_<br>PERCENTILE<br>_<br>STATION_NAME<br>_<br>GWL_PERIOD<br>_[DELTA]_[WINDOW]_[APPROACH]_[CENTERED_YEAR]_[SCENARIO]_[BA_MODELS].csv
+stdyr\_[VARIABLE]\_[PERCENTILE]\_[STATION\_NAME]\_[GWL\_PERIOD]\_[DELTA]\_[WINDOW]\_[APPROACH]\_[CENTERED\_YEAR]\_[SCENARIO]\_[BA\_MODELS].[EXTENSION]
 
 Examples:
   stdyr_t2_50ptile_san_diego_lindbergh_field_ksan_30yr_window_time_2020_ssp370.csv
@@ -70,7 +70,7 @@ BA_MODELS     Option to return only bias-adjusted models. Default = False
 
 ### Typical Meteorological Year
 
-tmy_[STATION_NAME]_[ACTIVITY_ID]_[SOURCE_ID]_[MEMBER_ID]_[GWL_PERIOD].[EXTENSION]
+tmy\_[STATION\_NAME]\_[ACTIVITY\_ID]\_[SOURCE\_ID]\_[MEMBER\_ID]\_[GWL\_PERIOD].[EXTENSION]
 
 Examples:
 
