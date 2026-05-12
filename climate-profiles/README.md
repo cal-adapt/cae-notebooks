@@ -34,12 +34,12 @@ stdyr\_`VARIABLE`\_`PERCENTILE`\_`STATION_NAME`\_`GWL_PERIOD`\_`DELTA`\_`WINDOW`
 | `VARIABLE` | Climate variable measured | `t2` – Air temperature at 2m<br>`rh_derived` – Relative humidity<br>`wind_speed_derived` – Wind speed<br>`swdnb` – Solar radiation / Shortwave downward normal beam radiation<br>`noaa_heat_index_derived` – NOAA heat index |
 | `PERCENTILE` | Statistical percentile | `05ptile` – 5th percentile<br>`50ptile` – 50th percentile / median<br>`95ptile` – 95th percentile |
 | `GWL_PERIOD` | Global warming level 30-year period | `present-day` – 1.2°C GWL<br>`near-future` – 1.5°C GWL<br>`mid-century` – 2.0°C GWL<br>`mid-late-century` – 2.5°C GWL |
-| `DELTA` | Whether the difference from baseline (delta) was taken | `no_delta`<br>`delta_from_historical` |
+| `DELTA` | Whether the difference from baseline (delta) was taken | `no_delta` - no delta taken <br>`delta_from_historical` - delta taken |
 | `WINDOW` | Years around the year in which the input GWL is reached | e.g., `30yr` (corresponding to a 15yr window size) |
 | `APPROACH` | Climate profile approach used | `time`<br>`warming_level` |
 | `CENTERED_YEAR` | For approach='Time', the year used to find a corresponding warming level | e.g., `2015` |
-| `SCENARIO` | SSP scenario | `ssp245` – SSP 2-4.5<br>`ssp370` – SSP 3-7.0<br>`ssp585` – SSP 5-8.5 |
-| `BA_MODELS` | Return only bias-adjusted models (default: False) | `ba_models` |
+| `SCENARIO` | SSP scenario (default: `ssp370`) | `ssp245` – SSP 2-4.5<br>`ssp370` – SSP 3-7.0<br>`ssp585` – SSP 5-8.5 |
+| `BA_MODELS` | If only bias-adjusted models were used (default: FALSE) | `ba_models` - TRUE |
 
 
 
@@ -61,7 +61,7 @@ tmy\_`STATION_NAME`\_`ACTIVITY_ID`\_`SOURCE`_ID`\_`MEMBER`_ID`\_`GWL_PERIOD`.`EX
 | `SOURCE_ID` | Climate model source | e.g., `mpi-esm1-2-hr`, `miroc6`, `ec-earth3`, `taiesm1` |
 | `GWL_PERIOD` | Global warming level 30-year period | `present-day` – 1.2°C GWL<br>`near-future` – 1.5°C GWL<br>`mid-century` – 2.0°C GWL<br>`mid-late-century` – 2.5°C GWL |
 
-Additional metadata in filenames and intake catalog:
+**Additional metadata in filenames and intake catalog:**
 
 ACTIVITY_ID:    Downscaling method 
 
