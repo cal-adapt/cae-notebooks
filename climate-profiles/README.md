@@ -56,7 +56,7 @@ tmy\_`STATION_NAME`\_wrf_`SOURCE_ID`\_`GWL_PERIOD`.`EXTENSION`
 
 #### Filename Components
 
-| Column | Description | Options |
+| Component | Description | Options |
 |--------|-------------|--------|
 | `STATION_NAME` | Weather station identifier | e.g., `palm_springs_regional_airport_kpsp` |
 | `SOURCE_ID` | Climate model source | e.g., `mpi-esm1-2-hr`, `miroc6`, `ec-earth3`, `taiesm1` |
