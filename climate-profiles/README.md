@@ -64,9 +64,3 @@ tmy\_`STATION_NAME`\_WRF_`SOURCE`_ID`\_`GWL_PERIOD`.`EXTENSION`
 | `SOURCE_ID` | Climate model source | e.g., `mpi-esm1-2-hr`, `miroc6`, `ec-earth3`, `taiesm1` |
 | `GWL_PERIOD` | Global warming level 30-year period | `present-day` – 1.2°C GWL<br>`near-future` – 1.5°C GWL<br>`mid-century` – 2.0°C GWL<br>`mid-late-century` – 2.5°C GWL |
 
-**Additional metadata in filenames and intake catalog:**
-
-ACTIVITY_ID:    Downscaling method 
-
-MEMBER_ID:      Ensemble member identifier (e.g., r1i1p1f1, r3i1p1f1)
-
