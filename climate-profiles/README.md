@@ -47,7 +47,7 @@ stdyr\_`VARIABLE`\_`PERCENTILE`\_`STATION_NAME`\_`GWL_PERIOD`\_`DELTA`\_`WINDOW`
 
 ### Typical Meteorological Year
 
-tmy\_`STATION_NAME`\_WRF_`SOURCE_ID`\_`GWL_PERIOD`.`EXTENSION`
+tmy\_`STATION_NAME`\_wrf_`SOURCE_ID`\_`GWL_PERIOD`.`EXTENSION`
 
 **Examples:**
   - tmy_palm_springs_regional_airport_kpsp_wrf_mpi-esm1-2-hr_r3i1p1f1_mid-century.csv
