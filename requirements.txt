@@ -101,7 +101,7 @@ toolz==1.0.0
 tornado==6.4.2
 tqdm==4.67.1
 typing-inspection==0.4.2
-typing_extensions==4.12.2
+typing_extensions==4.14.1
 tzdata==2024.2
 urllib3==1.26.19
 wrapt==1.17.0
