@@ -1,3 +1,0 @@
-#!/bin/bash
-# Install climakitae and let pip resolve version upgrades (e.g. xclim>0.56.0)
-pip install climakitae
