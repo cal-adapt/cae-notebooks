@@ -1,0 +1,91 @@
+name: notebook
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+
+  # Core scientific computing
+  - numpy
+  - scipy
+  - pandas
+  - xarray
+  - dask
+  - distributed
+  - netcdf4
+  - pyarrow
+
+  # Geospatial
+  - geopandas
+  - shapely
+  - pyproj
+  - rasterio
+  - rioxarray
+  - fiona
+  - pyogrio
+  - geopy
+  - h3-py
+
+  # Climate / data formats
+  - cftime
+  - zarr>=3.0.0
+  - numcodecs
+  - cf_xarray
+  - pint
+  - pint-xarray
+
+  # Intake ecosystem
+  - intake
+  - intake-esm==2023.11.10
+  - intake-geopandas
+  - intake-xarray
+
+  # Cloud / data access
+  - s3fs
+  - fsspec
+  - boto3
+  - botocore
+  - aiobotocore
+  - dask-gateway
+  - dask-geopandas
+
+  # Climate analysis
+  - xclim>=0.57.0
+  - xmip
+  - xgcm
+  - xarrayutils
+  - statsmodels
+  - timezonefinder
+  - tqdm
+  - psutil
+  - pytz
+
+  # Pydantic (>=2.12.5 required for intake-esm compat)
+  - pydantic>=2.12.5
+  - param
+
+  # Numerical / ML
+  - scikit-learn
+  - numba
+
+  # Visualization
+  - matplotlib
+  - bokeh
+  - xyzservices
+
+  # Jupyter environment
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - ipykernel
+  - ipython
+  - fastprogress
+
+  # Utilities
+  - boltons
+  - yamale
+
+  - pip
+  - pip:
+      - xsdba
+      - icechunk>=1.1.18
+      - iprogress>=0.4
