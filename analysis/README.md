@@ -38,3 +38,7 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 [warming_level_timing_tools.ipynb](analysis/warming_level_timing_tools.ipynb): Demonstrates tools for etimating the timing of Global Warming Levels, and translating between time-based and GWL planning targets.
 
 *For example: What global warming level is equivalent to planning for impacts in the year 2050?*
+
+[drought_metrics.ipynb](analysis/drought_metrics.ipynb): Calculates two drought metrics, the Palmer Drought Severity Index (PDSI) and the Evaporative Demand Drought Index (EDDI), using WRF data in the AE catalog.
+
+*For example: How might I calculate drought indices for a specific location using climakitae's tools and data?*
