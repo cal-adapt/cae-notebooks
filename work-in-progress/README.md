@@ -3,9 +3,6 @@ Work in Progress
 
 Notebooks that are actively in development-- proceed with caution! These notebooks are likely to change as we work to improve our workflow and methodology.
 
-[threshold_basics.ipynb](threshold_basics.ipynb): Introduction to extreme value analysis. Demonstrates how to compute statistical values of interest related to extreme weather events.  
-
-*For example: What is the return value for a 1 in 20 extreme heat event in Sacramento County at mid-century?*
 
 [model_variance.ipynb](model_variance.ipynb): Introduction to calculating model variance across climate models at a location.  
 

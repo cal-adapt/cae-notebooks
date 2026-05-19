@@ -3,6 +3,10 @@ Analysis Notebooks
 
 These notebooks cover fundamental climate science topics, tools for analyzing extreme weather events of importance, and applications of global warming levels to your workflows.
 
+[climate_state_finder.ipynb](climate_state_finder.ipynb): Identify sustained climate states (periods where a variable is anomalously high or low relative to a baseline) across all WRF and LOCA2 simulations for a user-defined region and warming level.
+
+*For example: Which climate model simulations show a sustained period of anomalously wet conditions at 2°C of global warming?*
+
 [historical_climate_data_comparisons.ipynb](historical_climate_data_comparisons.ipynb): Learn how to compare datasets across the historical period, using observations, reanalysis, and model output.  
 
 *For example: How do I compare historical precipitation between a weather station and climate model?*
@@ -15,13 +19,9 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 
 *For example: When is it appropriate to take a mean across different global climate models?*
 
-[threshold_event_types.ipynb](threshold_event_types.ipynb): Define different types of extreme events and explore their likelihood of occurence using extreme value theory.  
+[threshold_tools.ipynb](threshold_tools.ipynb): Define different types of extreme events and explore their likelihood of occurence using extreme value theory.  
 
-*For example: What is the return period (expected frequency of occurence) of an extreme heat event in Sacramento County that reaches at least 100 degrees for 3 days in a row?*
-
-[threshold_exceedance.ipynb](threshold_exceedance.ipynb): Perform calculations and explore visualizations of threshold exceedance events using an interactive graphical user interface (GUI). An extension of the topics introduced in threshold_basics.  
-
-*For example: How will the frequency of an event where temperatures are above 110°F for at least 5 hours in LA County change between now and end of century?*
+*For example: What is the return period (expected frequency of occurence) of an extreme heat event in San Bernardino County that reaches at least 115 degrees for 3 days in a row?*
 
 [timeseries_tranformations.ipynb](timeseries_transformations.ipynb): Explore data transformation and analysis options for working with climate timeseries data using a graphical user interface (GUI).  
 
