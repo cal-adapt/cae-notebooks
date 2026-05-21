@@ -16,33 +16,23 @@ Please refer to [climakitae](https://github.com/cal-adapt/climakitae) for instal
 
 ## Navigating
 
-New to [Cal-Adapt: Analytics Engine](https://analytics.cal-adapt.org/), JupyterHub, or `climakitae`? Take a peek our [navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb)
+New to [Cal-Adapt: Analytics Engine](https://analytics.cal-adapt.org/), JupyterHub, or `climakitae`? Start with our [navigation guide](https://github.com/cal-adapt/cae-notebooks/blob/main/AE_navigation_guide.ipynb).
 
-Want a basic example of how to retrieve, visualize, and export data using climakitae? Check out the [`interactive_data_access_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb) notebook.
+This repository contains the actively maintained notebooks for the Analytics Engine:
 
-Looking for a specific type of notebook?  
-Notebooks are organized by their theme:
-- [**Data access notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access) highlight various ways of accessing California's Fifth Climate Assessment data, including:
-    - [`interactive_data_and_viz.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/interactive_data_access_and_viz.ipynb)
-    - [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/data-access/renewables_data_access.ipynb)
+**Data access**
+- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb) — Access, subset, and export climate data using `climakitae`
+- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb) — Access and plot derived renewables data products
+- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb) — Access quality controlled historical weather station data
 
-- [**Climate profile notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/main/climate-profiles) generate climate profiles and explore profile generation methodology:
-    - [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/climate-profiles/custom_climate_profiles.ipynb)
-    - [`typical_meteorological_year_methodology.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/c90a214fcf653713392ddbcd68d4a98618a4df8b//climate-profiles/typical_meteorological_year_methodology.ipynb)
+**Analysis**
+- [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb) — Define and use custom derived climate metrics with `register_user_function`
+- [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb) — Compare SSP time-based and Global Warming Levels approaches
 
-- [**Analysis notebooks**](https://github.com/cal-adapt/cae-notebooks/tree/improve/readme/analysis) investigate a climate data topic but have no specific tools associated with the notebooks, including:
-    - [`warming_levels.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/warming_levels.ipynb)
-    - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/timeseries_transformations.ipynb)
-    - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/threshold_exceedance.ipynb)
-    - [`climate_state_finder.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/climate_state_finder.ipynb)
+**Threshold tools**
+- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb) — Define extreme events and analyze their likelihood using extreme value theory
 
-- [**Collaborative notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative) were co-produced with industry partners for a specific application, and may be of interest to all users, including:
-    - [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/IOU/vulnerability_assessment)
-    - [`degree_days.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/DFU/degree_days.ipynb)
-
-- [**In progress notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress) are currently in development for a specific application, and may have frequent updates before they are moved to another folder, including:
-    - [`event_finder.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress/event_finder.ipynb)
-    - [`generalized_climate_signal_selector.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/work-in-progress/generalized_climate_signal_selector.ipynb)
+Looking for older or experimental notebooks? See the [cae-archives](https://github.com/cal-adapt/cae-archives) repository.
 
 
 ## About Cal-Adapt
