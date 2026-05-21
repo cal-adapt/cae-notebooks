@@ -38,3 +38,7 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 [warming_level_timing_tools.ipynb](analysis/warming_level_timing_tools.ipynb): Demonstrates tools for etimating the timing of Global Warming Levels, and translating between time-based and GWL planning targets.
 
 *For example: What global warming level is equivalent to planning for impacts in the year 2050?*
+
+[custom_1_in_x.ipynb](custom_1_in_x.ipynb): Compute 1-in-X return values for a custom climate metric across a user-defined region. Demonstrates how to register a user-defined derived variable with `register_user_function` and run extreme-value analysis (GEV distribution) using the built-in `metric_calc` processor in a single `ClimateData` pipeline.
+
+*For example: What is the 1-in-100 year effective temperature at 2.5°C of global warming in Sacramento County?*
