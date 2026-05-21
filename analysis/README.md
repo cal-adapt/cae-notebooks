@@ -39,6 +39,10 @@ These notebooks cover fundamental climate science topics, tools for analyzing ex
 
 *For example: What global warming level is equivalent to planning for impacts in the year 2050?*
 
+[drought_metrics.ipynb](analysis/drought_metrics.ipynb): Calculates two drought metrics, the Palmer Drought Severity Index (PDSI) and the Evaporative Demand Drought Index (EDDI), using WRF data in the AE catalog.
+
+*For example: How might I calculate drought indices for a specific location using climakitae's tools and data?*
+
 [custom_1_in_x.ipynb](custom_1_in_x.ipynb): Compute 1-in-X return values for a custom climate metric across a user-defined region. Demonstrates how to register a user-defined derived variable with `register_user_function` and run extreme-value analysis (GEV distribution) using the built-in `metric_calc` processor in a single `ClimateData` pipeline.
 
 *For example: What is the 1-in-100 year effective temperature at 2.5°C of global warming in Sacramento County?*
