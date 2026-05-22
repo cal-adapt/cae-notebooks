@@ -29,6 +29,9 @@ This repository contains the actively maintained notebooks for the Analytics Eng
 - [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb) — Define and use custom derived climate metrics with `register_user_function`
 - [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb) — Compare SSP time-based and Global Warming Levels approaches
 
+**Climate profiles**
+- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb) — Generate annualized hourly climate profiles for energy system modeling and planning
+
 **Threshold tools**
 - [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb) — Define extreme events and analyze their likelihood using extreme value theory
 
