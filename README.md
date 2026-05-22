@@ -37,29 +37,20 @@ Looking for older or experimental notebooks? See the [cae-archives](https://gith
 
 ## About Cal-Adapt
 
+[Cal-Adapt](https://cal-adapt.org/) encompasses a range of research and development efforts designed to provide access to California climate data. Cal-Adapt includes the Cal-Adapt: Analytics Engine and Cal-Adapt: Data Explorer. 
+- **The Cal-Adapt: Analytics Engine** is designed for complex and detailed analyses, requiring extensive data and technical or scientific expertise.
+- **The Cal-Adapt: Data Explorer** is particularly useful for quick access to interactive maps and tools, providing a valuable overview of how climate change may impact various regions of the state.
 
-[Cal-Adapt](https://cal-adapt.org/) encompasses a range of research and development efforts designed to provide access to California climate data. Cal-Adapt includes the Cal-Adapt: Analytics Engine and Cal-Adapt: Data Explorer. The Cal-Adapt: Analytics Engine is designed for complex and detailed analyses, requiring extensive data and technical or scientific expertise. The Cal-Adapt: Data Explorer is particularly useful for quick access to interactive maps and tools, providing a valuable overview of how climate change may impact various regions of the state. In our efforts to provide actionable and transparent insight using climate data, the following documentation is available:
-- [**`climakitae` API documentation**](https://climakitae.readthedocs.io/en/latest/)
-- [**Guidance for working with climate data**](https://analytics.cal-adapt.org/guidance/)
-- [**Contribution: development guidelines**](https://climakitae.readthedocs.io/en/latest/contribute.html)
+We also maintain an open source python library, `climakitae`, which can be used to query, process, and analyze downscaled climate projections for California. See the package on GitHub [here](https://github.com/cal-adapt/climakitae), and the documentation [here](https://cal-adapt.github.io/climakitae/dev/). 
 
-## Contributing
+The Cal Adapt team produces a lot of notebooks outside of the ones actively maintained here. If you're looking for a notebook you've previously used on the Analytics Engine that is not available in this repository, check out our archive repository, [cae-archives](https://github.com/cal-adapt/cae-archives), for our full catalog of notebooks. Note that these notebooks are not actively maintained by the team. 
 
-We welcome contributions! Please see our [contributing guidelines](https://climakitae.readthedocs.io/en/latest/contribute.html) for details on:
-
-- 🐛 Reporting bugs
-- 💡 Requesting features  
-- 🔧 Submitting code changes
-- 📖 Improving documentation
+## Contributing 
+Find an issue with one of our notebooks? Please let us know by submitting an Issue in this repository! 
 
 ## License
 
 This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
-
-## Related Projects
-
-- [**climakitae**](https://github.com/cal-adapt/climakitae) - API for data access, exploration, manipulation, and visualization
-- [**climakitaegui**](https://github.com/cal-adapt/climakitaegui) - Interactive GUI tools for climakitae
 
 ## Support
 
