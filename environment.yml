@@ -1,0 +1,27 @@
+name: notebook
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+
+  # Jupyter environment
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - ipykernel
+  - ipython
+
+  # Visualization
+  - matplotlib
+  - bokeh
+
+  # Pin pydantic via conda so it's not shadowed by an older transitive install.
+  # intake-esm 2023.11.10 has a model_validator signature that only works
+  # correctly with pydantic == 2.12.5 / pydantic_core == 2.41.5.
+  # Newer pydantic_core (2.46+) is incompatible with pydantic 2.12.5.
+  - pydantic=2.12.5
+  - pydantic-core=2.41.5
+
+  - pip
+  - pip:
+      - climakitae>=1.5.3
