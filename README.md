@@ -21,19 +21,19 @@ New to [Cal-Adapt: Analytics Engine](https://analytics.cal-adapt.org/), JupyterH
 This repository contains the actively maintained notebooks for the Analytics Engine:
 
 **Data access**
-- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb) — Access, subset, and export climate data using `climakitae`
-- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb) — Access and plot derived renewables data products
-- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb) — Access quality controlled historical weather station data
+- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`
+- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb): Access and plot derived renewables data products
+- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb): Access quality controlled historical weather station data
 
 **Analysis**
 - [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb) — Define and use custom derived climate metrics with `register_user_function`
 - [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb) — Compare SSP time-based and Global Warming Levels approaches
 
 **Climate profiles**
-- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb) — Generate annualized hourly climate profiles for energy system modeling and planning
+- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning
 
 **Threshold tools**
-- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb) — Define extreme events and analyze their likelihood using extreme value theory
+- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb): Define extreme events and analyze their likelihood using extreme value theory
 
 Looking for older or experimental notebooks? See the [cae-archives](https://github.com/cal-adapt/cae-archives) repository.
 
