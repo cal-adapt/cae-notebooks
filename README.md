@@ -35,6 +35,7 @@ Notebooks are organized by their theme:
     - [`timeseries_transformations.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/timeseries_transformations.ipynb)
     - [`threshold_exceedance.ipynb` ](https://github.com/cal-adapt/cae-notebooks/blob/improve/readme/analysis/threshold_exceedance.ipynb)
     - [`climate_state_finder.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/climate_state_finder.ipynb)
+    - [`custom_1_in_x.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/analysis/custom_1_in_x.ipynb)
 
 - [**Collaborative notebooks**](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative) were co-produced with industry partners for a specific application, and may be of interest to all users, including:
     - [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/collaborative/IOU/vulnerability_assessment)
