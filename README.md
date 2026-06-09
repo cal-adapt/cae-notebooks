@@ -19,7 +19,7 @@ Each notebook is labeled with a type to help you find the right resource for you
 | Type | Description |
 |------|-------------|
 | <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span> | Execute a specific workflow to produce an analysis, data product, or visualization |
-| <span style="background:#cce5ff; color:#004085; padding:2px 7px; border-radius:10px; font-size:0.85em">Data Generation</span> | Learn about a climate science topic or concept |
+| <span style="background:#cce5ff; color:#004085; padding:2px 7px; border-radius:10px; font-size:0.85em">Data Generation</span> | Generate custom derived data products |
 | <span style="background:#e2d9f3; color:#4a235a; padding:2px 7px; border-radius:10px; font-size:0.85em">Tool/Methods</span> | Walk through a scientific tool or methodology |
 
 - [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span>
