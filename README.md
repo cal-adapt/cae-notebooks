@@ -1,8 +1,8 @@
 # Cal-Adapt: Analytics Engine Notebooks
 
-[![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 This repository contains the actively maintained notebooks for the Analytics Engine. It consists of Jupyter Notebooks that provide step-by-step functionality to access, analyze, and visualize available data from California's Fifth Climate Change Assessment. Tools included in the notebooks provide examples for how to work with the **historical and projection climate model data** on the platform, and demonstrate how to move from the climate variables provided through the Analytics Engine to **actionable information that can inform decision-making and evaluate risks**. 
 
