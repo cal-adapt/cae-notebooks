@@ -1,8 +1,8 @@
 # Cal-Adapt: Analytics Engine Notebooks
 
-![Python](https://img.shields.io/badge/python-3.12-blue.svg)
-![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)
-![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+[![Python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 This repository contains the actively maintained notebooks for the Analytics Engine. It consists of Jupyter Notebooks that provide step-by-step functionality to access, analyze, and visualize available data from California's Fifth Climate Change Assessment. Tools included in the notebooks provide examples for how to work with the **historical and projection climate model data** on the platform, and demonstrate how to move from the climate variables provided through the Analytics Engine to **actionable information that can inform decision-making and evaluate risks**. 
 
@@ -18,18 +18,18 @@ Each notebook is labeled with a type to help you find the right resource for you
 
 | Type | Description |
 |------|-------------|
-| ![Data Access](https://img.shields.io/badge/Data_Access-155724) | Data Access notebooks demonstrate how to retrieve, subset, and visualize existing climate data and derived data products using available tools and workflows. |
-| ![Data Generation](https://img.shields.io/badge/Data_Generation-004085) | Data Generation notebooks show how to create new custom data products, profiles, or metrics by transforming and combining source data. |
-| ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a) | Tool/Methods notebooks teach specific tools, methodologies, or analytical approaches, with hands-on examples of how to apply them. |
+| <img src="https://img.shields.io/badge/Data_Access-155724" alt="Data Access"> | Data Access notebooks demonstrate how to retrieve, subset, and visualize existing climate data and derived data products using available tools and workflows. |
+| <img src="https://img.shields.io/badge/Data_Generation-004085" alt="Data Generation"> | Data Generation notebooks show how to create new custom data products, profiles, or metrics by transforming and combining source data. |
+| <img src="https://img.shields.io/badge/Tool%2FMethods-4a235a" alt="Tool/Methods"> | Tool/Methods notebooks teach specific tools, methodologies, or analytical approaches, with hands-on examples of how to apply them. |
 
-- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: ![Data Access](https://img.shields.io/badge/Data_Access-155724)
-- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning. Notebook type: ![Data Generation](https://img.shields.io/badge/Data_Generation-004085)
-- [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb): Define and use custom derived climate metrics with `register_user_function`. Notebook type: ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a)
-- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb): Access and plot derived renewables data products. Notebook type: ![Data Access](https://img.shields.io/badge/Data_Access-155724)
-- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb): Define extreme events and analyze their likelihood using extreme value theory. Notebook type: ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a)
-- [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/vulnerability_assessment.ipynb): Generate data-informed answers for vulnerability assessments through a customizeable metric builder. Notebook type: ![Data Generation](https://img.shields.io/badge/Data_Generation-004085)
-- [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb): Compare SSP time-based and Global Warming Levels approaches. Notebook type: ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a)
-- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb): Access quality controlled historical weather station data. Notebook type: ![Data Access](https://img.shields.io/badge/Data_Access-155724)
+- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: <img src="https://img.shields.io/badge/Data_Access-155724" alt="Data Access">
+- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning. Notebook type: <img src="https://img.shields.io/badge/Data_Generation-004085" alt="Data Generation">
+- [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb): Define and use custom derived climate metrics with `register_user_function`. Notebook type: <img src="https://img.shields.io/badge/Tool%2FMethods-4a235a" alt="Tool/Methods">
+- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb): Access and plot derived renewables data products. Notebook type: <img src="https://img.shields.io/badge/Data_Access-155724" alt="Data Access">
+- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb): Define extreme events and analyze their likelihood using extreme value theory. Notebook type: <img src="https://img.shields.io/badge/Tool%2FMethods-4a235a" alt="Tool/Methods">
+- [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/vulnerability_assessment.ipynb): Generate data-informed answers for vulnerability assessments through a customizeable metric builder. Notebook type: <img src="https://img.shields.io/badge/Data_Generation-004085" alt="Data Generation">
+- [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb): Compare SSP time-based and Global Warming Levels approaches. Notebook type: <img src="https://img.shields.io/badge/Tool%2FMethods-4a235a" alt="Tool/Methods">
+- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb): Access quality controlled historical weather station data. Notebook type: <img src="https://img.shields.io/badge/Data_Access-155724" alt="Data Access">
 
 Looking for older or experimental notebooks? See the [cae-archives](https://github.com/cal-adapt/cae-archives) repository.
 
