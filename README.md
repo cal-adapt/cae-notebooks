@@ -18,9 +18,9 @@ Each notebook is labeled with a type to help you find the right resource for you
 
 | Type | Description |
 |------|-------------|
-| ![Data Access](https://img.shields.io/badge/Data_Access-155724) | Execute a specific workflow to produce an analysis, data product, or visualization |
-| ![Data Generation](https://img.shields.io/badge/Data_Generation-004085) | Generate custom derived data products |
-| ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a) | Walk through a scientific tool or methodology |
+| ![Data Access](https://img.shields.io/badge/Data_Access-155724) | Data Access notebooks demonstrate how to retrieve, subset, and visualize existing climate data and derived data products using available tools and workflows. |
+| ![Data Generation](https://img.shields.io/badge/Data_Generation-004085) | Data Generation notebooks show how to create new custom data products, profiles, or metrics by transforming and combining source data. |
+| ![Tool/Methods](https://img.shields.io/badge/Tool%2FMethods-4a235a) | Tool/Methods notebooks teach specific tools, methodologies, or analytical approaches, with hands-on examples of how to apply them. |
 
 - [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: ![Data Access](https://img.shields.io/badge/Data_Access-155724)
 - [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning. Notebook type: ![Data Generation](https://img.shields.io/badge/Data_Generation-004085)
