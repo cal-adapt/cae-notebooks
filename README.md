@@ -18,18 +18,18 @@ Each notebook is labeled with a type to help you find the right resource for you
 
 | Type | Description |
 |------|-------------|
-| <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span> | Execute a specific workflow to produce an analysis, data product, or visualization |
-| <span style="background:#cce5ff; color:#004085; padding:2px 7px; border-radius:10px; font-size:0.85em">Data Generation</span> | Generate custom derived data products |
-| <span style="background:#e2d9f3; color:#4a235a; padding:2px 7px; border-radius:10px; font-size:0.85em">Tool/Methods</span> | Walk through a scientific tool or methodology |
+| **Data Access** | Data Access notebooks demonstrate how to retrieve, subset, and visualize existing climate data and derived data products using available tools and workflows. |
+| **Data Generation** | Data Generation notebooks show how to create new custom data products, profiles, or metrics by transforming and combining source data. |
+| **Tool/Methods** | Tool/Methods notebooks teach specific tools, methodologies, or analytical approaches, with hands-on examples of how to apply them. |
 
-- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span>
-- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning. Notebook type: <span style="background:#cce5ff; color:#004085; padding:2px 7px; border-radius:10px; font-size:0.85em">Data Generation</span>
-- [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb): Define and use custom derived climate metrics with `register_user_function`. Notebook type: <span style="background:#e2d9f3; color:#4a235a; padding:2px 7px; border-radius:10px; font-size:0.85em">Tool/Methods</span>
-- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb): Access and plot derived renewables data products. Notebook type: <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span>
-- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb): Define extreme events and analyze their likelihood using extreme value theory. Notebook type: <span style="background:#e2d9f3; color:#4a235a; padding:2px 7px; border-radius:10px; font-size:0.85em">Tool/Methods</span>
-- [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/vulnerability_assessment.ipynb): Generate data-informed answers for vulnerability assessments through a customizeable metric builder. Notebook type: <span style="background:#cce5ff; color:#004085; padding:2px 7px; border-radius:10px; font-size:0.85em">Data Generation</span>
-- [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb): Compare SSP time-based and Global Warming Levels approaches. Notebook type: <span style="background:#e2d9f3; color:#4a235a; padding:2px 7px; border-radius:10px; font-size:0.85em">Tool/Methods</span>
-- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb): Access quality controlled historical weather station data. Notebook type: <span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:0.85em">Data access</span>
+- [`basic_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/basic_data_access.ipynb): Access, subset, and export climate data using `climakitae`. Notebook type: **Data Access**
+- [`custom_climate_profiles.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/custom_climate_profiles.ipynb): Generate annualized hourly climate profiles for energy system modeling and planning. Notebook type: **Data Generation**
+- [`derived_variables_demo.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/derived_variables_demo.ipynb): Define and use custom derived climate metrics with `register_user_function`. Notebook type: **Tool/Methods**
+- [`renewables_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/renewables_data_access.ipynb): Access and plot derived renewables data products. Notebook type: **Data Access**
+- [`threshold_tools.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/threshold_tools.ipynb): Define extreme events and analyze their likelihood using extreme value theory. Notebook type: **Tool/Methods**
+- [`vulnerability_assessment.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/vulnerability_assessment.ipynb): Generate data-informed answers for vulnerability assessments through a customizeable metric builder. Notebook type: **Data Generation**
+- [`warming_level_methods.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/warming_level_methods.ipynb): Compare SSP time-based and Global Warming Levels approaches. Notebook type: **Tool/Methods**
+- [`weather_station_data_access.ipynb`](https://github.com/cal-adapt/cae-notebooks/blob/main/weather_station_data_access.ipynb): Access quality controlled historical weather station data. Notebook type: **Data Access**
 
 Looking for older or experimental notebooks? See the [cae-archives](https://github.com/cal-adapt/cae-archives) repository.
 
